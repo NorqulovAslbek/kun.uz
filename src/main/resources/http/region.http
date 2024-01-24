@@ -1,0 +1,29 @@
+###Post
+POST localhost:8080/region
+Content-Type: application/json
+
+{
+  "name_en": "Uzb",
+  "name_uz": "O'z",
+  "name_ru": "Уз",
+  "order_number": 1
+}
+
+### Update region by id
+PUT localhost:8080/region/update?id=1
+Content-Type: application/json
+
+{
+  "name_ru": "Bukhara",
+  "name_uz": "Buxoro",
+  "name_en": "Bukhara"
+}
+
+### Delete by id
+DELETE localhost:8080/region/delete?id=1
+
+### Get all
+GET localhost:8080/region
+
+### get by lang
+GET localhost:8080/region/lang?lang="uz"

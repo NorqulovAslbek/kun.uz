@@ -1,0 +1,30 @@
+### Post
+POST localhost:8080/articleType
+Content-Type: application/json
+
+{
+  "name_en": "Editor's Choice",
+  "name_uz": "Muharrir tanlovi",
+  "name_ru": "Выбор редактора",
+  "order_number": 1
+}
+
+### Update Article by id
+PUT localhost:8080/articleType/update?id=1
+Content-Type: application/json
+
+{
+  "order_number": 1,
+  "name_ru": "Salom",
+  "name_uz": "Hello",
+  "name_en": "Qale"
+}
+
+### Delete by id
+DELETE localhost:8080/articleType/delete?id=3
+
+### Pagination
+GET localhost:8080/articleType/pagination?page=1&size=3
+
+### get By lang
+GET localhost:8080/articleType/lang?lang="uz"
