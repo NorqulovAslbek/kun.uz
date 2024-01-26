@@ -2,6 +2,7 @@ package com.example.service;
 
 import com.example.dto.ArticleTypeDTO;
 import com.example.entity.ArticleTypeEntity;
+import com.example.enums.AppLanguage;
 import com.example.exp.AppBadException;
 import com.example.repository.ArticleTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ public class ArticleTypeService {
 
     public boolean update(Integer id, ArticleTypeDTO dto) {
         Optional<ArticleTypeEntity> optional = articleTypeRepository.findById(id);
-        if (optional.isEmpty()||!optional.get().getVisible()) {
+        if (optional.isEmpty() || !optional.get().getVisible()) {
             throw new AppBadException("article type with this id was not found!");
         }
         ArticleTypeEntity entity = optional.get();
@@ -46,7 +47,7 @@ public class ArticleTypeService {
 
     public boolean deleteById(Integer id) {
         Optional<ArticleTypeEntity> optional = articleTypeRepository.findById(id);
-        if(optional.isEmpty()||!optional.get().getVisible()){
+        if (optional.isEmpty() || !optional.get().getVisible()) {
             throw new AppBadException("article type with this id was not found!");
         }
         ArticleTypeEntity entity = optional.get();
@@ -70,7 +71,7 @@ public class ArticleTypeService {
         return new PageImpl<>(dtoList, pageable, totalElements);
     }
 
-    public List<ArticleTypeDTO> getByLang(String lang) {
+    public List<ArticleTypeDTO> getByLang(AppLanguage lang) {
         Iterable<ArticleTypeEntity> all = articleTypeRepository.findAll();
         List<ArticleTypeDTO> list = new LinkedList<>();
         for (ArticleTypeEntity entity : all) {
@@ -78,9 +79,9 @@ public class ArticleTypeService {
                 ArticleTypeDTO dto = new ArticleTypeDTO();
                 dto.setId(entity.getId());
                 switch (lang) {
-                    case "en" -> dto.setName_en(entity.getNameEn());
-                    case "ru" -> dto.setName_ru(entity.getNameRu());
-                    default -> dto.setName_uz(entity.getNameUz());
+                    case UZ -> dto.setName(entity.getNameUz());
+                    case RU -> dto.setName_ru(entity.getNameRu());
+                    default -> dto.setName(entity.getNameEn());
                 }
                 list.add(dto);
             }

@@ -1,4 +1,4 @@
-package com.example.dto;
+package com.example.dto.category;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;
@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class ArticleTypeDTO {
+public class CategoryDTO {
     private Integer id;
     private Integer order_number;
     private String name_uz;
@@ -17,5 +17,5 @@ public class ArticleTypeDTO {
     private String name_en;
     private String name;
     private Boolean visible;
-    private LocalDateTime createdDate;
+    private LocalDateTime created_date;
 }
