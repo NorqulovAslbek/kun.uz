@@ -1,0 +1,50 @@
+### Post profile
+POST localhost:8080/profile
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDYxODUxNjcsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDYyNzE1NjcsImlzcyI6Ikt1blV6VGVzdCJ9.xjz9robl6wYmxjuqCcMCiKiBWJMi5uS16_QzoUPze35T2zCTderUNqMWn22yBBrxWTKKjJJ1lBPxayFrzZqB0g
+
+{
+  "name": "Aslbek",
+  "surname": "Norqulov",
+  "phone": "+998991205577",
+  "email": "xxxxxqxxд@gmail.com",
+  "password": "123",
+  "status": "ACTIVE",
+  "role": "USER"
+}
+
+### Update profile Admin
+PUT localhost:8080/profile/updateAdmin?id=1
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDYxODUxNjcsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDYyNzE1NjcsImlzcyI6Ikt1blV6VGVzdCJ9.xjz9robl6wYmxjuqCcMCiKiBWJMi5uS16_QzoUPze35T2zCTderUNqMWn22yBBrxWTKKjJJ1lBPxayFrzZqB0g
+
+{
+  "role": "USER"
+}
+
+###  Update profile User
+PUT localhost:8080/profile/updateUser?id=17
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDYyNjA2NjMsImlkIjoxNywicm9sZSI6IlVTRVIiLCJleHAiOjE3MDYzNDcwNjMsImlzcyI6Ikt1blV6VGVzdCJ9.7IR1SPfKHIkdtKmSDhEvGo9mavf-9lVt6rZzO7ePOkn37IT_d2SKOk7k9zvmNbu5z7-hfjTmhcyemUsd15-XhQ
+
+{
+  "name": "Asl"
+}
+
+
+### Delete profile
+DELETE localhost:8080/profile/delete?id=6
+Authorization: eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDYyNjMyNzUsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDYzNDk2NzUsImlzcyI6Ikt1blV6VGVzdCJ9.jXtXd-y_0dDjR9j0Uxhltu5U8MENKRFoCmAfihq2SeRdO7UIjyuNQ-TFTQS454C2Hc6RtSOdSfwh4QVkKHZvmw
+
+### Profile All paginable
+GET localhost:8080/profile/all?page=1&size=2
+Authorization: eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDYyNjMyNzUsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDYzNDk2NzUsImlzcyI6Ikt1blV6VGVzdCJ9.jXtXd-y_0dDjR9j0Uxhltu5U8MENKRFoCmAfihq2SeRdO7UIjyuNQ-TFTQS454C2Hc6RtSOdSfwh4QVkKHZvmw
+
+### get filter profile
+GET localhost:8080/profile/filter?page=1&size=3
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDYyNjU0NDUsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDYzNTE4NDUsImlzcyI6Ikt1blV6VGVzdCJ9.HESRPclJsbf2qoWdXOUVfKVa2EfOK8JiaYGFdQXmmsDR1sGC45eJTEdBYaAUbxqI39eYp-fyW63e8HvZqQVjBA
+
+{
+  "role": "ADMIN"
+}

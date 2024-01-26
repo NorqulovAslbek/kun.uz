@@ -1,6 +1,7 @@
 ###Post
 POST localhost:8080/region
 Content-Type: application/json
+Authorization: eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDYxNzc3OTYsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDYyNjQxOTYsImlzcyI6Ikt1blV6VGVzdCJ9.7kmBHlv1t1J_nq3P-ru4upT9EY8yLfJ3Fqiwo1xSfd1lSM5TEn_1g7v9bU-3ErnYmb5cHRFncmCjMMBtnLaQpQ
 
 {
   "name_en": "Uzb",
@@ -10,8 +11,9 @@ Content-Type: application/json
 }
 
 ### Update region by id
-PUT localhost:8080/region/update?id=1
+PUT localhost:8080/region/update?id=13
 Content-Type: application/json
+Authorization:eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDYxNzc3OTYsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDYyNjQxOTYsImlzcyI6Ikt1blV6VGVzdCJ9.7kmBHlv1t1J_nq3P-ru4upT9EY8yLfJ3Fqiwo1xSfd1lSM5TEn_1g7v9bU-3ErnYmb5cHRFncmCjMMBtnLaQpQ
 
 {
   "name_ru": "Bukhara",
@@ -20,10 +22,13 @@ Content-Type: application/json
 }
 
 ### Delete by id
-DELETE localhost:8080/region/delete?id=1
+DELETE localhost:8080/region/delete?id=11
+Authorization:eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDYxNzc3OTYsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDYyNjQxOTYsImlzcyI6Ikt1blV6VGVzdCJ9.7kmBHlv1t1J_nq3P-ru4upT9EY8yLfJ3Fqiwo1xSfd1lSM5TEn_1g7v9bU-3ErnYmb5cHRFncmCjMMBtnLaQpQ
+
 
 ### Get all
 GET localhost:8080/region
+Authorization:eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDYxNzc3OTYsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDYyNjQxOTYsImlzcyI6Ikt1blV6VGVzdCJ9.7kmBHlv1t1J_nq3P-ru4upT9EY8yLfJ3Fqiwo1xSfd1lSM5TEn_1g7v9bU-3ErnYmb5cHRFncmCjMMBtnLaQpQ
 
 ### get by lang
-GET localhost:8080/region/lang?lang="uz"
+GET localhost:8080/region/lang?lang=EN

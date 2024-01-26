@@ -9,13 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/init")
 public class InitController {
-
-//    @Autowired
-//    private InitService initService;
-//    @GetMapping("/admin")
-//    public String initAdmin(){
-//        initService.initAdmin();
-//        return "DONE";
-//    }
+    @Autowired
+    private InitService initService;
+    @GetMapping("/admin")
+    public String initAdmin(){
+        initService.initAdmin();
+        return "SUCCESS";
+    }
 
 }

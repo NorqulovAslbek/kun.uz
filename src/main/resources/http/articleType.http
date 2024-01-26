@@ -1,6 +1,7 @@
 ### Post
 POST localhost:8080/articleType
 Content-Type: application/json
+Authorization: eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDYxODUxNjcsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDYyNzE1NjcsImlzcyI6Ikt1blV6VGVzdCJ9.xjz9robl6wYmxjuqCcMCiKiBWJMi5uS16_QzoUPze35T2zCTderUNqMWn22yBBrxWTKKjJJ1lBPxayFrzZqB0g
 
 {
   "name_en": "Editor's Choice",
@@ -12,6 +13,7 @@ Content-Type: application/json
 ### Update Article by id
 PUT localhost:8080/articleType/update?id=1
 Content-Type: application/json
+Authorization: eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDYxODUxNjcsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDYyNzE1NjcsImlzcyI6Ikt1blV6VGVzdCJ9.xjz9robl6wYmxjuqCcMCiKiBWJMi5uS16_QzoUPze35T2zCTderUNqMWn22yBBrxWTKKjJJ1lBPxayFrzZqB0g
 
 {
   "order_number": 1,
@@ -21,10 +23,12 @@ Content-Type: application/json
 }
 
 ### Delete by id
-DELETE localhost:8080/articleType/delete?id=3
+DELETE localhost:8080/articleType/delete?id=1
+Authorization: eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDYxODUxNjcsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDYyNzE1NjcsImlzcyI6Ikt1blV6VGVzdCJ9.xjz9robl6wYmxjuqCcMCiKiBWJMi5uS16_QzoUPze35T2zCTderUNqMWn22yBBrxWTKKjJJ1lBPxayFrzZqB0g
 
 ### Pagination
 GET localhost:8080/articleType/pagination?page=1&size=3
+Authorization: eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDYxODUxNjcsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDYyNzE1NjcsImlzcyI6Ikt1blV6VGVzdCJ9.xjz9robl6wYmxjuqCcMCiKiBWJMi5uS16_QzoUPze35T2zCTderUNqMWn22yBBrxWTKKjJJ1lBPxayFrzZqB0g
 
 ### get By lang
 GET localhost:8080/articleType/lang?lang="uz"

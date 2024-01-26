@@ -31,7 +31,7 @@ public class ArticleTypeService {
 
     public boolean update(Integer id, ArticleTypeDTO dto) {
         Optional<ArticleTypeEntity> optional = articleTypeRepository.findById(id);
-        if (optional.isEmpty()) {
+        if (optional.isEmpty()||!optional.get().getVisible()) {
             throw new AppBadException("article type with this id was not found!");
         }
         ArticleTypeEntity entity = optional.get();
@@ -45,10 +45,13 @@ public class ArticleTypeService {
     }
 
     public boolean deleteById(Integer id) {
-        if (!articleTypeRepository.existsById(id)) {
+        Optional<ArticleTypeEntity> optional = articleTypeRepository.findById(id);
+        if(optional.isEmpty()||!optional.get().getVisible()){
             throw new AppBadException("article type with this id was not found!");
         }
-        articleTypeRepository.deleteById(id);
+        ArticleTypeEntity entity = optional.get();
+        entity.setVisible(false);
+        articleTypeRepository.save(entity);
         return true;
     }
 
@@ -60,7 +63,9 @@ public class ArticleTypeService {
         List<ArticleTypeEntity> content = all.getContent();
         List<ArticleTypeDTO> dtoList = new LinkedList<>();
         for (ArticleTypeEntity entity : content) {
-            dtoList.add(getDTO(entity));
+            if (entity.getVisible()) {
+                dtoList.add(getDTO(entity));
+            }
         }
         return new PageImpl<>(dtoList, pageable, totalElements);
     }
@@ -69,14 +74,16 @@ public class ArticleTypeService {
         Iterable<ArticleTypeEntity> all = articleTypeRepository.findAll();
         List<ArticleTypeDTO> list = new LinkedList<>();
         for (ArticleTypeEntity entity : all) {
-            ArticleTypeDTO dto = new ArticleTypeDTO();
-            dto.setId(entity.getId());
-            switch (lang) {
-                case "en" -> dto.setName_en(entity.getNameEn());
-                case "ru" -> dto.setName_ru(entity.getNameRu());
-                default -> dto.setName_uz(entity.getNameUz());
+            if (entity.getVisible()) {
+                ArticleTypeDTO dto = new ArticleTypeDTO();
+                dto.setId(entity.getId());
+                switch (lang) {
+                    case "en" -> dto.setName_en(entity.getNameEn());
+                    case "ru" -> dto.setName_ru(entity.getNameRu());
+                    default -> dto.setName_uz(entity.getNameUz());
+                }
+                list.add(dto);
             }
-            list.add(dto);
         }
         return list;
     }
