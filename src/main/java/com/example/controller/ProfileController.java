@@ -34,11 +34,9 @@ public class ProfileController {
     }
 
     @PutMapping("/updateUser")
-    public ResponseEntity<?> updateProfile(@RequestParam Integer id,
-                                           @RequestBody UserDTO dto,
+    public ResponseEntity<?> updateProfile(@RequestBody UserDTO dto,
                                            @RequestHeader("Authorization") String jwt) {
-        return JWTUtil.checkRoleProfile(jwt,id)? ResponseEntity.ok(profileService.updateProfile(id, dto)):
-                ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+        return ResponseEntity.ok(profileService.updateProfile(JWTUtil.decode(jwt).getId(), dto));
     }
 
     @DeleteMapping("/delete")
@@ -54,14 +52,14 @@ public class ProfileController {
     @GetMapping("/all")
     public ResponseEntity<?> getAll(@RequestParam Integer page, @RequestParam Integer size,
                                     @RequestHeader("Authorization") String jwt) {
-        return JWTUtil.checkRole(jwt)? ResponseEntity.ok(profileService.getAll(page, size)):
-         ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+        return JWTUtil.checkRole(jwt) ? ResponseEntity.ok(profileService.getAll(page, size)) :
+                ResponseEntity.status(HttpStatus.FORBIDDEN).build();
     }
 
     @GetMapping("/filter")
     public ResponseEntity<?> filter(@RequestBody ProfileDTO dto, @RequestParam Integer page
             , @RequestParam Integer size, @RequestHeader("Authorization") String jwt) {
-        return JWTUtil.checkRole(jwt)?  ResponseEntity.ok(profileService.filter(dto, page, size)):
+        return JWTUtil.checkRole(jwt) ? ResponseEntity.ok(profileService.filter(dto, page, size)) :
                 ResponseEntity.status(HttpStatus.FORBIDDEN).build();
     }
 
