@@ -95,7 +95,6 @@ public class ProfileService {
 
     public PageImpl<ProfileDTO> getAll(Integer page,Integer size){
         Pageable pageable = PageRequest.of(page - 1, size);
-
         Page<ProfileEntity> all = profileRepository.findAll(pageable);
         List<ProfileEntity> content = all.getContent();
         long totalElements = all.getTotalElements();
@@ -104,7 +103,6 @@ public class ProfileService {
             list.add(toDTO(entity));
         }
         return new PageImpl<>(list, pageable, totalElements);
-
     }
 
     public boolean delete(Integer id){

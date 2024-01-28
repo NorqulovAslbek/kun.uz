@@ -1,4 +1,4 @@
-package com.example.dto.category;
+package com.example.dto;
 
 import lombok.Getter;
 import lombok.Setter;

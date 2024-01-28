@@ -1,14 +1,12 @@
 package com.example.controller;
 
-import com.example.dto.category.CreateCategoryDTO;
+import com.example.dto.CreateCategoryDTO;
 import com.example.enums.AppLanguage;
 import com.example.enums.ProfileRole;
 import com.example.service.CategoryService;
 import com.example.util.HttpRequestUtil;
-import com.example.util.JWTUtil;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

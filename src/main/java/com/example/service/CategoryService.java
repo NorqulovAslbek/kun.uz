@@ -1,7 +1,7 @@
 package com.example.service;
 
-import com.example.dto.category.CategoryDTO;
-import com.example.dto.category.CreateCategoryDTO;
+import com.example.dto.CategoryDTO;
+import com.example.dto.CreateCategoryDTO;
 import com.example.entity.CategoryEntity;
 import com.example.enums.AppLanguage;
 import com.example.exp.AppBadException;
