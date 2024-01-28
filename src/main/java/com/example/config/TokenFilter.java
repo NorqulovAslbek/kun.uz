@@ -6,10 +6,11 @@ import io.jsonwebtoken.JwtException;
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.stereotype.Component;
 import org.springframework.web.filter.GenericFilterBean;
 
 import java.io.IOException;
-
+@Component
 public class TokenFilter extends GenericFilterBean {
 
     @Override

@@ -5,8 +5,11 @@ import com.example.dto.ProfileDTO;
 import com.example.dto.UserDTO;
 import com.example.enums.ProfileRole;
 import com.example.service.ProfileService;
+import com.example.util.HttpRequestUtil;
 import com.example.util.JWTUtil;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -35,8 +38,9 @@ public class ProfileController {
 
     @PutMapping("/updateUser")
     public ResponseEntity<?> updateProfile(@RequestBody UserDTO dto,
-                                           @RequestHeader("Authorization") String jwt) {
-        return ResponseEntity.ok(profileService.updateProfile(JWTUtil.decode(jwt).getId(), dto));
+                                           HttpServletRequest request) {
+        Integer profileId = HttpRequestUtil.getProfileId(request);
+        return ResponseEntity.ok(profileService.updateProfile(profileId, dto));
     }
 
     @DeleteMapping("/delete")
