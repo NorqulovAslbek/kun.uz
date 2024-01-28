@@ -20,51 +20,46 @@ public class ProfileController {
     @Autowired
     private ProfileService profileService;
 
-    @PostMapping("")
-    public ResponseEntity<?> create(@RequestBody ProfileDTO dto, @RequestHeader("Authorization") String jwt) {
-        return JWTUtil.checkRole(jwt) ? ResponseEntity.ok(profileService.create(dto)) :
-                ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+    @PostMapping("/adm")
+    public ResponseEntity<?> create(@RequestBody ProfileDTO dto, HttpServletRequest request) {
+        HttpRequestUtil.getProfileId(request, ProfileRole.ADMIN);
+        return ResponseEntity.ok(profileService.create(dto));
     }
 
 
-    @PutMapping("/updateAdmin")
+    @PutMapping("/adm/update")//admin
     public ResponseEntity<?> updateAdmin(@RequestParam Integer id,
                                          @RequestBody ProfileDTO dto,
-                                         @RequestHeader("Authorization") String jwt) {
-        return JWTUtil.checkRole(jwt) ? ResponseEntity.ok(profileService.updateAdmin(id, dto)) :
-                ResponseEntity.status(HttpStatus.FORBIDDEN).build();
-
+                                         HttpServletRequest request) {
+        HttpRequestUtil.getProfileId(request, ProfileRole.ADMIN);
+        return ResponseEntity.ok(profileService.updateAdmin(id, dto));
     }
 
-    @PutMapping("/updateUser")
+    @PutMapping("/update") // user
     public ResponseEntity<?> updateProfile(@RequestBody UserDTO dto,
                                            HttpServletRequest request) {
         Integer profileId = HttpRequestUtil.getProfileId(request);
         return ResponseEntity.ok(profileService.updateProfile(profileId, dto));
     }
 
-    @DeleteMapping("/delete")
-    public ResponseEntity<?> delete(@RequestParam Integer id, @RequestHeader("Authorization") String jwt) {
-        JwtDTO jwtDTO = JWTUtil.decode(jwt);
-        ProfileRole role = jwtDTO.getRole();
-        if (role.equals(ProfileRole.ADMIN)) {
-            return ResponseEntity.ok(profileService.delete(id));
-        }
-        return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+    @DeleteMapping("/adm/delete")
+    public ResponseEntity<?> delete(@RequestParam Integer id, HttpServletRequest request) {
+        HttpRequestUtil.getProfileId(request, ProfileRole.ADMIN);
+        return ResponseEntity.ok(profileService.delete(id));
     }
 
-    @GetMapping("/all")
+    @GetMapping("/adm/all")
     public ResponseEntity<?> getAll(@RequestParam Integer page, @RequestParam Integer size,
-                                    @RequestHeader("Authorization") String jwt) {
-        return JWTUtil.checkRole(jwt) ? ResponseEntity.ok(profileService.getAll(page, size)) :
-                ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+                                    HttpServletRequest request) {
+        HttpRequestUtil.getProfileId(request, ProfileRole.ADMIN);
+        return ResponseEntity.ok(profileService.getAll(page, size));
     }
 
-    @GetMapping("/filter")
+    @GetMapping("/adm/filter")
     public ResponseEntity<?> filter(@RequestBody ProfileDTO dto, @RequestParam Integer page
-            , @RequestParam Integer size, @RequestHeader("Authorization") String jwt) {
-        return JWTUtil.checkRole(jwt) ? ResponseEntity.ok(profileService.filter(dto, page, size)) :
-                ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+            , @RequestParam Integer size, HttpServletRequest request) {
+         HttpRequestUtil.getProfileId(request,ProfileRole.ADMIN);
+        return ResponseEntity.ok(profileService.filter(dto, page, size));
     }
 
 }
