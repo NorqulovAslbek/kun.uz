@@ -2,8 +2,11 @@ package com.example.controller;
 
 import com.example.dto.category.CreateCategoryDTO;
 import com.example.enums.AppLanguage;
+import com.example.enums.ProfileRole;
 import com.example.service.CategoryService;
+import com.example.util.HttpRequestUtil;
 import com.example.util.JWTUtil;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,39 +18,37 @@ public class CategoryController {
     @Autowired
     private CategoryService categoryService;
 
-    @PostMapping("")
-    public ResponseEntity<?> create(@RequestBody CreateCategoryDTO dto, @RequestHeader("Authorization") String jwt) {
-        return JWTUtil.checkRole(jwt) ? ResponseEntity.ok(categoryService.create(dto))
-                : ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+    @PostMapping("/adm")
+    public ResponseEntity<?> create(@RequestBody CreateCategoryDTO dto, HttpServletRequest request) {
+        Integer profileId = HttpRequestUtil.getProfileId(request, ProfileRole.ADMIN);//agar admin bolsa category qo'sha oladi bu methodlar shuni check qilib beradi
+        return ResponseEntity.ok(categoryService.create(dto));
     }
 
-    @PutMapping("/id")
-    public ResponseEntity<?> update(@RequestBody CreateCategoryDTO dto, @RequestParam Integer id,
-                                    @RequestHeader("Authorization") String jwt) {
-        return JWTUtil.checkRole(jwt) ? ResponseEntity.ok(categoryService.update(id, dto))
-                : ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+    @PutMapping("/adm/{id}")
+    public ResponseEntity<?> update(@RequestBody CreateCategoryDTO dto, @PathVariable Integer id,
+                                    HttpServletRequest request) {
+        HttpRequestUtil.getProfileId(request, ProfileRole.ADMIN);
+        return ResponseEntity.ok(categoryService.update(id, dto));
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<?> delete(@RequestHeader("Authorization") String jwt,
+    @DeleteMapping("/adm/{id}")
+    public ResponseEntity<?> delete(HttpServletRequest request,
                                     @PathVariable("id") Integer id) {
-        return JWTUtil.checkRole(jwt) ? ResponseEntity.ok(categoryService.delete(id))
-                : ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+        HttpRequestUtil.getProfileId(request, ProfileRole.ADMIN);
+        return ResponseEntity.ok(categoryService.delete(id));
     }
 
-    @GetMapping("")
-    public ResponseEntity<?> getALl(@RequestHeader("Authorization") String jwt){
-        return JWTUtil.checkRole(jwt) ? ResponseEntity.ok(categoryService.getAll())
-                : ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+    @GetMapping("/adm")
+    public ResponseEntity<?> getALl(HttpServletRequest request) {
+        HttpRequestUtil.getProfileId(request, ProfileRole.ADMIN);
+        return ResponseEntity.ok(categoryService.getAll());
     }
 
-    @GetMapping("/lang")
-    public ResponseEntity<?> getLang(@RequestHeader("Authorization") String jwt,@RequestParam AppLanguage lang){
-        return JWTUtil.checkRole(jwt) ? ResponseEntity.ok(categoryService.getLang(lang))
-                : ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+    @GetMapping("/adm/lang")
+    public ResponseEntity<?> getLang(HttpServletRequest request, @RequestParam AppLanguage lang) {
+        HttpRequestUtil.getProfileId(request);
+        return ResponseEntity.ok(categoryService.getLang(lang));
     }
-
-
 
 
 }

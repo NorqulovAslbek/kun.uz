@@ -1,15 +1,12 @@
 package com.example.service;
 
-import com.example.dto.RegionDTO;
 import com.example.dto.category.CategoryDTO;
 import com.example.dto.category.CreateCategoryDTO;
 import com.example.entity.CategoryEntity;
-import com.example.entity.RegionEntity;
 import com.example.enums.AppLanguage;
 import com.example.exp.AppBadException;
 import com.example.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.LinkedList;
