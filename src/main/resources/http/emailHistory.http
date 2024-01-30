@@ -1,0 +1,9 @@
+### Get by email
+GET localhost:8080/email_history/aslbeknorqulov246@gmail.com
+
+### Get by date
+GET localhost:8080/email_history/data?date=2024-01-30
+
+### Get by pagination
+GET localhost:8080/email_history/pagination/adm?page=1&size=2
+Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDY2MzE2NDIsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDY3MTgwNDIsImlzcyI6Ikt1blV6VGVzdCJ9.V0vkjmmTYg1gBr6BFpJUdptHb66EIWKtGQWczONJaAHtp4kPF8beh5gAnn_xLsFGaJrftYXDtKbIS5wuEgaWFQ

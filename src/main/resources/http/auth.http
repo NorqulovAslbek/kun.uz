@@ -6,3 +6,17 @@ Content-Type: application/json
   "email": "admin@mail.ru",
   "password": "12345"
 }
+
+### Registration
+POST localhost:8080/auth/registration
+Content-Type: application/json
+
+{
+  "name": "Aslbek",
+  "surname": "Norqulov",
+  "email": "aslbeknorqulov246@gmail.com",
+  "password": "123456"
+}
+
+### Verification
+GET http://localhost:8080/auth/verification/email/eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDY2MjY3NjcsImlkIjoyLCJleHAiOjE3MDY2MzAzNjcsImlzcyI6Ikt1blV6VGVzdCJ9.oKLfymm7BGpJJNPlPGPNa449g2YB4uRka_G_TDpLHrEWpUj7qZVjcuGShIRLItQ8As8KthMhozHMGbdiqKCFBQ

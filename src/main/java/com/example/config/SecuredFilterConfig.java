@@ -35,6 +35,10 @@ public class SecuredFilterConfig {
         bean.addUrlPatterns("/articleType/*");
         bean.addUrlPatterns("/articleType/adm/**");
 
+        bean.addUrlPatterns("/email_history");
+        bean.addUrlPatterns("/email_history/adm");
+        bean.addUrlPatterns("/email_history/*");
+
         return bean;
     }
 
