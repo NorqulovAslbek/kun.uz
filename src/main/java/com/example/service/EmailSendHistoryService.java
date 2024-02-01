@@ -1,9 +1,9 @@
 package com.example.service;
 
-import com.example.dto.EmailHistoryDTO;
-import com.example.entity.EmailHistoryEntity;
+import com.example.dto.EmailSendHistoryDTO;
+import com.example.entity.EmailSendHistoryEntity;
 import com.example.exp.AppBadException;
-import com.example.repository.EmailHistoryRepository;
+import com.example.repository.EmailSendHistoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -18,56 +18,55 @@ import java.util.LinkedList;
 import java.util.List;
 
 @Service
-public class EmailHistoryService {
+public class EmailSendHistoryService {
     @Autowired
-    private EmailHistoryRepository emailHistoryRepository;
+    private EmailSendHistoryRepository emailHistoryRepository;
 
-    public List<EmailHistoryDTO> getByEmail(String email) {
-        List<EmailHistoryEntity> emailHistoryEntityList = emailHistoryRepository.findByEmail(email);
+    public List<EmailSendHistoryDTO> getByEmail(String email) {
+        List<EmailSendHistoryEntity> emailHistoryEntityList = emailHistoryRepository.findByEmail(email);
         if (emailHistoryEntityList.isEmpty()) {
             throw new AppBadException("email not fount");
         }
-        List<EmailHistoryDTO> list = new LinkedList<>();
-        for (EmailHistoryEntity entity : emailHistoryEntityList) {
+        List<EmailSendHistoryDTO> list = new LinkedList<>();
+        for (EmailSendHistoryEntity entity : emailHistoryEntityList) {
             list.add(toDTO(entity));
         }
         return list;
     }
 
 
-    public List<EmailHistoryDTO> getByDate(LocalDate date) {
+    public List<EmailSendHistoryDTO> getByDate(LocalDate date) {
         LocalDateTime fromDate = LocalDateTime.of(date, LocalTime.MIN);
         LocalDateTime toDate = LocalDateTime.of(date, LocalTime.MAX);
-        List<EmailHistoryEntity> emailHistoryEntities = emailHistoryRepository.findByCreatedDataBetween(fromDate, toDate);
+        List<EmailSendHistoryEntity> emailHistoryEntities = emailHistoryRepository.findByCreatedDataBetween(fromDate, toDate);
         if (emailHistoryEntities.isEmpty()) {
             throw new AppBadException("email not fount");
         }
-        List<EmailHistoryDTO> list = new LinkedList<>();
-        for (EmailHistoryEntity entity : emailHistoryEntities) {
+        List<EmailSendHistoryDTO> list = new LinkedList<>();
+        for (EmailSendHistoryEntity entity : emailHistoryEntities) {
             list.add(toDTO(entity));
         }
         return list;
     }
 
-    public PageImpl<EmailHistoryDTO> pagination(Integer page, Integer size) {
+    public PageImpl<EmailSendHistoryDTO> pagination(Integer page, Integer size) {
         Pageable pageable = PageRequest.of(page - 1, size);
-        Page<EmailHistoryEntity> all = emailHistoryRepository.findAll(pageable);
-        List<EmailHistoryEntity> content = all.getContent();
+        Page<EmailSendHistoryEntity> all = emailHistoryRepository.findAll(pageable);
+        List<EmailSendHistoryEntity> content = all.getContent();
         long totalElements = all.getTotalElements();
-        List<EmailHistoryDTO> list = new LinkedList<>();
-        for (EmailHistoryEntity entity : content) {
+        List<EmailSendHistoryDTO> list = new LinkedList<>();
+        for (EmailSendHistoryEntity entity : content) {
             list.add(toDTO(entity));
         }
         return new PageImpl<>(list, pageable, totalElements);
     }
 
 
-    private EmailHistoryDTO toDTO(EmailHistoryEntity byEmail) {
-        EmailHistoryDTO dto = new EmailHistoryDTO();
+    private EmailSendHistoryDTO toDTO(EmailSendHistoryEntity byEmail) {
+        EmailSendHistoryDTO dto = new EmailSendHistoryDTO();
         dto.setId(byEmail.getId());
         dto.setEmail(byEmail.getEmail());
         dto.setMessage(byEmail.getMessage());
-        dto.setProfile_id(byEmail.getProfile().getId());
         dto.setCreatedData(byEmail.getCreatedData());
         return dto;
     }

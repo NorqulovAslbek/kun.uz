@@ -3,10 +3,8 @@ package com.example.entity;
 import com.example.enums.ProfileRole;
 import com.example.enums.ProfileStatus;
 import jakarta.persistence.*;
-
 import lombok.Getter;
 import lombok.Setter;
-import org.antlr.v4.runtime.misc.NotNull;
 
 @Getter
 @Setter
@@ -17,9 +15,9 @@ public class ProfileEntity extends BaseEntity {
     private String name;
     @Column(nullable = false)
     private String surname;
-    @Column(unique = true, nullable = false)
+    //    @Column(unique = true, nullable = false)
     private String email;
-    @NotNull
+    @Column(unique = true)
     private String phone;
     @Column(nullable = false)
     private String password;

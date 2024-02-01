@@ -9,17 +9,14 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Entity
-@Table(name = "email_send_history")
-public class EmailHistoryEntity {
+@Table(name = "sms_history")
+public class SmsHistoryEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name ="profile_id")
-    private ProfileEntity profile;
+    private String phone;
     private String message;
-    private String email;
     @Enumerated(EnumType.STRING)
     private ProfileStatus status;
-    private LocalDateTime createdData=LocalDateTime.now();
+    private LocalDateTime createdDate;
 }

@@ -1,8 +1,8 @@
 package com.example.controller;
 
-import com.example.dto.EmailHistoryDTO;
+import com.example.dto.EmailSendHistoryDTO;
 import com.example.enums.ProfileRole;
-import com.example.service.EmailHistoryService;
+import com.example.service.EmailSendHistoryService;
 import com.example.util.HttpRequestUtil;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,22 +15,24 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/email_history")
-public class EmailHistoryController {
+public class EmailSendHistoryController {
     @Autowired
-    private EmailHistoryService emailHistoryService;
+    private EmailSendHistoryService emailHistoryService;
 
     @GetMapping("/{email}")
-    public ResponseEntity<List<EmailHistoryDTO>> getByEmail(@PathVariable("email") String email) {
+    public ResponseEntity<List<EmailSendHistoryDTO>> getByEmail(@PathVariable("email") String email, HttpServletRequest request) {
+        HttpRequestUtil.getProfileId(request, ProfileRole.ADMIN);
         return ResponseEntity.ok(emailHistoryService.getByEmail(email));
     }
 
     @GetMapping("/data")
-    public ResponseEntity<List<EmailHistoryDTO>> getByDate(@RequestParam("date") LocalDate date) {
+    public ResponseEntity<List<EmailSendHistoryDTO>> getByDate(@RequestParam("date") LocalDate date, HttpServletRequest request) {
+        HttpRequestUtil.getProfileId(request, ProfileRole.ADMIN);
         return ResponseEntity.ok(emailHistoryService.getByDate(date));
     }
 
     @GetMapping("/pagination/adm")
-    public ResponseEntity<PageImpl<EmailHistoryDTO>> pagination(@RequestParam Integer page, @RequestParam Integer size, HttpServletRequest request) {
+    public ResponseEntity<PageImpl<EmailSendHistoryDTO>> pagination(@RequestParam Integer page, @RequestParam Integer size, HttpServletRequest request) {
         HttpRequestUtil.getProfileId(request, ProfileRole.ADMIN);
         return ResponseEntity.ok(emailHistoryService.pagination(page,size));
     }

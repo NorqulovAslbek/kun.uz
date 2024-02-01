@@ -13,9 +13,10 @@ Content-Type: application/json
 
 {
   "name": "Aslbek",
+  "phone": "+998991205577",
   "surname": "Norqulov",
   "email": "aslbeknorqulov246@gmail.com",
-  "password": "123456"
+  "password": "@Asl1234567"
 }
 
 ### Verification

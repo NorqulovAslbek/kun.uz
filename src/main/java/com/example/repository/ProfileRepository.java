@@ -12,9 +12,8 @@ import java.util.Optional;
 
 public interface ProfileRepository extends CrudRepository<ProfileEntity, Integer>, PagingAndSortingRepository<ProfileEntity, Integer> {
     Optional<ProfileEntity> findByEmail(String email);
-
     Optional<ProfileEntity> findByEmailAndPassword(String email, String password);
-
+    Optional<ProfileEntity> findByPhone(String phone);
     @Transactional
     @Modifying
     @Query("Update ProfileEntity  set status =?2 where id = ?1")
