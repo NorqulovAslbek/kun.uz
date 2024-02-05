@@ -7,17 +7,28 @@ Content-Type: application/json
   "password": "12345"
 }
 
-### Registration
+### Registration by sms
 POST localhost:8080/auth/registration
 Content-Type: application/json
 
 {
-  "name": "Aslbek",
+  "name": "Husen",
   "phone": "+998991205577",
-  "surname": "Norqulov",
+  "surname": "Aka",
   "email": "aslbeknorqulov246@gmail.com",
   "password": "@Asl1234567"
 }
+
+### verification by sms
+POST localhost:8080/auth/verification/phone
+Content-Type: application/json
+
+{
+  "code": "19449",
+  "phone": "+998991205577"
+}
+
+
 
 ### Verification
 GET http://localhost:8080/auth/verification/email/eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDY2MjY3NjcsImlkIjoyLCJleHAiOjE3MDY2MzAzNjcsImlzcyI6Ikt1blV6VGVzdCJ9.oKLfymm7BGpJJNPlPGPNa449g2YB4uRka_G_TDpLHrEWpUj7qZVjcuGShIRLItQ8As8KthMhozHMGbdiqKCFBQ

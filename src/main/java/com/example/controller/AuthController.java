@@ -1,8 +1,6 @@
 package com.example.controller;
 
-import com.example.dto.AuthDTO;
-import com.example.dto.ProfileDTO;
-import com.example.dto.RegistrationDTO;
+import com.example.dto.*;
 import com.example.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -27,6 +25,11 @@ public class AuthController {
     @GetMapping("/verification/email/{jwt}")
     public ResponseEntity<String> emailVerification(@PathVariable("jwt") String jwt) {
         return ResponseEntity.ok(authService.emailVerification(jwt));
+    }
+
+    @PostMapping("/verification/phone")
+    public ResponseEntity<?> smsVerification(@RequestBody SendSmsDTO dto) {
+        return ResponseEntity.ok(authService.smsVerification(dto.getPhone(), dto.getCode()));
     }
 
 

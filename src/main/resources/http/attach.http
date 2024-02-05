@@ -1,0 +1,24 @@
+### Create photo or vidio or mp3
+POST http://localhost:8080/attach/upload
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="sample.mp3"
+
+< C:\Users\Aslbek\Downloads\sample-15s.mp3
+
+### Get photo and mp3 and mp4  --bu faqat projectni uploads file ichidagi malumotni oqiy oladi
+GET localhost:8080/attach/open/6995e308-a35f-4c72-8549-b30248529cb9.mp4
+
+### Get photo and mp3 and mp4   -- bu faqat projectni attaches  file ni ichidagi malumotni oqiy oladi
+GET localhost:8080/attach/open_general/6cbb6ebb-6673-43f5-9821-ec1663f9ef6c.mp4
+
+###  Get by pagination
+GET localhost:8080/attach/open_general/pagination?page=2&size=3
+
+### Delete data by id - yani id boyicha fayldagi malumotni o'chirish.
+DELETE localhost:8080/attach/delete/1f8db80f-3da9-4c43-bd57-49ecda8b1a73
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDcxMzQyOTQsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDcyMjA2OTQsImlzcyI6Ikt1blV6VGVzdCJ9.7j2Viq0RO9fB96MSUc19yQd8fDD-1WngvaxFK1ddoefUKKV0RuFaqd-Nh2lv-AIB9-KHa2r25Xbbu0fjkU3n4A
+
+###
+GET http://localhost:8080/attach/download/6040d2d8-1d7e-44d7-93c7-9d9271c70c2f.jpg

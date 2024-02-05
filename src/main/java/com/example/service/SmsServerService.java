@@ -30,13 +30,17 @@ public class SmsServerService {
 
 
     public void send(String phone, String text, String code) {
+         saveHistory(phone, code,ProfileStatus.REGISTRATION);
+        sendSmsHTTP(phone, text + code);
+    }
+
+    public void saveHistory(String phone, String code,ProfileStatus profileStatus) {
         SmsHistoryEntity entity = new SmsHistoryEntity();
-        entity.setStatus(ProfileStatus.REGISTRATION);
+        entity.setStatus(profileStatus);
         entity.setPhone(phone);
-        entity.setMessage(text + code);
+        entity.setMessage(code);
         entity.setCreatedDate(LocalDateTime.now());
         smsHistoryRepository.save(entity);
-//        sendSmsHTTP(phone, text + code);
     }
 
 

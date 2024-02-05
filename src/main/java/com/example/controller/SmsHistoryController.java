@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import com.example.dto.SmsHistoryDTO;
 import com.example.enums.ProfileRole;
 import com.example.service.SmsHistoryService;
 import com.example.util.HttpRequestUtil;
@@ -16,10 +17,10 @@ public class SmsHistoryController {
     @Autowired
     private SmsHistoryService smsHistoryService;
 
-    @GetMapping("")
-    public ResponseEntity<?> getByPhone(@RequestParam String phone, HttpServletRequest request) {
+    @PostMapping("")
+    public ResponseEntity<?> getByPhone(@RequestBody SmsHistoryDTO dto, HttpServletRequest request) {
         HttpRequestUtil.getProfileId(request, ProfileRole.ADMIN);
-        return ResponseEntity.ok(smsHistoryService.getByPhone(phone));
+        return ResponseEntity.ok(smsHistoryService.getByPhone(dto.getPhone()));
     }
 
     @GetMapping("/{date}")

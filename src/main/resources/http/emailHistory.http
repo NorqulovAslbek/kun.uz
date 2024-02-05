@@ -3,7 +3,7 @@ GET localhost:8080/email_history/aslbeknorqulov246@gmail.com
 Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDY3ODc4MzEsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDY4NzQyMzEsImlzcyI6Ikt1blV6VGVzdCJ9.yRanm47SFkitJedKgqY4RN4WohWb73n14MowKsS3COL0moNTG0q4FQWWuwJ-kH-yBjtN7ui7Bpoq2bTp_VbeDQ
 
 ### Get by date
-GET localhost:8080/email_history/data?date=2024-01-30
+GET localhost:8080/email_history/data?date=2024-02-01
 Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDY3ODc4MzEsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDY4NzQyMzEsImlzcyI6Ikt1blV6VGVzdCJ9.yRanm47SFkitJedKgqY4RN4WohWb73n14MowKsS3COL0moNTG0q4FQWWuwJ-kH-yBjtN7ui7Bpoq2bTp_VbeDQ
 
 ### Get by pagination

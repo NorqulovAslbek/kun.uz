@@ -19,6 +19,12 @@ public interface ProfileRepository extends CrudRepository<ProfileEntity, Integer
     @Query("Update ProfileEntity  set status =?2 where id = ?1")
     void updateStatus(Integer id, ProfileStatus active);
 
+
+    @Transactional
+    @Modifying
+    @Query("Update ProfileEntity  set status =?2 where phone = ?1")
+    void updateStatusActive(String phone, ProfileStatus active);
+
 //    @Transactional
 //    @Modifying
 //    @Query(value = "select count(*) from ProfileEntity where createdDate between fromDate=?2 and toDate=?3  and email=?1",nativeQuery = true)

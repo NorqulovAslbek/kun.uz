@@ -43,6 +43,8 @@ public class SecuredFilterConfig {
         bean.addUrlPatterns("/sms_history/pagination");
         bean.addUrlPatterns("/sms_history/*");
 
+        bean.addUrlPatterns("/attach/delete/*");
+
         return bean;
     }
 

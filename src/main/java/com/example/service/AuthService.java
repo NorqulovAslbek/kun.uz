@@ -6,6 +6,7 @@ import com.example.dto.ProfileDTO;
 import com.example.dto.RegistrationDTO;
 import com.example.entity.EmailSendHistoryEntity;
 import com.example.entity.ProfileEntity;
+import com.example.entity.SmsHistoryEntity;
 import com.example.enums.ProfileRole;
 import com.example.enums.ProfileStatus;
 import com.example.exp.AppBadException;
@@ -73,10 +74,10 @@ public class AuthService {
         } else if (!patternPassword.matcher(dto.getPassword()).matches()) {
             throw new AppBadException("The password was entered incorrectly");
         }
-     //================ 1 minutda faqat 1 sms ga ruxsat qilib qo'yildi ================//
+        //================ 1 minutda faqat 1 sms ga ruxsat qilib qo'yildi ================\\
         LocalDateTime from = LocalDateTime.now().minusMinutes(1);
         LocalDateTime to = LocalDateTime.now();
-        if (smsHistoryRepository.countSendSms(dto.getPhone(),from,to)>=1){
+        if (smsHistoryRepository.countSendSms(dto.getPhone(), from, to) >= 1) {
             throw new AppBadException("To many attempt. Please try after 1 minute.");
         }
 
@@ -85,16 +86,14 @@ public class AuthService {
             if (optional.get().getStatus().equals(ProfileStatus.REGISTRATION)) {
                 profileRepository.delete(optional.get());
             } else {
-                throw new AppBadException("Email exists");
+                throw new AppBadException("phone exists");
             }
         }
-
-     //======================= MAIL YOKI GMAIL GA HABAR JONATISHNI TEKSHIRISH 1 MINDA 3 TA HABAR JONATISH MUMKN ==============\\
+        //========== MAIL YOKI GMAIL GA HABAR JONATISHNI TEKSHIRISH 1 MINDA 3 TA HABAR JONATISH MUMKN ==============\\
 
 //        if (emailSendHistoryRepository.countSendEmail(dto.getEmail(), from, to) >= 3) {
 //            throw new AppBadException("To many attempt. Please try after 1 minute.");
 //        }
-//
 //        Optional<ProfileEntity> optional = profileRepository.findByEmail(dto.getEmail());
 //        if (optional.isPresent()) {
 //            if (optional.get().getStatus().equals(ProfileStatus.REGISTRATION)) {
@@ -103,7 +102,6 @@ public class AuthService {
 //                throw new AppBadException("Email exists");
 //            }
 //        }
-
         ProfileEntity entity = new ProfileEntity();
         entity.setName(dto.getName());
         entity.setSurname(dto.getSurname());
@@ -118,7 +116,7 @@ public class AuthService {
          */
         String code = RandomUtil.getRandomSmsCode();
         smsServerService.send(dto.getPhone(), "kun.uz test verification code: ", code);
-//               send verification code (email/sms)
+//        send verification code (email/sms)
         /*
          * email kod yuborish
          */
@@ -137,6 +135,32 @@ public class AuthService {
         emailSendHistoryEntity.setCreatedData(LocalDateTime.now());
         emailSendHistoryRepository.save(emailSendHistoryEntity);
         mailSender.sendEmail(dto.getEmail(), "Complete registration", text);
+    }
+
+
+    public ProfileDTO smsVerification(String phone, String code) {
+        LocalDateTime from = LocalDateTime.now().minusMinutes(1);
+        LocalDateTime to = LocalDateTime.now();
+        Optional<ProfileEntity> byPhone = profileRepository.findByPhone(phone);
+        if (byPhone.isEmpty()) {
+            throw new AppBadException("phone not fount");
+        }
+        if (!byPhone.get().getStatus().equals(ProfileStatus.REGISTRATION)) {
+            throw new AppBadException("Profile in wrong status");
+        }
+        Optional<SmsHistoryEntity> checkCode = smsHistoryRepository.getPhoneAndCode(phone, code, from, to);
+        if (checkCode.isEmpty()) {
+            throw new AppBadException("error, please try again!");
+        }
+        profileRepository.updateStatusActive(phone,ProfileStatus.ACTIVE);
+        ProfileEntity profileEntity = byPhone.get();
+        saveHistory(phone,code,ProfileStatus.ACTIVE);
+        ProfileDTO dto=new ProfileDTO();
+        dto.setRole(profileEntity.getRole());
+        dto.setName(profileEntity.getName());
+        dto.setSurname(profileEntity.getSurname());
+        dto.setJwt(JWTUtil.encode(profileEntity.getId(),profileEntity.getRole()));
+        return dto;
     }
 
     public String emailVerification(String jwt) {
@@ -163,6 +187,14 @@ public class AuthService {
             throw new AppBadException("Please tyre again.");
         }
         return "Success";
+    }
+    public void saveHistory(String phone, String code,ProfileStatus profileStatus) {
+        SmsHistoryEntity entity = new SmsHistoryEntity();
+        entity.setStatus(profileStatus);
+        entity.setPhone(phone);
+        entity.setMessage(code);
+        entity.setCreatedDate(LocalDateTime.now());
+        smsHistoryRepository.save(entity);
     }
 
     private static String getButtonLink(ProfileEntity entity, String jwt) {
