@@ -4,6 +4,7 @@ import com.example.dto.SmsHistoryDTO;
 import com.example.entity.SmsHistoryEntity;
 import com.example.exp.AppBadException;
 import com.example.repository.SmsHistoryRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
@@ -14,7 +15,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.LinkedList;
 import java.util.List;
-
+@Slf4j
 @Service
 public class SmsHistoryService {
     @Autowired
@@ -23,7 +24,10 @@ public class SmsHistoryService {
 
     public List<SmsHistoryDTO> getByPhone(String phone) {
         List<SmsHistoryEntity> smsHistoryRepositoryByPhone = smsHistoryRepository.findByPhone(phone);
-        if (smsHistoryRepositoryByPhone.isEmpty()) throw new AppBadException("phone not found");
+        if (smsHistoryRepositoryByPhone.isEmpty()) {
+            log.warn("phone not fount{}",phone);
+            throw new AppBadException("phone not found");
+        }
         return getSmsHistoryDTOS(smsHistoryRepositoryByPhone);
     }
 
@@ -32,7 +36,10 @@ public class SmsHistoryService {
         LocalDateTime from = LocalDateTime.of(date, LocalTime.MIN);
         LocalDateTime to = LocalDateTime.of(date, LocalTime.MAX);
         List<SmsHistoryEntity> byDateList = smsHistoryRepository.getByDate(from, to);
-        if (byDateList.isEmpty()) throw new AppBadException("SMS from that time was not found!");
+        if (byDateList.isEmpty()) {
+            log.warn("SMS from that time was not found{}",date);
+            throw new AppBadException("SMS from that time was not found!");
+        }
         return getSmsHistoryDTOS(byDateList);
     }
 

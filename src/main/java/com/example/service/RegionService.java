@@ -5,6 +5,7 @@ import com.example.entity.RegionEntity;
 import com.example.enums.AppLanguage;
 import com.example.exp.AppBadException;
 import com.example.repository.RegionRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +13,7 @@ import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
-
+@Slf4j
 @Service
 public class RegionService {
     @Autowired
@@ -21,6 +22,7 @@ public class RegionService {
     public RegionDTO create(RegionDTO dto) {
         if (dto.getOrder_number() == null || dto.getName_uz() == null
                 || dto.getName_ru() == null || dto.getName_en() == null) {
+            log.warn("uz,ru,en and one of the fields named orderNumber came out empty!{}",dto);
             throw new AppBadException("uz , ru, en and one of the fields named orderNumber came out empty!");
         }
         RegionEntity save = regionRepository.save(getEntity(dto));
@@ -30,6 +32,7 @@ public class RegionService {
     public RegionDTO update(Integer id, RegionDTO dto) {
         Optional<RegionEntity> optional = regionRepository.findById(id);
         if (optional.isEmpty() || optional.get().getVisible().equals(false)) {
+            log.warn("region with this id was not found {}",dto);
             throw new AppBadException("region with this id was not found!");
         }
         RegionEntity entity = optional.get();
@@ -45,6 +48,7 @@ public class RegionService {
     public boolean delete(Integer id) {
         Optional<RegionEntity> optional = regionRepository.findById(id);
         if (optional.isEmpty()||!optional.get().getVisible()) {
+            log.warn("region with this id was not found {}",id);
             throw new AppBadException("region with this id was not found!");
         }
         RegionEntity entity = optional.get();

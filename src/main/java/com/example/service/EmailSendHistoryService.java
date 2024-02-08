@@ -4,6 +4,7 @@ import com.example.dto.EmailSendHistoryDTO;
 import com.example.entity.EmailSendHistoryEntity;
 import com.example.exp.AppBadException;
 import com.example.repository.EmailSendHistoryRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -17,6 +18,7 @@ import java.time.LocalTime;
 import java.util.LinkedList;
 import java.util.List;
 
+@Slf4j
 @Service
 public class EmailSendHistoryService {
     @Autowired
@@ -25,6 +27,7 @@ public class EmailSendHistoryService {
     public List<EmailSendHistoryDTO> getByEmail(String email) {
         List<EmailSendHistoryEntity> emailHistoryEntityList = emailHistoryRepository.findByEmail(email);
         if (emailHistoryEntityList.isEmpty()) {
+            log.warn("email not fount {}",email);
             throw new AppBadException("email not fount");
         }
         List<EmailSendHistoryDTO> list = new LinkedList<>();
@@ -40,6 +43,7 @@ public class EmailSendHistoryService {
         LocalDateTime toDate = LocalDateTime.of(date, LocalTime.MAX);
         List<EmailSendHistoryEntity> emailHistoryEntities = emailHistoryRepository.findByCreatedDataBetween(fromDate, toDate);
         if (emailHistoryEntities.isEmpty()) {
+            log.warn("email not fount by date {}",date);
             throw new AppBadException("email not fount");
         }
         List<EmailSendHistoryDTO> list = new LinkedList<>();

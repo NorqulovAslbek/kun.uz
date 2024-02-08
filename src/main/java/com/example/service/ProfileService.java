@@ -8,6 +8,7 @@ import com.example.exp.AppBadException;
 import com.example.repository.ProfileFilterRepository;
 import com.example.repository.ProfileRepository;
 import com.example.util.JWTUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
@@ -16,7 +17,7 @@ import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
-
+@Slf4j
 @Service
 public class ProfileService {
     @Autowired
@@ -31,12 +32,14 @@ public class ProfileService {
             dto.setJwt(JWTUtil.encode(save.getId(), dto.getRole()));
             return dto;
         }
+        log.warn("A user with this email already exists{}",dto);
         throw new AppBadException("A user with this email already exists!");
     }
 
     public boolean updateAdmin(Integer id, ProfileDTO dto) {
         Optional<ProfileEntity> optional = profileRepository.findById(id);
         if (optional.isEmpty() || !optional.get().getVisible()) {
+            log.warn("profile with such id does not exist{}",dto);
             throw new AppBadException("profile with such id does not exist!");
         }
         ProfileEntity entity = optional.get();
@@ -70,6 +73,7 @@ public class ProfileService {
     public boolean updateProfile(Integer id, UserDTO dto) {
         Optional<ProfileEntity> optional = profileRepository.findById(id);
         if (optional.isEmpty() || !optional.get().getVisible()) {
+            log.warn("user with this id does not exist! {}",dto);
             throw new AppBadException("user with this id does not exist!");
         }
         ProfileEntity entity = optional.get();
@@ -113,6 +117,7 @@ public class ProfileService {
             profileRepository.save(entity);
             return true;
         }
+        log.warn("profile with such id does not exist!{}",id);
         throw new AppBadException("profile with such id does not exist!");
     }
 

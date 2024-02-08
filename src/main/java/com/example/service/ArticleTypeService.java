@@ -5,6 +5,7 @@ import com.example.entity.ArticleTypeEntity;
 import com.example.enums.AppLanguage;
 import com.example.exp.AppBadException;
 import com.example.repository.ArticleTypeRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
@@ -13,7 +14,7 @@ import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
-
+@Slf4j
 @Service
 public class ArticleTypeService {
     @Autowired
@@ -22,6 +23,7 @@ public class ArticleTypeService {
     public ArticleTypeDTO create(ArticleTypeDTO dto) {
         if (dto.getOrder_number() == null || dto.getName_uz() == null
                 || dto.getName_ru() == null || dto.getName_en() == null) {
+            log.warn("create article type{}",dto);
             throw new AppBadException("uz , ru, en and one of the fields named orderNumber came out empty!");
         }
 
@@ -33,6 +35,7 @@ public class ArticleTypeService {
     public boolean update(Integer id, ArticleTypeDTO dto) {
         Optional<ArticleTypeEntity> optional = articleTypeRepository.findById(id);
         if (optional.isEmpty() || !optional.get().getVisible()) {
+            log.warn("update article type by id{}",id);
             throw new AppBadException("article type with this id was not found!");
         }
         ArticleTypeEntity entity = optional.get();
@@ -48,6 +51,7 @@ public class ArticleTypeService {
     public boolean deleteById(Integer id) {
         Optional<ArticleTypeEntity> optional = articleTypeRepository.findById(id);
         if (optional.isEmpty() || !optional.get().getVisible()) {
+            log.warn("delete article type by id{}",id);
             throw new AppBadException("article type with this id was not found!");
         }
         ArticleTypeEntity entity = optional.get();

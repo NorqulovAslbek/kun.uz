@@ -17,6 +17,7 @@ import com.example.util.JWTUtil;
 import com.example.util.MDUtil;
 import com.example.util.RandomUtil;
 import io.jsonwebtoken.JwtException;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,8 +25,8 @@ import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.regex.Pattern;
 
+@Slf4j
 @Service
-
 public class AuthService {
     @Autowired
     private ProfileRepository profileRepository;
@@ -43,6 +44,7 @@ public class AuthService {
                 MDUtil.encode(profile.getPassword()));
 
         if (optional.isEmpty()) {
+            log.warn("Email not fount{}", profile.getEmail());
             throw new AppBadException("Email or Password is wrong");
         }
 
@@ -67,11 +69,14 @@ public class AuthService {
 
         if (dto.getEmail() == null || dto.getName() == null
                 || dto.getSurname() == null || dto.getPassword() == null) {
+            log.warn("you have not filled all of the spaces provided{}", dto.getEmail());
             throw new AppBadException("you have not filled all of the spaces provided!");
         }
         if (!patternGmail.matcher(dto.getEmail()).matches()) {
+            log.warn("Email was entered incorrectly{}", dto.getEmail());
             throw new AppBadException("Email was entered incorrectly");
         } else if (!patternPassword.matcher(dto.getPassword()).matches()) {
+            log.warn("The password was entered incorrectly{}", dto.getEmail());
             throw new AppBadException("The password was entered incorrectly");
         }
         //================ 1 minutda faqat 1 sms ga ruxsat qilib qo'yildi ================\\
@@ -86,6 +91,7 @@ public class AuthService {
             if (optional.get().getStatus().equals(ProfileStatus.REGISTRATION)) {
                 profileRepository.delete(optional.get());
             } else {
+                log.warn("phone exists{}", dto.getPhone());
                 throw new AppBadException("phone exists");
             }
         }
@@ -143,36 +149,40 @@ public class AuthService {
         LocalDateTime to = LocalDateTime.now();
         Optional<ProfileEntity> byPhone = profileRepository.findByPhone(phone);
         if (byPhone.isEmpty()) {
+            log.warn("phone not fount{}", phone);
             throw new AppBadException("phone not fount");
         }
         if (!byPhone.get().getStatus().equals(ProfileStatus.REGISTRATION)) {
+            log.warn("Profile in wrong status");
             throw new AppBadException("Profile in wrong status");
         }
         Optional<SmsHistoryEntity> checkCode = smsHistoryRepository.getPhoneAndCode(phone, code, from, to);
         if (checkCode.isEmpty()) {
+            log.warn("error, please try again!");
             throw new AppBadException("error, please try again!");
         }
-        profileRepository.updateStatusActive(phone,ProfileStatus.ACTIVE);
+        profileRepository.updateStatusActive(phone, ProfileStatus.ACTIVE);
         ProfileEntity profileEntity = byPhone.get();
-        saveHistory(phone,code,ProfileStatus.ACTIVE);
-        ProfileDTO dto=new ProfileDTO();
+        saveHistory(phone, code, ProfileStatus.ACTIVE);
+        ProfileDTO dto = new ProfileDTO();
         dto.setRole(profileEntity.getRole());
         dto.setName(profileEntity.getName());
         dto.setSurname(profileEntity.getSurname());
-        dto.setJwt(JWTUtil.encode(profileEntity.getId(),profileEntity.getRole()));
+        dto.setJwt(JWTUtil.encode(profileEntity.getId(), profileEntity.getRole()));
         return dto;
     }
 
     public String emailVerification(String jwt) {
         try {
             JwtDTO jwtDTO = JWTUtil.decode(jwt);
-
             Optional<ProfileEntity> optional = profileRepository.findById(jwtDTO.getId());
             if (optional.isEmpty()) {
+                log.warn("Profile not found");
                 throw new AppBadException("Profile not found");
             }
             ProfileEntity entity = optional.get();
             if (!entity.getStatus().equals(ProfileStatus.REGISTRATION)) {
+                log.warn("Profile in wrong status");
                 throw new AppBadException("Profile in wrong status");
             }
             profileRepository.updateStatus(entity.getId(), ProfileStatus.ACTIVE);
@@ -184,11 +194,13 @@ public class AuthService {
 
 
         } catch (JwtException e) {
+            log.warn("Please tyre again.");
             throw new AppBadException("Please tyre again.");
         }
         return "Success";
     }
-    public void saveHistory(String phone, String code,ProfileStatus profileStatus) {
+
+    public void saveHistory(String phone, String code, ProfileStatus profileStatus) {
         SmsHistoryEntity entity = new SmsHistoryEntity();
         entity.setStatus(profileStatus);
         entity.setPhone(phone);

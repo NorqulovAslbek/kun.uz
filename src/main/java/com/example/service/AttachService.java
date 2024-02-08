@@ -1,4 +1,6 @@
 package com.example.service;
+
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 
@@ -26,6 +28,7 @@ import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.util.*;
 
+@Slf4j
 @Service
 public class AttachService {
     @Autowired
@@ -45,6 +48,7 @@ public class AttachService {
             Files.write(path, bytes);
             return file.getOriginalFilename();
         } catch (IOException e) {
+            log.warn("saved attach{}", file);
             e.printStackTrace();
         }
         return null;
@@ -52,6 +56,7 @@ public class AttachService {
 
     AttachEntity get(String id) {
         return attachRepository.findById(id).orElseThrow(() -> {
+            log.warn("file not fount{}", id);
             throw new AppBadException("File not found");
         });
     }
@@ -85,6 +90,7 @@ public class AttachService {
 
             return toDTO(entity);
         } catch (IOException e) {
+            log.warn("file saved {}", file);
             e.printStackTrace();
         }
         return null;
@@ -99,6 +105,7 @@ public class AttachService {
             data = Files.readAllBytes(file);
             return data;
         } catch (IOException e) {
+            log.warn("get attach by id{}", attachId);
             e.printStackTrace();
         }
         return new byte[0];
@@ -131,6 +138,7 @@ public class AttachService {
             data = Files.readAllBytes(file);
             return data;
         } catch (IOException e) {
+            log.warn("get attach{}",fileName);
             e.printStackTrace();
         }
         return new byte[0];
@@ -139,17 +147,14 @@ public class AttachService {
     public ResponseEntity download(String attachId) {
         try {
             String id = attachId.substring(0, attachId.lastIndexOf("."));
-
             AttachEntity entity = get(id);
-
             Path file = Paths.get("uploads/" + entity.getPath() + "/" + attachId);
-
             Resource resource = new UrlResource(file.toUri());
-
             if (resource.exists() || resource.isReadable()) {
                 return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION,
                         "attachment; filename=\"" + entity.getOriginalName() + "\"").body(resource);
             } else {
+                log.warn("download attach by id {}",attachId);
                 throw new RuntimeException("Could not read the file!");
             }
         } catch (MalformedURLException e) {
@@ -172,23 +177,20 @@ public class AttachService {
     public Boolean delete(String uuid) {
         Optional<AttachEntity> optional = attachRepository.findById(uuid);
         if (optional.isEmpty()) {
+            log.warn("delete attach by id {}",uuid);
             throw new AppBadException("not fount");
         }
         AttachEntity entity = optional.get();
         File file = new File(String.valueOf(Path.of("uploads" + "/" + entity.getPath() + "/" + entity.getId() + "." + entity.getExtension())));
         file.delete();
         attachRepository.delete(entity);
-
         return true;
-
-
     }
 
     public String getYmDString() {
         int year = Calendar.getInstance().get(Calendar.YEAR);
         int month = Calendar.getInstance().get(Calendar.MONTH) + 1;
         int day = Calendar.getInstance().get(Calendar.DATE);
-
         return year + "/" + month + "/" + day; // 2024/4/23
     }
 

@@ -1,10 +1,9 @@
 package com.example.service;
 
-import com.example.dto.SmsHistoryDTO;
 import com.example.entity.SmsHistoryEntity;
 import com.example.enums.ProfileStatus;
-import com.example.exp.AppBadException;
 import com.example.repository.SmsHistoryRepository;
+import lombok.extern.slf4j.Slf4j;
 import okhttp3.*;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
-import java.util.LinkedList;
-import java.util.List;
-
+@Slf4j
 @Service
 public class SmsServerService {
 
@@ -46,7 +43,6 @@ public class SmsServerService {
 
     public String getTokenWithAuthorization() {
         OkHttpClient client = new OkHttpClient();
-
         RequestBody body = new MultipartBody.Builder().setType(MultipartBody.FORM)
                 .addFormDataPart("email", email)
                 .addFormDataPart("password", password)
@@ -60,6 +56,7 @@ public class SmsServerService {
         try {
             response = client.newCall(request).execute();
             if (!response.isSuccessful()) {
+                log.warn("connection error");
                 throw new IOException();
             } else {
                 JSONObject object = new JSONObject(response.body().string());
@@ -68,6 +65,7 @@ public class SmsServerService {
                 return token.toString();
             }
         } catch (IOException e) {
+            log.warn("error in token");
             e.printStackTrace();
             throw new RuntimeException();
         }
@@ -76,9 +74,7 @@ public class SmsServerService {
 
     public void sendSmsHTTP(String phone, String text) {
         String token = "Bearer " + getTokenWithAuthorization();
-
         OkHttpClient client = new OkHttpClient();
-
         if (phone.startsWith("+")) {
             phone = phone.substring(1);
         }
@@ -106,6 +102,7 @@ public class SmsServerService {
                     System.out.println(response);
                 }
             } catch (IOException e) {
+                log.warn("connection error");
                 e.printStackTrace();
             }
         });

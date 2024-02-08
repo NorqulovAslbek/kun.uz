@@ -45,6 +45,11 @@ public class SecuredFilterConfig {
 
         bean.addUrlPatterns("/attach/delete/*");
 
+        bean.addUrlPatterns("/article/*");
+        bean.addUrlPatterns("/article/{id}");
+        bean.addUrlPatterns("/article/typeId/{id}");
+        bean.addUrlPatterns("/article/articleId");
+
         return bean;
     }
 

@@ -94,7 +94,7 @@
     1. CREATE (Moderator) status(NotPublished)
         (title,description,content,image_id, region_id,category_id, articleType(array))
     2. Update (Moderator (status to not publish)) (remove old image)
-        (title,description,content,shared_count,image_id, region_id,category_id)
+        (title,description,content,"shared_count",image_id, region_id,category_id, articleType(array))
     3. Delete Article (MODERATOR)
     4. Change status by id (PUBLISHER) (publish,not_publish)
     5. Get Last 5 Article By Types  ordered_by_created_date

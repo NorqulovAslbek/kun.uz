@@ -1,0 +1,57 @@
+### create article
+POST localhost:8080/article
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc0MDI1MjgsImlkIjo1LCJyb2xlIjoiTU9ERVJBVE9SIiwiZXhwIjoxNzA3NDg4OTI4LCJpc3MiOiJLdW5VelRlc3QifQ.2TH3bI7mYY1E6mg0ZMz0681PPW6yyz7EKqtQtPS5T9ZQpzOWgLso7WpR3mqxFibJ1vnr8aBdVztiFLnWYaH-hA
+
+{
+  "title": "Kunuz5",
+  "description": "ssssss",
+  "content": "aaaaaa",
+  "categoryId": 1,
+  "imageId": "9a0bab83-7952-4e47-9f3c-a93db5c59d92",
+  "regionId": 1,
+  "articleType": [1,2,3,4]
+}
+
+### Update newArticleType
+PUT localhost:8080/article/c464197c-1335-49dc-a8b5-6051b6892ee4
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc0MDI1MjgsImlkIjo1LCJyb2xlIjoiTU9ERVJBVE9SIiwiZXhwIjoxNzA3NDg4OTI4LCJpc3MiOiJLdW5VelRlc3QifQ.2TH3bI7mYY1E6mg0ZMz0681PPW6yyz7EKqtQtPS5T9ZQpzOWgLso7WpR3mqxFibJ1vnr8aBdVztiFLnWYaH-hA
+
+
+{
+  "title": "S3",
+  "description": "s3",
+  "content": "s2",
+  "categoryId": 1,
+  "imageId": "9a0bab83-7952-4e47-9f3c-a93db5c59d92",
+  "regionId": 1,
+  "articleType": [7,8]
+}
+
+#### Delete article
+DELETE localhost:8080/article/887f2098-baa9-42e5-b445-a31e33e07613
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDcyMjk1NTksImlkIjoyLCJyb2xlIjoiTU9ERVJBVE9SIiwiZXhwIjoxNzA3MzE1OTU5LCJpc3MiOiJLdW5VelRlc3QifQ.NryetG5xn6S8MdfssA9QoKWRsCjpp6nsFZxKMCR4Tj6EuteYiuc039vKGBvfCi6iCM4SKFO6SBOGz6Lp_G7kNg
+
+### Article update status
+GET localhost:8080/article/c6d9d03a-6449-4092-a877-a3127599d8c5
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDcyOTU4MzIsImlkIjo0LCJyb2xlIjoiTU9ERVJBVE9SIiwiZXhwIjoxNzA3MzgyMjMyLCJpc3MiOiJLdW5VelRlc3QifQ.jgqokWsOu2vqj1eQNS3fZnT9aQTTrIoLTSGwPi6qSxAaAMJUd8o6q9MJLsJNhfRo58izwMfFTruptftP8Cuevw
+
+
+### Get Last 5 Article By ArticleType id  ordered_by_created_date
+GET localhost:8080/article/typeId/id?id=1&size=6
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDcyOTU4MzIsImlkIjo0LCJyb2xlIjoiTU9ERVJBVE9SIiwiZXhwIjoxNzA3MzgyMjMyLCJpc3MiOiJLdW5VelRlc3QifQ.jgqokWsOu2vqj1eQNS3fZnT9aQTTrIoLTSGwPi6qSxAaAMJUd8o6q9MJLsJNhfRo58izwMfFTruptftP8Cuevw
+
+### Get By Id Not Included Last 8 Articles
+POST localhost:8080/article/articles
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDcyOTU4MzIsImlkIjo0LCJyb2xlIjoiTU9ERVJBVE9SIiwiZXhwIjoxNzA3MzgyMjMyLCJpc3MiOiJLdW5VelRlc3QifQ.jgqokWsOu2vqj1eQNS3fZnT9aQTTrIoLTSGwPi6qSxAaAMJUd8o6q9MJLsJNhfRo58izwMfFTruptftP8Cuevw
+
+{
+  "articleId": ["ab02c8fa-8f3f-4eef-904e-9bfb22428a1a","579ea9f0-e737-4da7-9e18-17c5f6f5d312"]
+}
+
+### Get Last 4 Article By Types and except given article id.
+GET localhost:8080/article/articleId?arTyId=1&articleId=ab02c8fa-8f3f-4eef-904e-9bfb22428a1a
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDcyOTU4MzIsImlkIjo0LCJyb2xlIjoiTU9ERVJBVE9SIiwiZXhwIjoxNzA3MzgyMjMyLCJpc3MiOiJLdW5VelRlc3QifQ.jgqokWsOu2vqj1eQNS3fZnT9aQTTrIoLTSGwPi6qSxAaAMJUd8o6q9MJLsJNhfRo58izwMfFTruptftP8Cuevw
+
