@@ -202,11 +202,11 @@ public class AttachService {
     public AttachDTO toDTO(AttachEntity entity) {
         AttachDTO dto = new AttachDTO();
         dto.setId(entity.getId());
-        dto.setPath(entity.getPath());
-        dto.setExtension(entity.getExtension());
-        dto.setSize(entity.getSize());
-        dto.setCreatedData(entity.getCreatedData());
         dto.setUrl(serverUrl + "/attach/" + entity.getId() + "." + entity.getExtension());
+//        dto.setPath(entity.getPath());
+//        dto.setExtension(entity.getExtension());
+//        dto.setSize(entity.getSize());
+//        dto.setCreatedData(entity.getCreatedData());
         return dto;
     }
 }

@@ -1,7 +1,7 @@
 ###Post
 POST localhost:8080/region/adm
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDcyMzQyMTYsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDczMjA2MTYsImlzcyI6Ikt1blV6VGVzdCJ9.MhRNIqD3vm7DVEgNRp6jRVOFJBuMxTutKNMqZ_ph3IYqOVDKO-50njA15TsrLfpYd0qZMsW1aXD7NVLAfvnWiw
+Authorization: Basic dXNlcjplOWUwMDM2Zi0xZjY3LTQ1YzItYmQ3ZC1jMTI1MTEyNzE5Y2Q=
 
 {
   "name_en": "Uzb",
@@ -13,7 +13,7 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDcyMzQyMTYsImlkIjoxLCJyb
 ### Update region by id
 PUT localhost:8080/region/update/adm?id=13
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDY0MzQyMzYsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDY1MjA2MzYsImlzcyI6Ikt1blV6VGVzdCJ9.8cwhfDhPNJH0rrFhnIHEHdfUnRiPNA7Qx1UGlvNBKsvS_KCAwMMYynpRtqrYK1YtbkNxFzdJs97X7kevpCEybQ
+Authorization: Basic dXNlcjplOWUwMDM2Zi0xZjY3LTQ1YzItYmQ3ZC1jMTI1MTEyNzE5Y2Q=
 
 {
   "name_ru": "Bukhara",
@@ -28,7 +28,7 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDY0MzQyMzYsImlkIjoxLCJyb
 
 ### Get all
 GET localhost:8080/region/adm
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDY0MzQyMzYsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDY1MjA2MzYsImlzcyI6Ikt1blV6VGVzdCJ9.8cwhfDhPNJH0rrFhnIHEHdfUnRiPNA7Qx1UGlvNBKsvS_KCAwMMYynpRtqrYK1YtbkNxFzdJs97X7kevpCEybQ
+Authorization: Basic dXNlcjoxM2Q1OGMxNS1lMGExLTQ1ZTAtODU0OS1kNmQ4MjBlY2U3MDI=
 
 ### get by lang
 GET localhost:8080/region/lang?lang=EN

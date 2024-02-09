@@ -53,7 +53,7 @@ public class RegionController {
     @GetMapping("/adm")
     public ResponseEntity<List<RegionDTO>> getAll(HttpServletRequest request) {
         log.info("get all region");
-        HttpRequestUtil.getProfileId(request, ProfileRole.ADMIN);
+//        HttpRequestUtil.getProfileId(request, ProfileRole.ADMIN);
         return ResponseEntity.ok(regionService.getAll());
     }
 

@@ -6,8 +6,8 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc0MDI0ODIsImlkIjoxLCJyb
 {
   "name": "Aslbek",
   "surname": "Norqulov",
-  "phone": "+9989271903567",
-  "email": "xxxxqqqxxдs@gmail.com",
+  "phone": "+99892719033567",
+  "email": "xxxxqqqxxдss@gmail.com",
   "password": "123",
   "status": "ACTIVE",
   "role": "MODERATOR"

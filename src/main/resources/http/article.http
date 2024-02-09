@@ -34,7 +34,7 @@ DELETE localhost:8080/article/887f2098-baa9-42e5-b445-a31e33e07613
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDcyMjk1NTksImlkIjoyLCJyb2xlIjoiTU9ERVJBVE9SIiwiZXhwIjoxNzA3MzE1OTU5LCJpc3MiOiJLdW5VelRlc3QifQ.NryetG5xn6S8MdfssA9QoKWRsCjpp6nsFZxKMCR4Tj6EuteYiuc039vKGBvfCi6iCM4SKFO6SBOGz6Lp_G7kNg
 
 ### Article update status
-GET localhost:8080/article/c6d9d03a-6449-4092-a877-a3127599d8c5
+PUT localhost:8080/article/change/c6d9d03a-6449-4092-a877-a3127599d8c5
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDcyOTU4MzIsImlkIjo0LCJyb2xlIjoiTU9ERVJBVE9SIiwiZXhwIjoxNzA3MzgyMjMyLCJpc3MiOiJLdW5VelRlc3QifQ.jgqokWsOu2vqj1eQNS3fZnT9aQTTrIoLTSGwPi6qSxAaAMJUd8o6q9MJLsJNhfRo58izwMfFTruptftP8Cuevw
 
 
@@ -55,3 +55,30 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDcyOTU4MzIsImlkIjo0LCJyb
 GET localhost:8080/article/articleId?arTyId=1&articleId=ab02c8fa-8f3f-4eef-904e-9bfb22428a1a
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDcyOTU4MzIsImlkIjo0LCJyb2xlIjoiTU9ERVJBVE9SIiwiZXhwIjoxNzA3MzgyMjMyLCJpc3MiOiJLdW5VelRlc3QifQ.jgqokWsOu2vqj1eQNS3fZnT9aQTTrIoLTSGwPi6qSxAaAMJUd8o6q9MJLsJNhfRo58izwMfFTruptftP8Cuevw
 
+###  Get 4 most read articles  ///10
+GET localhost:8080/article/mostReadArticles
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc0NzY4OTksImlkIjo2LCJyb2xlIjoiTU9ERVJBVE9SIiwiZXhwIjoxNzA3NTYzMjk5LCJpc3MiOiJLdW5VelRlc3QifQ.uY-CI3TAqUE8QBu6Gze7d6Zyau8WSLrLtxaIG4uHizqkFNADegOyDwI8GnBM2aepAmTRKdza2RKKJwwbCCs84Q
+
+###  Get Last 5 Article By Types  And By Region Key ///12
+#GET localhost:8080/article/last5Articles?articleTypeId=2&regionId=3
+#Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc0NzY4OTksImlkIjo2LCJyb2xlIjoiTU9ERVJBVE9SIiwiZXhwIjoxNzA3NTYzMjk5LCJpc3MiOiJLdW5VelRlc3QifQ.uY-CI3TAqUE8QBu6Gze7d6Zyau8WSLrLtxaIG4uHizqkFNADegOyDwI8GnBM2aepAmTRKdza2RKKJwwbCCs84Q
+
+### Get Article list by Region Key Pagination   //13
+GET localhost:8080/article/articleListByRegionId?id=1&page=1&size=2
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc0NzY4OTksImlkIjo2LCJyb2xlIjoiTU9ERVJBVE9SIiwiZXhwIjoxNzA3NTYzMjk5LCJpc3MiOiJLdW5VelRlc3QifQ.uY-CI3TAqUE8QBu6Gze7d6Zyau8WSLrLtxaIG4uHizqkFNADegOyDwI8GnBM2aepAmTRKdza2RKKJwwbCCs84Q
+
+### Get Last 5 Article Category Key  ///14
+GET localhost:8080/article/last5ArticleCategoryKeys?id=2
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc0NzY4OTksImlkIjo2LCJyb2xlIjoiTU9ERVJBVE9SIiwiZXhwIjoxNzA3NTYzMjk5LCJpc3MiOiJLdW5VelRlc3QifQ.uY-CI3TAqUE8QBu6Gze7d6Zyau8WSLrLtxaIG4uHizqkFNADegOyDwI8GnBM2aepAmTRKdza2RKKJwwbCCs84Q
+
+### Get Article By Category Key (Pagination)  //15
+GET localhost:8080/article/articlesByCategory?categoryKey=1&page=1&size=2
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc0NzY4OTksImlkIjo2LCJyb2xlIjoiTU9ERVJBVE9SIiwiZXhwIjoxNzA3NTYzMjk5LCJpc3MiOiJLdW5VelRlc3QifQ.uY-CI3TAqUE8QBu6Gze7d6Zyau8WSLrLtxaIG4uHizqkFNADegOyDwI8GnBM2aepAmTRKdza2RKKJwwbCCs84Q
+
+### Increase Article View Count by Article Id  ///16
+PUT localhost:8080/article/IncreaseArticle/c6d9d03a-6449-4092-a877-a3127599d8c5
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc0NzY4OTksImlkIjo2LCJyb2xlIjoiTU9ERVJBVE9SIiwiZXhwIjoxNzA3NTYzMjk5LCJpc3MiOiJLdW5VelRlc3QifQ.uY-CI3TAqUE8QBu6Gze7d6Zyau8WSLrLtxaIG4uHizqkFNADegOyDwI8GnBM2aepAmTRKdza2RKKJwwbCCs84Q
+
+### Increase Share View Count by Article Id  ///17
+PUT localhost:8080/article/IncreaseShare/c6d9d03a-6449-4092-a877-a3127599d8c5
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc0NzY4OTksImlkIjo2LCJyb2xlIjoiTU9ERVJBVE9SIiwiZXhwIjoxNzA3NTYzMjk5LCJpc3MiOiJLdW5VelRlc3QifQ.uY-CI3TAqUE8QBu6Gze7d6Zyau8WSLrLtxaIG4uHizqkFNADegOyDwI8GnBM2aepAmTRKdza2RKKJwwbCCs84Q

@@ -1,8 +1,6 @@
 package com.example.controller;
 
-import com.example.dto.ArticleDTO;
-import com.example.dto.CreateArticleDTO;
-import com.example.dto.CreateArticleIdListDTO;
+import com.example.dto.*;
 import com.example.enums.ProfileRole;
 import com.example.service.ArticleService;
 import com.example.util.HttpRequestUtil;
@@ -51,7 +49,7 @@ public class ArticleController {
     }
 
     @Operation(summary = "Api for changeStatusById", description = "this api used for change status by id article")
-    @GetMapping("/{id}")
+    @PutMapping("change/{id}")
     public ResponseEntity<?> changeStatusById(@PathVariable("id") String id, HttpServletRequest request) {
         log.info("get article by id {}", id);
         HttpRequestUtil.getProfileId(request, ProfileRole.PUBLISHER);
@@ -65,16 +63,51 @@ public class ArticleController {
         return ResponseEntity.ok(articleService.getLastFiveArticleByTypes(id, size));
     }
 
+
     @Operation(summary = "Api for getLast8ArticlesNotIncludedInList", description = "Returns the last 8 articles whose ids are not included in the provided list")
     @PostMapping("/articles")
-    public ResponseEntity<List<ArticleDTO>> getLast8ArticlesNotIncludedInList(@RequestBody CreateArticleIdListDTO listDTO) {
+    public ResponseEntity<List<ArticleFullInfoDTO>> getLast8ArticlesNotIncludedInList(@RequestBody CreateArticleIdListDTO listDTO) {
         return ResponseEntity.ok(articleService.getLast8ArticlesNotIncludedInList(listDTO.getArticleId()));
     }
 
     @Operation(summary = "Api for getLast4ArticlesByTypesExceptGivenId", description = "Returns the last 4 articles of specified type excluding the given article id")
     @GetMapping("/articleId")
-    public ResponseEntity<List<ArticleDTO>> getLast4ArticlesByTypesExceptGivenId(@RequestParam String articleId, @RequestParam Integer arTyId) {
+    public ResponseEntity<List<ArticleFullInfoDTO>> getLast4ArticlesByTypesExceptGivenId(@RequestParam String articleId, @RequestParam Integer arTyId) {
         return ResponseEntity.ok(articleService.getLast4ArticlesByTypesExceptGivenId(articleId, arTyId));
     }
+
+
+    @GetMapping("/mostReadArticles") //10
+    public ResponseEntity<?> getMostReadArticles() {
+        return ResponseEntity.ok(articleService.getMostReadArticles());
+    }
+
+    @GetMapping("/articleListByRegionId") //13
+    public ResponseEntity<?> getArticleListByRegionId(@RequestParam Integer id,@RequestParam Integer page,@RequestParam Integer size) {
+        return ResponseEntity.ok(articleService.getArticleListByRegionId(id,page,size));
+    }
+
+    @GetMapping("/last5ArticleCategoryKeys") //14
+    public ResponseEntity<?> getLast5ArticleCategoryKey(@RequestParam Integer id) {
+        return ResponseEntity.ok(articleService.getLast5ArticleCategoryKey(id));
+    }
+    @GetMapping("/articlesByCategory")  //15
+    public ResponseEntity<?> getArticlesByCategoryKey(
+            @RequestParam("categoryKey") Integer categoryID,
+            @RequestParam(value = "page", defaultValue = "0") int page,
+            @RequestParam(value = "size", defaultValue = "10") int size) {
+        return ResponseEntity.ok(articleService.getArticlesByCategoryKey( categoryID,page,size));
+    }
+
+    @PutMapping("/IncreaseArticle/{id}")  ///16
+    public ResponseEntity<?> IncreaseArticleViewCount(@PathVariable("id") String id) {
+        return ResponseEntity.ok(articleService.IncreaseArticleViewCount(id));
+    }
+
+    @PutMapping("/IncreaseShare/{id}") ///17
+    public ResponseEntity<?> IncreaseShareViewCount(@PathVariable("id") String id) {
+        return ResponseEntity.ok(articleService.IncreaseShareViewCount(id));
+    }
+
 
 }

@@ -53,5 +53,4 @@ public class SecuredFilterConfig {
         return bean;
     }
 
-
 }
