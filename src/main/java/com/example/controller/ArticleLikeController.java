@@ -6,10 +6,7 @@ import com.example.util.HttpRequestUtil;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/articleLike")
@@ -28,7 +25,7 @@ public class ArticleLikeController {
         return ResponseEntity.ok(articleLikeService.articleClickDislike(id, profileId));
     }
 
-    @PostMapping("/remove/{id}")
+    @PutMapping("/remove/{id}")
     public ResponseEntity<?> articleLikeOrDislikeRemove(@PathVariable String id, HttpServletRequest request) {
         Integer profileId = HttpRequestUtil.getProfileId(request, ProfileRole.MODERATOR,ProfileRole.USER,ProfileRole.ADMIN);
         return ResponseEntity.ok(articleLikeService.articleLikeOrDislikeRemove(id, profileId));

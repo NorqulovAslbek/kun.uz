@@ -54,6 +54,11 @@ public class SecuredFilterConfig {
         bean.addUrlPatterns("/articleLike/dislike/*");
         bean.addUrlPatterns("/articleLike/remove/*");
 
+        bean.addUrlPatterns("/commentLike/like/*");
+        bean.addUrlPatterns("/commentLike/dislike/*");
+        bean.addUrlPatterns("/commentLike/remove/*");
+
+
 
         return bean;
     }
