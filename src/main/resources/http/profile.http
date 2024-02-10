@@ -1,16 +1,16 @@
 ### Post profile
 POST localhost:8080/profile/adm
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc0MDI0ODIsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDc0ODg4ODIsImlzcyI6Ikt1blV6VGVzdCJ9.cBSZGUDZFPrrn3p2REat4X0mCbxmTpG-C8FDdXBvrCvtE66EF1DflOfsO0lKIyeg4qxW-vPWhXxpqg5wEow5ZQ
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc1NjYzMzUsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDc2NTI3MzUsImlzcyI6Ikt1blV6VGVzdCJ9.0zGw9r6JwExADazjP2GHBpuccdperIdpiz2nqDU7RPmF1JtsOBzKnDTXRepZPByWNJsiV1tmabClIZ5bF7ErDQ
 
 {
   "name": "Aslbek",
   "surname": "Norqulov",
-  "phone": "+99892719033567",
-  "email": "xxxxqqqxxдss@gmail.com",
+  "phone": "+998369920747",
+  "email": "xxxxsps@gmail.com",
   "password": "123",
   "status": "ACTIVE",
-  "role": "MODERATOR"
+  "role": "ADMIN"
 }
 
 ### Update profile Admin

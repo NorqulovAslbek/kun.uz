@@ -66,16 +66,16 @@ public class JWTUtil {
 
 
 
-//    public static Boolean checkRole(String jwt) {
-//        JwtDTO jwtDTO = JWTUtil.decode(jwt);
-//        return jwtDTO.getRole().equals(ProfileRole.ADMIN);
-//    }
-//    public static Boolean checkRoleProfile(String jwt,Integer id) {
-//        JwtDTO jwtDTO = JWTUtil.decode(jwt);
-//        return jwtDTO.getRole().equals(ProfileRole.USER) && jwtDTO.getId().equals(id) ||
-//                jwtDTO.getRole().equals(ProfileRole.MODERATOR) && jwtDTO.getId().equals(id) ||
-//                jwtDTO.getRole().equals(ProfileRole.PUBLISHER) && jwtDTO.getId().equals(id);
-//    }
+    public static Boolean checkRole(String jwt) {
+        JwtDTO jwtDTO = JWTUtil.decode(jwt);
+        return jwtDTO.getRole().equals(ProfileRole.ADMIN);
+    }
+    public static Boolean checkRoleProfile(String jwt,Integer id) {
+        JwtDTO jwtDTO = JWTUtil.decode(jwt);
+        return jwtDTO.getRole().equals(ProfileRole.USER) && jwtDTO.getId().equals(id) ||
+                jwtDTO.getRole().equals(ProfileRole.MODERATOR) && jwtDTO.getId().equals(id) ||
+                jwtDTO.getRole().equals(ProfileRole.PUBLISHER) && jwtDTO.getId().equals(id);
+    }
 
 
 }

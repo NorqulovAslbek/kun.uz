@@ -216,7 +216,7 @@ public class ArticleService {
     }
 
 
-    private ArticleEntity get(String id) {
+    public ArticleEntity get(String id) {
         return articleRepository.findArticleEntity(id).orElseThrow(() -> {
             log.warn("get by id article {}", id);
             return new AppBadException("Article not found");
@@ -225,7 +225,7 @@ public class ArticleService {
     }
 
 
-    private static ArticleEntity getArticleEntity(CreateArticleDTO dto, Integer moderatorId) {
+    private  ArticleEntity getArticleEntity(CreateArticleDTO dto, Integer moderatorId) {
         ArticleEntity entity = new ArticleEntity();
         entity.setTitle(dto.getTitle());
         entity.setDescription(dto.getDescription());

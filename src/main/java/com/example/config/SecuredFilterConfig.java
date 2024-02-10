@@ -50,6 +50,11 @@ public class SecuredFilterConfig {
         bean.addUrlPatterns("/article/typeId/{id}");
         bean.addUrlPatterns("/article/articleId");
 
+        bean.addUrlPatterns("/articleLike/like/*");
+        bean.addUrlPatterns("/articleLike/dislike/*");
+        bean.addUrlPatterns("/articleLike/remove/*");
+
+
         return bean;
     }
 

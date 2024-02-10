@@ -1,7 +1,7 @@
 ### create
 POST localhost:8080/category/adm
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDcyMzQ0NTMsImlkIjoyLCJyb2xlIjoiTU9ERVJBVE9SIiwiZXhwIjoxNzA3MzIwODUzLCJpc3MiOiJLdW5VelRlc3QifQ.ByToaqyQvFy8VqTx7FZR2iUa6xQSHs5FGGsuCDmbGRViMWJ2q-CPv_GgxWUSQ7_iCJ-dvhfWqhs2RWfdYcMXeQ
+Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc1NzA0NDcsImlkIjoxMSwicm9sZSI6Ik1PREVSQVRPUiIsImV4cCI6MTcwNzY1Njg0NywiaXNzIjoiS3VuVXpUZXN0In0.OsuPY5QsyDu37Fpr2nRm4CU987wXxNS5Sbg2X-cScy1x9VRZ-Frl9KLipXNVz2mfdhMlp5vLuDTUgLpgQ8k5BA
 
 {
   "name_en": "Uzbekistan",
@@ -11,9 +11,9 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDcyMzQ0NTMsImlkIjoyLCJyb
 }
 
 ###Update
-PUT localhost:8080/category/adm/3
+PUT localhost:8080/category/adm/1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDY0MzQyMzYsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDY1MjA2MzYsImlzcyI6Ikt1blV6VGVzdCJ9.8cwhfDhPNJH0rrFhnIHEHdfUnRiPNA7Qx1UGlvNBKsvS_KCAwMMYynpRtqrYK1YtbkNxFzdJs97X7kevpCEybQ
+Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc1NzUxMDgsImlkIjoxNCwicm9sZSI6IkFETUlOIiwiZXhwIjoxNzA3NjYxNTA4LCJpc3MiOiJLdW5VelRlc3QifQ.HrZO3mbyElg1vRDZcI7q0BG7TFmjEiOnfj8IqjwqdvVE7M2mF2qhWNf12XAP5AV7hS4Wn4q0a3Dio7nFzs-6eg
 
 {
   "order_number": 1
