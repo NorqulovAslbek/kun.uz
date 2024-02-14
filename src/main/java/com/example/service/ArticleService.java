@@ -5,6 +5,8 @@ import com.example.entity.*;
 import com.example.enums.ArticleStatus;
 import com.example.exp.AppBadException;
 import com.example.repository.*;
+import com.example.util.SpringSecurityUtil;
+import io.jsonwebtoken.Jwts;
 import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
@@ -69,6 +72,9 @@ public class ArticleService {
 
     public ArticleShortInfoDTO update(String id) {
         ArticleEntity entity = get(id);
+        entity.setPublishedDate(LocalDateTime.now());
+        Integer publisherId = SpringSecurityUtil.getCurrentUser().getId();
+        entity.setPublisherId(publisherId);
         entity.setStatus(ArticleStatus.PUBLISHER);
         articleRepository.save(entity);
         return getShortArticleDTO(entity);
@@ -78,7 +84,11 @@ public class ArticleService {
         List<String> newArticleIdList = newArticleTypeRepository.getArticleId(articleTypeId, size);
         List<ArticleShortInfoDTO> list = new LinkedList<>();
         for (String articleId : newArticleIdList) {
-            list.add(getShortArticleDTO(articleRepository.getById(articleId)));
+            ArticleEntity articleEntity = articleRepository.getById(articleId);
+            if (articleEntity.getStatus().equals(ArticleStatus.PUBLISHER)) {
+                list.add(getShortArticleDTO(articleEntity));
+            }
+
         }
         return list;
     }
@@ -96,11 +106,11 @@ public class ArticleService {
                 }
             }
             if (count == 0 && entity.getStatus().equals(ArticleStatus.PUBLISHER)) {
-                list.add(getFullArticleDTO(entity));     //////////////////////////
+                list.add(getFullArticleDTO(entity));
             }
             if (list.size() == 8) return list;
         }
-        return null;
+        return list;
     }
 
 
@@ -108,7 +118,10 @@ public class ArticleService {
         List<String> articleList = newArticleTypeRepository.getArticleId(aId, articleTypeId);
         List<ArticleFullInfoDTO> list = new LinkedList<>();
         for (String articleId : articleList) {
-            list.add(getFullArticleDTO(articleRepository.getById(articleId)));      ////////////////////////////
+            ArticleEntity articleEntity = articleRepository.getById(articleId);
+            if (articleEntity.getStatus().equals(ArticleStatus.PUBLISHER)) {
+                list.add(getFullArticleDTO(articleEntity));
+            }
         }
         return list;
     }
@@ -161,17 +174,19 @@ public class ArticleService {
         dto.setPublishedDate(entity.getPublishedDate());
         return dto;
     }
+
     public List<ArticleShortInfoDTO> getMostReadArticles() {
         List<ArticleEntity> mostReadArticles = articleRepository.getMostReadArticles();
-        List<ArticleShortInfoDTO> list=new LinkedList<>();
+        List<ArticleShortInfoDTO> list = new LinkedList<>();
         for (ArticleEntity mostReadArticle : mostReadArticles) {
             list.add(getShortArticleDTO(mostReadArticle));
         }
         return list;
     }
+
     public PageImpl<ArticleShortInfoDTO> getArticleListByRegionId(Integer id, Integer page, Integer size) {
         Pageable pageable = PageRequest.of(page - 1, size);
-        Page<ArticleEntity> all = articleRepository.getArticleListByRegionId(pageable,id);
+        Page<ArticleEntity> all = articleRepository.getArticleListByRegionId(pageable, id);
         return getArticleShortInfoDTOS(pageable, all);
     }
 
@@ -183,9 +198,10 @@ public class ArticleService {
         }
         return list;
     }
+
     public PageImpl<ArticleShortInfoDTO> getArticlesByCategoryKey(Integer categoryID, int page, int size) {
         Pageable pageable = PageRequest.of(page - 1, size);
-        Page<ArticleEntity> all = articleRepository.getArticlesByCategoryKey(pageable,categoryID);
+        Page<ArticleEntity> all = articleRepository.getArticlesByCategoryKey(pageable, categoryID);
         return getArticleShortInfoDTOS(pageable, all);
     }
 
@@ -202,13 +218,20 @@ public class ArticleService {
 
     public Integer IncreaseArticleViewCount(String id) {
         ArticleEntity entity = get(id);
+        if (entity.getStatus().equals(ArticleStatus.NOT_PUBLISHER)) {
+            throw new AppBadException("not fount article");
+        }
         int viewCount = entity.getViewCount() + 1;
         entity.setViewCount(viewCount);
         articleRepository.save(entity);
         return viewCount;
     }
+
     public Integer IncreaseShareViewCount(String id) {
         ArticleEntity entity = get(id);
+        if (entity.getStatus().equals(ArticleStatus.NOT_PUBLISHER)) {
+            throw new AppBadException("not fount article");
+        }
         int shareCount = entity.getSharedCount() + 1;
         entity.setSharedCount(shareCount);
         articleRepository.save(entity);
@@ -225,7 +248,7 @@ public class ArticleService {
     }
 
 
-    private  ArticleEntity getArticleEntity(CreateArticleDTO dto, Integer moderatorId) {
+    private ArticleEntity getArticleEntity(CreateArticleDTO dto, Integer moderatorId) {
         ArticleEntity entity = new ArticleEntity();
         entity.setTitle(dto.getTitle());
         entity.setDescription(dto.getDescription());

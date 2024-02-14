@@ -1,35 +1,35 @@
-###Post
+###Post region --> Admin regionlarni create qilish uchun
 POST localhost:8080/region/adm
 Content-Type: application/json
-Authorization: Basic dXNlcjplOWUwMDM2Zi0xZjY3LTQ1YzItYmQ3ZC1jMTI1MTEyNzE5Y2Q=
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc4MjcxODcsImVtYWlsIjoiYWRtaW5AbWFpbC5ydSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzA3OTEzNTg3LCJpc3MiOiJLdW5VelRlc3QifQ.4otLLgk3U5mvGiJwSBfjUqiTt4e4BmcYlDytyc6Ku5awRByZSBUehv8SleL0DCOFaJ9febbVn5fAz2uxpmVtlQ
 
 {
-  "name_en": "Uzb",
-  "name_uz": "O'z",
-  "name_ru": "Уз",
-  "order_number": 1
+  "name_en": "CHINA",
+  "name_uz": "HITOY",
+  "name_ru": "КИТАЙ",
+  "order_number": 4
 }
 
-### Update region by id
-PUT localhost:8080/region/update/adm?id=13
+### Update region by id --> Admin regionlarni update qilish uchun
+PUT localhost:8080/region/adm/update/1
 Content-Type: application/json
-Authorization: Basic dXNlcjplOWUwMDM2Zi0xZjY3LTQ1YzItYmQ3ZC1jMTI1MTEyNzE5Y2Q=
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc4MjcxODcsImVtYWlsIjoiYWRtaW5AbWFpbC5ydSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzA3OTEzNTg3LCJpc3MiOiJLdW5VelRlc3QifQ.4otLLgk3U5mvGiJwSBfjUqiTt4e4BmcYlDytyc6Ku5awRByZSBUehv8SleL0DCOFaJ9febbVn5fAz2uxpmVtlQ
 
 {
-  "name_ru": "Bukhara",
-  "name_uz": "Buxoro",
-  "name_en": "Bukhara"
+  "name_ru": "Узб",
+  "name_uz": "O'ZB",
+  "name_en": "UZB"
 }
 
-### Delete by id
-DELETE localhost:8080/region/adm/delete?id=3
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDY0MzQyMzYsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDY1MjA2MzYsImlzcyI6Ikt1blV6VGVzdCJ9.8cwhfDhPNJH0rrFhnIHEHdfUnRiPNA7Qx1UGlvNBKsvS_KCAwMMYynpRtqrYK1YtbkNxFzdJs97X7kevpCEybQ
+### Delete by id --> ADMIN bu regionni id bo'yicha o'chirish uchun.
+DELETE localhost:8080/region/adm/delete?id=4
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc4MjcxODcsImVtYWlsIjoiYWRtaW5AbWFpbC5ydSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzA3OTEzNTg3LCJpc3MiOiJLdW5VelRlc3QifQ.4otLLgk3U5mvGiJwSBfjUqiTt4e4BmcYlDytyc6Ku5awRByZSBUehv8SleL0DCOFaJ9febbVn5fAz2uxpmVtlQ
 
 
-### Get all
+### Get all --> ADMIN hamma regionlarni ko'rish uchun
 GET localhost:8080/region/adm
-Authorization: Basic dXNlcjoxM2Q1OGMxNS1lMGExLTQ1ZTAtODU0OS1kNmQ4MjBlY2U3MDI=
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc4MjcxODcsImVtYWlsIjoiYWRtaW5AbWFpbC5ydSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzA3OTEzNTg3LCJpc3MiOiJLdW5VelRlc3QifQ.4otLLgk3U5mvGiJwSBfjUqiTt4e4BmcYlDytyc6Ku5awRByZSBUehv8SleL0DCOFaJ9febbVn5fAz2uxpmVtlQ
 
-### get by lang
+### get by lang -->  hamma regionlarni tili bo'yicha korishi uchun uchun
 GET localhost:8080/region/lang?lang=EN
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDY0MzQyMzYsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDY1MjA2MzYsImlzcyI6Ikt1blV6VGVzdCJ9.8cwhfDhPNJH0rrFhnIHEHdfUnRiPNA7Qx1UGlvNBKsvS_KCAwMMYynpRtqrYK1YtbkNxFzdJs97X7kevpCEybQ
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc4MjcxODcsImVtYWlsIjoiYWRtaW5AbWFpbC5ydSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzA3OTEzNTg3LCJpc3MiOiJLdW5VelRlc3QifQ.4otLLgk3U5mvGiJwSBfjUqiTt4e4BmcYlDytyc6Ku5awRByZSBUehv8SleL0DCOFaJ9febbVn5fAz2uxpmVtlQ

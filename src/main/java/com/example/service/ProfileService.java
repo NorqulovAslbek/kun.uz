@@ -8,6 +8,7 @@ import com.example.exp.AppBadException;
 import com.example.repository.ProfileFilterRepository;
 import com.example.repository.ProfileRepository;
 import com.example.util.JWTUtil;
+import com.example.util.MDUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
@@ -29,7 +30,7 @@ public class ProfileService {
     public ProfileDTO create(ProfileDTO dto) {
         if (profileRepository.findByEmail(dto.getEmail()).isEmpty()) {
             ProfileEntity save = profileRepository.save(toEntity(dto));
-            dto.setJwt(JWTUtil.encode(save.getId(), dto.getRole()));
+            dto.setJwt(JWTUtil.encode(save.getEmail(), dto.getRole()));
             return dto;
         }
         log.warn("A user with this email already exists{}",dto);
@@ -139,7 +140,7 @@ public class ProfileService {
         entity.setSurname(dto.getSurname());
         entity.setEmail(dto.getEmail());
         entity.setPhone(dto.getPhone());
-        entity.setPassword(dto.getPassword());
+        entity.setPassword(MDUtil.encode(dto.getPassword()));
         entity.setRole(dto.getRole());
         entity.setStatus(dto.getStatus());
         return entity;

@@ -1,84 +1,87 @@
-### create article
+### create article(Moderator)
 POST localhost:8080/article
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc0MDI1MjgsImlkIjo1LCJyb2xlIjoiTU9ERVJBVE9SIiwiZXhwIjoxNzA3NDg4OTI4LCJpc3MiOiJLdW5VelRlc3QifQ.2TH3bI7mYY1E6mg0ZMz0681PPW6yyz7EKqtQtPS5T9ZQpzOWgLso7WpR3mqxFibJ1vnr8aBdVztiFLnWYaH-hA
+Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc5MDE2MDEsImVtYWlsIjoiYXNsYmVrbm9ycXVsb3YxMkBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9NT0RFUkFUT1IiLCJleHAiOjE3MDc5ODgwMDEsImlzcyI6Ikt1blV6VGVzdCJ9.g-roBZC2Yo0Mldz4uhUjNAaTCdBMUrY2-hwjL3cR08Ialf0XXU7AA6bZMEDMtkU2WPYd6pf4_ptu_1P558nGSw
 
 {
-  "title": "Kunuz5",
-  "description": "ssssss",
-  "content": "aaaaaa",
-  "categoryId": 1,
-  "imageId": "9a0bab83-7952-4e47-9f3c-a93db5c59d92",
-  "regionId": 1,
-  "articleType": [1,2,3,4]
+  "title": "Qoraqalpog‘istonda bir oilaning 5 a’zosi is gazidan zaharlanib vafot etdi ",
+  "description": "Yana ikki kishi og‘ir ahvolda kasalxonaga yotqizilgan.",
+  "content": "Qoraqalpog‘iston respublikasida bir oilaning besh nafar a’zosi is gazidan vafot etgan. Yana ikki kishi shifoxonaga yotqizilgan",
+  "categoryId": 2,
+  "imageId": "1055746b-e91e-4747-a0a2-297d66279072",
+  "regionId": 2,
+  "articleType": [
+    1,
+    2,
+    3,
+    4
+  ]
 }
 
-### Update newArticleType
-PUT localhost:8080/article/c464197c-1335-49dc-a8b5-6051b6892ee4
+### Update newArticleType(Moderator)
+PUT localhost:8080/article/735c35d3-4f3c-4b2b-8817-00b60718a79d
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc0MDI1MjgsImlkIjo1LCJyb2xlIjoiTU9ERVJBVE9SIiwiZXhwIjoxNzA3NDg4OTI4LCJpc3MiOiJLdW5VelRlc3QifQ.2TH3bI7mYY1E6mg0ZMz0681PPW6yyz7EKqtQtPS5T9ZQpzOWgLso7WpR3mqxFibJ1vnr8aBdVztiFLnWYaH-hA
-
+Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc4Mzc4ODcsImVtYWlsIjoicmFqYWJvbGxhbmF6YXJvdkBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9NT0RFUkFUT1IiLCJleHAiOjE3MDc5MjQyODcsImlzcyI6Ikt1blV6VGVzdCJ9.HgSQ9Yf0OjXQrVjiTeX6cdT4A228m-4WEqyzqikLnW1zkxrISeAjtD5Uut9oLMlsGV_SWWCY5QCBNj-Ku9Ve5g
 
 {
-  "title": "S3",
-  "description": "s3",
-  "content": "s2",
-  "categoryId": 1,
-  "imageId": "9a0bab83-7952-4e47-9f3c-a93db5c59d92",
-  "regionId": 1,
-  "articleType": [7,8]
+  "title": "Qoraqalpog‘istonda bir oilaning 5 a’zosi is gazidan zaharlanib vafot etdi ",
+  "description": "Yana ikki kishi og‘ir ahvolda kasalxonaga yotqizilgan.",
+  "content": "Qoraqalpog‘iston respublikasida bir oilaning besh nafar a’zosi is gazidan vafot etgan. Yana ikki kishi shifoxonaga yotqizilgan",
+  "categoryId": 2,
+  "imageId": "1055746b-e91e-4747-a0a2-297d66279072",
+  "regionId": 2,
+  "articleType": [
+    1,
+    2,
+    3,
+    4
+  ]
 }
 
-#### Delete article
-DELETE localhost:8080/article/887f2098-baa9-42e5-b445-a31e33e07613
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDcyMjk1NTksImlkIjoyLCJyb2xlIjoiTU9ERVJBVE9SIiwiZXhwIjoxNzA3MzE1OTU5LCJpc3MiOiJLdW5VelRlc3QifQ.NryetG5xn6S8MdfssA9QoKWRsCjpp6nsFZxKMCR4Tj6EuteYiuc039vKGBvfCi6iCM4SKFO6SBOGz6Lp_G7kNg
+#### Delete article(Moderator)
+DELETE localhost:8080/article/735c35d3-4f3c-4b2b-8817-00b60718a79d
+Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc4Mzc4ODcsImVtYWlsIjoicmFqYWJvbGxhbmF6YXJvdkBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9NT0RFUkFUT1IiLCJleHAiOjE3MDc5MjQyODcsImlzcyI6Ikt1blV6VGVzdCJ9.HgSQ9Yf0OjXQrVjiTeX6cdT4A228m-4WEqyzqikLnW1zkxrISeAjtD5Uut9oLMlsGV_SWWCY5QCBNj-Ku9Ve5g
 
-### Article update status
-PUT localhost:8080/article/change/c6d9d03a-6449-4092-a877-a3127599d8c5
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDcyOTU4MzIsImlkIjo0LCJyb2xlIjoiTU9ERVJBVE9SIiwiZXhwIjoxNzA3MzgyMjMyLCJpc3MiOiJLdW5VelRlc3QifQ.jgqokWsOu2vqj1eQNS3fZnT9aQTTrIoLTSGwPi6qSxAaAMJUd8o6q9MJLsJNhfRo58izwMfFTruptftP8Cuevw
+### Article update status (Publisher)
+PUT localhost:8080/article/change/735c35d3-4f3c-4b2b-8817-00b60718a79d
+Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc4Mzk1MzAsImVtYWlsIjoicmFqYWJvbGxhbmF6YXJvdkBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9QVUJMSVNIRVIiLCJleHAiOjE3MDc5MjU5MzAsImlzcyI6Ikt1blV6VGVzdCJ9.Jr4xjFd0hv8yrPFNmqjmPArHzCLFhU8jUE3JbG205ydJyllISaU3EowCv-VrGX1rHZ2RsaKGWIKGUnWNYa6sLA
 
 
 ### Get Last 5 Article By ArticleType id  ordered_by_created_date
-GET localhost:8080/article/typeId/id?id=1&size=6
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDcyOTU4MzIsImlkIjo0LCJyb2xlIjoiTU9ERVJBVE9SIiwiZXhwIjoxNzA3MzgyMjMyLCJpc3MiOiJLdW5VelRlc3QifQ.jgqokWsOu2vqj1eQNS3fZnT9aQTTrIoLTSGwPi6qSxAaAMJUd8o6q9MJLsJNhfRo58izwMfFTruptftP8Cuevw
+GET localhost:8080/article/typeId/id?id=1&size=4
 
 ### Get By Id Not Included Last 8 Articles
 POST localhost:8080/article/articles
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDcyOTU4MzIsImlkIjo0LCJyb2xlIjoiTU9ERVJBVE9SIiwiZXhwIjoxNzA3MzgyMjMyLCJpc3MiOiJLdW5VelRlc3QifQ.jgqokWsOu2vqj1eQNS3fZnT9aQTTrIoLTSGwPi6qSxAaAMJUd8o6q9MJLsJNhfRo58izwMfFTruptftP8Cuevw
 
 {
-  "articleId": ["ab02c8fa-8f3f-4eef-904e-9bfb22428a1a","579ea9f0-e737-4da7-9e18-17c5f6f5d312"]
+  "articleId": [
+    "ce0cdd7d-ffa3-40a6-8179-8d7747c126e7"
+  ]
 }
 
 ### Get Last 4 Article By Types and except given article id.
-GET localhost:8080/article/articleId?arTyId=1&articleId=ab02c8fa-8f3f-4eef-904e-9bfb22428a1a
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDcyOTU4MzIsImlkIjo0LCJyb2xlIjoiTU9ERVJBVE9SIiwiZXhwIjoxNzA3MzgyMjMyLCJpc3MiOiJLdW5VelRlc3QifQ.jgqokWsOu2vqj1eQNS3fZnT9aQTTrIoLTSGwPi6qSxAaAMJUd8o6q9MJLsJNhfRo58izwMfFTruptftP8Cuevw
+GET localhost:8080/article/articleId?arTyId=2 & articleId = ce0cdd7d-ffa3-40a6-8179-8d7747c126e7
+
 
 ###  Get 4 most read articles  ///10
 GET localhost:8080/article/mostReadArticles
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc0NzY4OTksImlkIjo2LCJyb2xlIjoiTU9ERVJBVE9SIiwiZXhwIjoxNzA3NTYzMjk5LCJpc3MiOiJLdW5VelRlc3QifQ.uY-CI3TAqUE8QBu6Gze7d6Zyau8WSLrLtxaIG4uHizqkFNADegOyDwI8GnBM2aepAmTRKdza2RKKJwwbCCs84Q
 
-###  Get Last 5 Article By Types  And By Region Key ///12
+###  Get Last 5 Article By Types  And By Region Key ///12,11 --qoldi
 #GET localhost:8080/article/last5Articles?articleTypeId=2&regionId=3
 #Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc0NzY4OTksImlkIjo2LCJyb2xlIjoiTU9ERVJBVE9SIiwiZXhwIjoxNzA3NTYzMjk5LCJpc3MiOiJLdW5VelRlc3QifQ.uY-CI3TAqUE8QBu6Gze7d6Zyau8WSLrLtxaIG4uHizqkFNADegOyDwI8GnBM2aepAmTRKdza2RKKJwwbCCs84Q
 
 ### Get Article list by Region Key Pagination   //13
 GET localhost:8080/article/articleListByRegionId?id=1&page=1&size=2
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc0NzY4OTksImlkIjo2LCJyb2xlIjoiTU9ERVJBVE9SIiwiZXhwIjoxNzA3NTYzMjk5LCJpc3MiOiJLdW5VelRlc3QifQ.uY-CI3TAqUE8QBu6Gze7d6Zyau8WSLrLtxaIG4uHizqkFNADegOyDwI8GnBM2aepAmTRKdza2RKKJwwbCCs84Q
 
 ### Get Last 5 Article Category Key  ///14
-GET localhost:8080/article/last5ArticleCategoryKeys?id=2
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc0NzY4OTksImlkIjo2LCJyb2xlIjoiTU9ERVJBVE9SIiwiZXhwIjoxNzA3NTYzMjk5LCJpc3MiOiJLdW5VelRlc3QifQ.uY-CI3TAqUE8QBu6Gze7d6Zyau8WSLrLtxaIG4uHizqkFNADegOyDwI8GnBM2aepAmTRKdza2RKKJwwbCCs84Q
+GET localhost:8080/article/last5ArticleCategoryKeys?id=1
 
 ### Get Article By Category Key (Pagination)  //15
 GET localhost:8080/article/articlesByCategory?categoryKey=1&page=1&size=2
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc0NzY4OTksImlkIjo2LCJyb2xlIjoiTU9ERVJBVE9SIiwiZXhwIjoxNzA3NTYzMjk5LCJpc3MiOiJLdW5VelRlc3QifQ.uY-CI3TAqUE8QBu6Gze7d6Zyau8WSLrLtxaIG4uHizqkFNADegOyDwI8GnBM2aepAmTRKdza2RKKJwwbCCs84Q
 
 ### Increase Article View Count by Article Id  ///16
-PUT localhost:8080/article/IncreaseArticle/c6d9d03a-6449-4092-a877-a3127599d8c5
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc0NzY4OTksImlkIjo2LCJyb2xlIjoiTU9ERVJBVE9SIiwiZXhwIjoxNzA3NTYzMjk5LCJpc3MiOiJLdW5VelRlc3QifQ.uY-CI3TAqUE8QBu6Gze7d6Zyau8WSLrLtxaIG4uHizqkFNADegOyDwI8GnBM2aepAmTRKdza2RKKJwwbCCs84Q
+PUT localhost:8080/article/IncreaseArticle/735c35d3-4f3c-4b2b-8817-00b60718a79d
 
 ### Increase Share View Count by Article Id  ///17
-PUT localhost:8080/article/IncreaseShare/c6d9d03a-6449-4092-a877-a3127599d8c5
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc0NzY4OTksImlkIjo2LCJyb2xlIjoiTU9ERVJBVE9SIiwiZXhwIjoxNzA3NTYzMjk5LCJpc3MiOiJLdW5VelRlc3QifQ.uY-CI3TAqUE8QBu6Gze7d6Zyau8WSLrLtxaIG4uHizqkFNADegOyDwI8GnBM2aepAmTRKdza2RKKJwwbCCs84Q
+PUT localhost:8080/article/IncreaseShare/735c35d3-4f3c-4b2b-8817-00b60718a79d

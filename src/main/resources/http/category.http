@@ -1,33 +1,33 @@
-### create
+### create category
 POST localhost:8080/category/adm
 Content-Type: application/json
-Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc1NzA0NDcsImlkIjoxMSwicm9sZSI6Ik1PREVSQVRPUiIsImV4cCI6MTcwNzY1Njg0NywiaXNzIjoiS3VuVXpUZXN0In0.OsuPY5QsyDu37Fpr2nRm4CU987wXxNS5Sbg2X-cScy1x9VRZ-Frl9KLipXNVz2mfdhMlp5vLuDTUgLpgQ8k5BA
+Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc4MzE5OTgsImVtYWlsIjoiYWRtaW5AbWFpbC5ydSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzA3OTE4Mzk4LCJpc3MiOiJLdW5VelRlc3QifQ.247HOV79ug_rBOyaXt1SHp1Rm03quoIdfUnbvHRGDnstFcp3lYxoOcWIwNATJCrq0P0igIzFrFbY09P0Brnfeg
 
 {
-  "name_en": "Uzbekistan",
-  "name_uz": "O'zbekiston",
-  "name_ru": "Узбекистан",
+  "name_en": "Economy",
+  "name_uz": "Iqtisodiyot",
+  "name_ru": "Экономика",
+  "order_number": 2
+}
+
+###Update category
+PUT localhost:8080/category/adm/1
+Content-Type: application/json
+Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc4MzE5OTgsImVtYWlsIjoiYWRtaW5AbWFpbC5ydSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzA3OTE4Mzk4LCJpc3MiOiJLdW5VelRlc3QifQ.247HOV79ug_rBOyaXt1SHp1Rm03quoIdfUnbvHRGDnstFcp3lYxoOcWIwNATJCrq0P0igIzFrFbY09P0Brnfeg
+
+{
   "order_number": 3
 }
 
-###Update
-PUT localhost:8080/category/adm/1
-Content-Type: application/json
-Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc1NzUxMDgsImlkIjoxNCwicm9sZSI6IkFETUlOIiwiZXhwIjoxNzA3NjYxNTA4LCJpc3MiOiJLdW5VelRlc3QifQ.HrZO3mbyElg1vRDZcI7q0BG7TFmjEiOnfj8IqjwqdvVE7M2mF2qhWNf12XAP5AV7hS4Wn4q0a3Dio7nFzs-6eg
+### Delete category
+DELETE localhost:8080/category/adm/2
+Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc4MzE5OTgsImVtYWlsIjoiYWRtaW5AbWFpbC5ydSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzA3OTE4Mzk4LCJpc3MiOiJLdW5VelRlc3QifQ.247HOV79ug_rBOyaXt1SHp1Rm03quoIdfUnbvHRGDnstFcp3lYxoOcWIwNATJCrq0P0igIzFrFbY09P0Brnfeg
 
-{
-  "order_number": 1
-}
-
-### Delete
-DELETE localhost:8080/category/adm/3
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDY0MzQyMzYsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDY1MjA2MzYsImlzcyI6Ikt1blV6VGVzdCJ9.8cwhfDhPNJH0rrFhnIHEHdfUnRiPNA7Qx1UGlvNBKsvS_KCAwMMYynpRtqrYK1YtbkNxFzdJs97X7kevpCEybQ
-
-### Get all
+### Get all category
 GET localhost:8080/category/adm
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDY0MzQyMzYsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDY1MjA2MzYsImlzcyI6Ikt1blV6VGVzdCJ9.8cwhfDhPNJH0rrFhnIHEHdfUnRiPNA7Qx1UGlvNBKsvS_KCAwMMYynpRtqrYK1YtbkNxFzdJs97X7kevpCEybQ
+Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc4MzE5OTgsImVtYWlsIjoiYWRtaW5AbWFpbC5ydSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzA3OTE4Mzk4LCJpc3MiOiJLdW5VelRlc3QifQ.247HOV79ug_rBOyaXt1SHp1Rm03quoIdfUnbvHRGDnstFcp3lYxoOcWIwNATJCrq0P0igIzFrFbY09P0Brnfeg
 
-### Get lang
+### Get lang category
 GET localhost:8080/category/adm/lang?lang=RU
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDY0MzQyMzYsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDY1MjA2MzYsImlzcyI6Ikt1blV6VGVzdCJ9.8cwhfDhPNJH0rrFhnIHEHdfUnRiPNA7Qx1UGlvNBKsvS_KCAwMMYynpRtqrYK1YtbkNxFzdJs97X7kevpCEybQ
+Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc4MzE5OTgsImVtYWlsIjoiYWRtaW5AbWFpbC5ydSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzA3OTE4Mzk4LCJpc3MiOiJLdW5VelRlc3QifQ.247HOV79ug_rBOyaXt1SHp1Rm03quoIdfUnbvHRGDnstFcp3lYxoOcWIwNATJCrq0P0igIzFrFbY09P0Brnfeg
 

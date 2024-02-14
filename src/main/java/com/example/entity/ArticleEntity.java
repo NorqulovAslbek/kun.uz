@@ -51,7 +51,7 @@ public class ArticleEntity {
     @ManyToOne
     @JoinColumn(name = "publisher_id", updatable = false, insertable = false)
     private ProfileEntity publisher;
-
+    @Enumerated(EnumType.STRING)
     private ArticleStatus status = ArticleStatus.NOT_PUBLISHER;
 
     private LocalDateTime createdDate = LocalDateTime.now();

@@ -4,6 +4,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class MDUtil {
+
     public static String encode(String password) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");

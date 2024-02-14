@@ -1,36 +1,36 @@
 ### Post
 POST localhost:8080/articleType/adm
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDcyMzQ1ODksImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDczMjA5ODksImlzcyI6Ikt1blV6VGVzdCJ9.YCw-mUwllA1usbVJxRMWyxHkPiYXZvWXeAF-l0K0qls6kzwiAP9vHV4BO0x93P8128qBh1LCmdmUv96pUEljKQ
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc4MzcwMTUsImVtYWlsIjoiYWRtaW5AbWFpbC5ydSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzA3OTIzNDE1LCJpc3MiOiJLdW5VelRlc3QifQ.N85DvLDSDlmshyQzk-XU2Q0GjYhVc2KtwbwswKmRzk924QfDJxQRRrVfHwmw_cqWI3GnED0mUx_KRqJgkGLTNw
 
 {
-  "name_en": "Editor's Choice",
-  "name_uz": "Muharrir tanlovi",
-  "name_ru": "Выбор редактора",
-  "order_number": 5
+  "name_en": "video news",
+  "name_uz": "video yangiliklar",
+  "name_ru": "видео новости",
+  "order_number": 4
 }
 
 ### Update Article by id
-PUT localhost:8080/articleType/adm/update?id=3
+PUT localhost:8080/articleType/adm/update?id=1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDY0MzQyMzYsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDY1MjA2MzYsImlzcyI6Ikt1blV6VGVzdCJ9.8cwhfDhPNJH0rrFhnIHEHdfUnRiPNA7Qx1UGlvNBKsvS_KCAwMMYynpRtqrYK1YtbkNxFzdJs97X7kevpCEybQ
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc4MzcwMTUsImVtYWlsIjoiYWRtaW5AbWFpbC5ydSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzA3OTIzNDE1LCJpc3MiOiJLdW5VelRlc3QifQ.N85DvLDSDlmshyQzk-XU2Q0GjYhVc2KtwbwswKmRzk924QfDJxQRRrVfHwmw_cqWI3GnED0mUx_KRqJgkGLTNw
 
 {
   "order_number": 1,
-  "name_ru": "Salom",
-  "name_uz": "Hello",
-  "name_en": "Qale"
+  "name_ru": "Интервью",
+  "name_uz": "Intervyu",
+  "name_en": "Interview"
 }
 
 ### Delete by id
-DELETE localhost:8080/articleType/adm/delete?id=3
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDY0MzQyMzYsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDY1MjA2MzYsImlzcyI6Ikt1blV6VGVzdCJ9.8cwhfDhPNJH0rrFhnIHEHdfUnRiPNA7Qx1UGlvNBKsvS_KCAwMMYynpRtqrYK1YtbkNxFzdJs97X7kevpCEybQ
+DELETE localhost:8080/articleType/adm/delete?id=1
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc4MzcwMTUsImVtYWlsIjoiYWRtaW5AbWFpbC5ydSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzA3OTIzNDE1LCJpc3MiOiJLdW5VelRlc3QifQ.N85DvLDSDlmshyQzk-XU2Q0GjYhVc2KtwbwswKmRzk924QfDJxQRRrVfHwmw_cqWI3GnED0mUx_KRqJgkGLTNw
 
 ### Pagination
-GET localhost:8080/articleType/admin/pagination?page=1&size=3
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDY0MzQyMzYsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDY1MjA2MzYsImlzcyI6Ikt1blV6VGVzdCJ9.8cwhfDhPNJH0rrFhnIHEHdfUnRiPNA7Qx1UGlvNBKsvS_KCAwMMYynpRtqrYK1YtbkNxFzdJs97X7kevpCEybQ
+GET localhost:8080/articleType/adm/pagination?page=1&size=4
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc4MzcwMTUsImVtYWlsIjoiYWRtaW5AbWFpbC5ydSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzA3OTIzNDE1LCJpc3MiOiJLdW5VelRlc3QifQ.N85DvLDSDlmshyQzk-XU2Q0GjYhVc2KtwbwswKmRzk924QfDJxQRRrVfHwmw_cqWI3GnED0mUx_KRqJgkGLTNw
 
 ### get By lang
 GET localhost:8080/articleType/lang?lang=UZ
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDY0MzQyMzYsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDY1MjA2MzYsImlzcyI6Ikt1blV6VGVzdCJ9.8cwhfDhPNJH0rrFhnIHEHdfUnRiPNA7Qx1UGlvNBKsvS_KCAwMMYynpRtqrYK1YtbkNxFzdJs97X7kevpCEybQ
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc4MzcwMTUsImVtYWlsIjoiYWRtaW5AbWFpbC5ydSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzA3OTIzNDE1LCJpc3MiOiJLdW5VelRlc3QifQ.N85DvLDSDlmshyQzk-XU2Q0GjYhVc2KtwbwswKmRzk924QfDJxQRRrVfHwmw_cqWI3GnED0mUx_KRqJgkGLTNw
 

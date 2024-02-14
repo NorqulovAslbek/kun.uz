@@ -10,6 +10,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -23,28 +24,27 @@ public class SmsHistoryController {
     private SmsHistoryService smsHistoryService;
 
     @Operation(summary = "Api for getByPhone", description = "this api to get sms history by phone number ")
-    @PostMapping("")
-    public ResponseEntity<?> getByPhone(@RequestBody SmsHistoryDTO dto, HttpServletRequest request) {
+    @PostMapping("/adm")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<?> getByPhone(@RequestBody SmsHistoryDTO dto) {
         log.info("get sms history by phone {}", dto.getPhone());
-        HttpRequestUtil.getProfileId(request, ProfileRole.ADMIN);
         return ResponseEntity.ok(smsHistoryService.getByPhone(dto.getPhone()));
     }
 
     @Operation(summary = "Api for getByDate", description = "this api to get sms history by time")
-    @GetMapping("/{date}")
-    public ResponseEntity<?> getByDate(@PathVariable("date") LocalDate date, HttpServletRequest request) {
+    @GetMapping("/adm/{date}")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<?> getByDate(@PathVariable("date") LocalDate date) {
         log.info("get sms history by date {}", date);
-        HttpRequestUtil.getProfileId(request, ProfileRole.ADMIN);
         return ResponseEntity.ok(smsHistoryService.getByDate(date));
     }
 
     @Operation(summary = "Api for getPagination", description = "this api to get sms history page lip")
-    @GetMapping("/pagination")
+    @GetMapping("/adm/pagination")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> getPagination(@RequestParam Integer page,
-                                           @RequestParam Integer size,
-                                           HttpServletRequest request) {
+                                           @RequestParam Integer size) {
         log.info("get sms history  by pagination");
-        HttpRequestUtil.getProfileId(request, ProfileRole.ADMIN);
         return ResponseEntity.ok(smsHistoryService.getPagination(page, size));
     }
 }

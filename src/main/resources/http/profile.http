@@ -1,50 +1,49 @@
-### Post profile
+### Post profile --> Admin  MODERATOR YOKI PUBLISHER ni qolda kiritadi,keyin osha moderator admin kiritgan login va paroli bilan saytga qayta login qilib kira oladi
 POST localhost:8080/profile/adm
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc1NjYzMzUsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDc2NTI3MzUsImlzcyI6Ikt1blV6VGVzdCJ9.0zGw9r6JwExADazjP2GHBpuccdperIdpiz2nqDU7RPmF1JtsOBzKnDTXRepZPByWNJsiV1tmabClIZ5bF7ErDQ
+Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc4MjA4NzksImVtYWlsIjoiYWRtaW5AbWFpbC5ydSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzA3OTA3Mjc5LCJpc3MiOiJLdW5VelRlc3QifQ.HQrYXGcgddg7_q7EZWnuF2QImOcWjKaS2dPKGECli47cvk49SmxbuFPyn0vpUIyCyYdxrKGuIllOXQPQZNBWEQ
 
 {
-  "name": "Aslbek",
-  "surname": "Norqulov",
-  "phone": "+998369920747",
-  "email": "xxxxsps@gmail.com",
-  "password": "123",
+  "name": "Shamshod",
+  "surname": "Salomov",
+  "phone": "+998991205577",
+  "email": "shamshod12@gmail.com",
+  "password": "1234",
   "status": "ACTIVE",
-  "role": "ADMIN"
+  "role": "ROLE_MODERATOR"
 }
 
-### Update profile Admin
-PUT localhost:8080/profile/adm/update?id=8
+### Update profile Admin --> Admin hohlagan profile ni malumotlarini o'zgarish uchun yozilgan api
+PUT localhost:8080/profile/adm/update?id=4
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDY0MzQyMzYsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDY1MjA2MzYsImlzcyI6Ikt1blV6VGVzdCJ9.8cwhfDhPNJH0rrFhnIHEHdfUnRiPNA7Qx1UGlvNBKsvS_KCAwMMYynpRtqrYK1YtbkNxFzdJs97X7kevpCEybQ
+Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc4MjQxODcsImVtYWlsIjoiYWRtaW5AbWFpbC5ydSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzA3OTEwNTg3LCJpc3MiOiJLdW5VelRlc3QifQ.HKfxuNmDyVtVmLJ7KM00TZEikAXCjrUjrreIsPAid2M_IWiagFdMUHqc9F3Ts_W7ALD_IKTf6GJbXXkixZd5cQ
 
 {
-  "role": "ADMIN"
+  "role": "ROLE_MODERATOR"
 }
 
-###  Update profile User
+###  Update profile User --> User,Moderator,Publisher faqat ozlarini malumotlarini o'zgartirish uchun yozilgan api
 PUT localhost:8080/profile/update
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDY0Mzk4NjgsImlkIjoyMCwicm9sZSI6IlVTRVIiLCJleHAiOjE3MDY1MjYyNjgsImlzcyI6Ikt1blV6VGVzdCJ9.mJg4yQ1MpJBrRdjJ4tst50fxoLFQacjXBLklM50UdvKPRAE8KXQw1j8vIwRYZowiZUmb4tklsWszRsB-Ozckzw
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc4MjQzOTIsImVtYWlsIjoicmFqYWJvbGxhbmF6YXJvdkBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9NT0RFUkFUT1IiLCJleHAiOjE3MDc5MTA3OTIsImlzcyI6Ikt1blV6VGVzdCJ9.PNie6yklkW4nF420HcUkm965FYjFk4ekXcW3R3QBBR0W8JEdch0cyd4o5E469yNyIgBLLqbod8JbzRD_TaJPrA
 
 {
-  "name": "AslWW"
+  "surname": "Ollanazarov"
 }
 
+### Delete profile --> Admin hohlagan profileni ochira oladi, bu api ham adminga hohlagan profileni ochira olishi uchun yozilgan
+DELETE localhost:8080/profile/adm/delete?id=4
+Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc4MjA4NzksImVtYWlsIjoiYWRtaW5AbWFpbC5ydSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzA3OTA3Mjc5LCJpc3MiOiJLdW5VelRlc3QifQ.HQrYXGcgddg7_q7EZWnuF2QImOcWjKaS2dPKGECli47cvk49SmxbuFPyn0vpUIyCyYdxrKGuIllOXQPQZNBWEQ
 
-### Delete profile
-DELETE localhost:8080/profile/adm/delete?id=8
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDY0MzQyMzYsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDY1MjA2MzYsImlzcyI6Ikt1blV6VGVzdCJ9.8cwhfDhPNJH0rrFhnIHEHdfUnRiPNA7Qx1UGlvNBKsvS_KCAwMMYynpRtqrYK1YtbkNxFzdJs97X7kevpCEybQ
-
-### Profile All paginable
+### Profile All paginable --> Admin profilelar ro'yhatini page lab yani sahifalab ko'rishi uchun yozilgan api
 GET localhost:8080/profile/adm/all?page=1&size=2
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDY0MzQyMzYsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDY1MjA2MzYsImlzcyI6Ikt1blV6VGVzdCJ9.8cwhfDhPNJH0rrFhnIHEHdfUnRiPNA7Qx1UGlvNBKsvS_KCAwMMYynpRtqrYK1YtbkNxFzdJs97X7kevpCEybQ
+Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc4MjA4NzksImVtYWlsIjoiYWRtaW5AbWFpbC5ydSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzA3OTA3Mjc5LCJpc3MiOiJLdW5VelRlc3QifQ.HQrYXGcgddg7_q7EZWnuF2QImOcWjKaS2dPKGECli47cvk49SmxbuFPyn0vpUIyCyYdxrKGuIllOXQPQZNBWEQ
 
-### get filter profile
+### get filter profile --> Admin profilelar ro'yhatini filterlab misol uchun ismi boyicha yoki no'meri bo'yicha filtirlab sahifalab yani page lab kora olishi uchun yozilgan api
 GET localhost:8080/profile/adm/filter?page=1&size=3
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDY0MzQyMzYsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDY1MjA2MzYsImlzcyI6Ikt1blV6VGVzdCJ9.8cwhfDhPNJH0rrFhnIHEHdfUnRiPNA7Qx1UGlvNBKsvS_KCAwMMYynpRtqrYK1YtbkNxFzdJs97X7kevpCEybQ
+Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc4MjA4NzksImVtYWlsIjoiYWRtaW5AbWFpbC5ydSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzA3OTA3Mjc5LCJpc3MiOiJLdW5VelRlc3QifQ.HQrYXGcgddg7_q7EZWnuF2QImOcWjKaS2dPKGECli47cvk49SmxbuFPyn0vpUIyCyYdxrKGuIllOXQPQZNBWEQ
 
 {
-  "role": "ADMIN"
+  "role": "ROLE_ADMIN"
 }

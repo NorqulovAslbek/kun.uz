@@ -1,4 +1,4 @@
-### Login
+### Login Admin
 POST localhost:8080/auth/login
 Content-Type: application/json
 
@@ -7,28 +7,36 @@ Content-Type: application/json
   "password": "12345"
 }
 
-### Registration by sms
+### Login user
+POST localhost:8080/auth/login
+Content-Type: application/json
+
+{
+  "email": "aslbeknorqulov246@gmail.com",
+  "password": "@Aslbek1207"
+}
+
+### Registration by sms --> Oddiy user malumotlarini to'ldirib post qilganda uni nomeriga sms yuboriladi ammo u database ga REGISTRATION holatda qoshib qo'yiladi
 POST localhost:8080/auth/registration
 Content-Type: application/json
 
 {
-  "name": "Husen",
-  "phone": "+998991205577",
+  "name": "Aslbek",
+  "phone": "+998934569541",
   "surname": "Aka",
   "email": "aslbeknorqulov246@gmail.com",
-  "password": "@Asl1234567"
+  "password": "@Aslbek1234"
 }
 
-### verification by sms
+### verification by sms --> user registration holatdan verifikatsiya holatga otish uchun yani kelgan sms ni kiritib statusini aktiv qilib qoyish uchun
 POST localhost:8080/auth/verification/phone
 Content-Type: application/json
 
 {
-  "code": "19449",
-  "phone": "+998991205577"
+  "code": "33168",
+  "phone": "+998934569540"
 }
 
 
-
-### Verification
+### Verification --> email dan verifikatsya qilish
 GET http://localhost:8080/auth/verification/email/eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDY2MjY3NjcsImlkIjoyLCJleHAiOjE3MDY2MzAzNjcsImlzcyI6Ikt1blV6VGVzdCJ9.oKLfymm7BGpJJNPlPGPNa449g2YB4uRka_G_TDpLHrEWpUj7qZVjcuGShIRLItQ8As8KthMhozHMGbdiqKCFBQ

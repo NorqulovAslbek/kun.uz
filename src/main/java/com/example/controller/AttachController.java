@@ -12,10 +12,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.core.io.Resource;
-import org.springframework.http.HttpHeaders;
+
 @Tag(name = "Attach Api list", description = "Api list for attach")
 @Slf4j
 @RestController
@@ -24,16 +25,10 @@ public class AttachController {
     @Autowired
     private AttachService attachService;
 
-    //    @PostMapping("/upload")
-//    public ResponseEntity<String> upload(@RequestParam("file") MultipartFile file) {
-//        String fileName = attachService.saveToSystem(file);
-//        return ResponseEntity.ok().body(fileName);
-//    }
     @Operation(summary = "Api for upload", description = "this api used for upload attach")
     @PostMapping("/upload")
-    public ResponseEntity<AttachDTO> upload(@RequestParam("file") MultipartFile file, HttpServletRequest request) {
+    public ResponseEntity<AttachDTO> upload(@RequestParam("file") MultipartFile file) {
         log.info("create attach {}",file);
-        HttpRequestUtil.getProfileId(request);
         AttachDTO dto = attachService.save(file);
         return ResponseEntity.ok().body(dto);
     }
@@ -66,14 +61,15 @@ public class AttachController {
     }
     @Operation(summary = "Api for delete", description = "this api is for opening all files by uuids")
     @DeleteMapping("/delete/{uuid}")
-    public ResponseEntity<?> delete(@PathVariable("uuid") String uuid, HttpServletRequest request) {
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<?> delete(@PathVariable("uuid") String uuid) {
         log.info("delete attach by uuid {}",uuid);
-        HttpRequestUtil.getProfileId(request, ProfileRole.ADMIN);
         return ResponseEntity.ok(attachService.delete(uuid));
     }
 
     @Operation(summary = "Api for download", description = "this api will download all file by name")
     @GetMapping("/download/{fineName}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Resource> download(@PathVariable("fineName") String fileName) {
         log.info("download attach {}",fileName);
         return attachService.download(fileName);

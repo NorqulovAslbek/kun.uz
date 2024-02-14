@@ -3,8 +3,6 @@ package com.example.util;
 import com.example.dto.JwtDTO;
 import com.example.enums.ProfileRole;
 import io.jsonwebtoken.*;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 
 import javax.crypto.spec.SecretKeySpec;
 import java.util.Date;
@@ -65,17 +63,50 @@ public class JWTUtil {
     }
 
 
+    public static JwtDTO decodeForSpringSecurity(String token) {
+        SignatureAlgorithm sa = SignatureAlgorithm.HS512;
+        SecretKeySpec secretKeySpec = new SecretKeySpec(secretKey.getBytes(), sa.getJcaName());
+        JwtParser jwtParser = Jwts.parser()
+                .verifyWith(secretKeySpec)
+                .build();
 
-    public static Boolean checkRole(String jwt) {
-        JwtDTO jwtDTO = JWTUtil.decode(jwt);
-        return jwtDTO.getRole().equals(ProfileRole.ADMIN);
+        Jws<Claims> jws = jwtParser.parseSignedClaims(token);
+        Claims claims = jws.getPayload();
+
+        String email = (String) claims.get("email");
+        String role = (String) claims.get("role");
+        ProfileRole profileRole = ProfileRole.valueOf(role);
+        return new JwtDTO(email, profileRole);
     }
-    public static Boolean checkRoleProfile(String jwt,Integer id) {
-        JwtDTO jwtDTO = JWTUtil.decode(jwt);
-        return jwtDTO.getRole().equals(ProfileRole.USER) && jwtDTO.getId().equals(id) ||
-                jwtDTO.getRole().equals(ProfileRole.MODERATOR) && jwtDTO.getId().equals(id) ||
-                jwtDTO.getRole().equals(ProfileRole.PUBLISHER) && jwtDTO.getId().equals(id);
+
+    public static String encode(String email, ProfileRole role) {
+        JwtBuilder jwtBuilder = Jwts.builder();
+        jwtBuilder.issuedAt(new Date());
+
+        SignatureAlgorithm sa = SignatureAlgorithm.HS512;
+        SecretKeySpec secretKeySpec = new SecretKeySpec(secretKey.getBytes(), sa.getJcaName());
+
+        jwtBuilder.signWith(secretKeySpec);
+
+        jwtBuilder.claim("email", email);
+        jwtBuilder.claim("role", role);
+
+        jwtBuilder.expiration(new Date(System.currentTimeMillis() + (tokenLiveTime)));
+        jwtBuilder.issuer("KunUzTest");
+        return jwtBuilder.compact();
     }
+
+
+//    public static Boolean checkRole(String jwt) {
+//        JwtDTO jwtDTO = JWTUtil.decode(jwt);
+//        return jwtDTO.getRole().equals(ProfileRole.ROLE_ADMIN);
+//    }
+//    public static Boolean checkRoleProfile(String jwt,Integer id) {
+//        JwtDTO jwtDTO = JWTUtil.decode(jwt);
+//        return jwtDTO.getRole().equals(ProfileRole.ROLE_USER) && jwtDTO.getId().equals(id) ||
+//                jwtDTO.getRole().equals(ProfileRole.ROLE_MODERATOR) && jwtDTO.getId().equals(id) ||
+//                jwtDTO.getRole().equals(ProfileRole.ROLE_PUBLISHER) && jwtDTO.getId().equals(id);
+//    }
 
 
 }

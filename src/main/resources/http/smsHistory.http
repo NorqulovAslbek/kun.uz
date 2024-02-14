@@ -1,16 +1,16 @@
-###  get by phone
-POST localhost:8080/sms_history
+###  get by phone  --> Admin sms yuborilgan no'merlarni history sini ko'rish uchun yozilgan api
+POST localhost:8080/sms_history/adm
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDY4NjMwODQsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDY5NDk0ODQsImlzcyI6Ikt1blV6VGVzdCJ9.7LwzDygC8i5LKX28828rgj_v-SDI4Lx2N6G9zxk2ok-fsRod_oDlUqBOvZLs7Xcn0MQ-dxGXR_Q1-jYMyqqbQQ
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc4Mjg5ODUsImVtYWlsIjoiYWRtaW5AbWFpbC5ydSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzA3OTE1Mzg1LCJpc3MiOiJLdW5VelRlc3QifQ.-t8QE2DFahw2bpaeikkLfJFcz4RMdbpGA8_c9pbahZ25nVMUepgKS7xN7QxJtuOGiLPvoGOCYQeEP3lMc0XOlA
 
 {
-  "phone": "+998991205577"
+  "phone": "+998934569540"
 }
 
-### get by date
-GET localhost:8080/sms_history/2024-02-02
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDY4NjMwODQsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDY5NDk0ODQsImlzcyI6Ikt1blV6VGVzdCJ9.7LwzDygC8i5LKX28828rgj_v-SDI4Lx2N6G9zxk2ok-fsRod_oDlUqBOvZLs7Xcn0MQ-dxGXR_Q1-jYMyqqbQQ
+### get by date --> Admin qaysi vaqtda kimga nechta sms yuborganini kora olish uchun yozilgan api
+GET localhost:8080/sms_history/adm/2024-02-13
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc4Mjg5ODUsImVtYWlsIjoiYWRtaW5AbWFpbC5ydSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzA3OTE1Mzg1LCJpc3MiOiJLdW5VelRlc3QifQ.-t8QE2DFahw2bpaeikkLfJFcz4RMdbpGA8_c9pbahZ25nVMUepgKS7xN7QxJtuOGiLPvoGOCYQeEP3lMc0XOlA
 
-### get pagination
-GET localhost:8080/sms_history/pagination?page=1&size=3
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDY4NjMwODQsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MDY5NDk0ODQsImlzcyI6Ikt1blV6VGVzdCJ9.7LwzDygC8i5LKX28828rgj_v-SDI4Lx2N6G9zxk2ok-fsRod_oDlUqBOvZLs7Xcn0MQ-dxGXR_Q1-jYMyqqbQQ
+### get pagination --> Admin sms lar history larini page lab olish uchun yozilgan api
+GET localhost:8080/sms_history/adm/pagination?page=1&size=3
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc4Mjg5ODUsImVtYWlsIjoiYWRtaW5AbWFpbC5ydSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzA3OTE1Mzg1LCJpc3MiOiJLdW5VelRlc3QifQ.-t8QE2DFahw2bpaeikkLfJFcz4RMdbpGA8_c9pbahZ25nVMUepgKS7xN7QxJtuOGiLPvoGOCYQeEP3lMc0XOlA

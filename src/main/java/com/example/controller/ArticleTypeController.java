@@ -12,6 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,46 +27,42 @@ public class ArticleTypeController {
 
     @Operation(summary = "Api for create", description = "this api used for create ArticleType")
     @PostMapping("/adm")
-    public ResponseEntity<ArticleTypeDTO> create(@RequestBody ArticleTypeDTO dto,
-                                                 HttpServletRequest request) {
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<ArticleTypeDTO> create(@RequestBody ArticleTypeDTO dto) {
         log.info("create articleType {}", dto);
-        HttpRequestUtil.getProfileId(request, ProfileRole.ADMIN);
         return ResponseEntity.ok(articleTypeService.create(dto));
     }
 
     @Operation(summary = "Api for updateById", description = "this api used for update by id ArticleType")
     @PutMapping("/adm/update")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> updateById(@RequestParam("id") Integer id,
-                                        @RequestBody ArticleTypeDTO dto,
-                                        HttpServletRequest request) {
+                                        @RequestBody ArticleTypeDTO dto) {
         log.info("update articleType by id {}", dto);
-        HttpRequestUtil.getProfileId(request, ProfileRole.ADMIN);
         return ResponseEntity.ok(articleTypeService.update(id, dto));
     }
 
     @Operation(summary = "Api for delete", description = "this api used for delete by id ArticleType")
     @DeleteMapping("/adm/delete")
-    public ResponseEntity<?> delete(@RequestParam("id") Integer id, HttpServletRequest request) {
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<?> delete(@RequestParam("id") Integer id) {
         log.info("delete articleType by id {}", id);
-        HttpRequestUtil.getProfileId(request, ProfileRole.ADMIN);
         return ResponseEntity.ok(articleTypeService.deleteById(id));
     }
 
     @Operation(summary = "Api for getPagination", description = "this api used for get all article type by pagination")
-    @GetMapping("/admin/pagination")
+    @GetMapping("/adm/pagination")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<PageImpl<ArticleTypeDTO>> getPagination(@RequestParam("page") Integer page,
-                                                                  @RequestParam("size") Integer size,
-                                                                  HttpServletRequest request) {
+                                                                  @RequestParam("size") Integer size) {
         log.info("get articleType pagination");
-        HttpRequestUtil.getProfileId(request, ProfileRole.ADMIN);
         return ResponseEntity.ok(articleTypeService.getPagination(page, size));
     }
 
     @Operation(summary = "Api for getByLang", description = "this api used for get all article type by lang")
     @GetMapping("/lang")
-    public ResponseEntity<List<ArticleTypeDTO>> getByLang(@RequestParam("lang") AppLanguage lang, HttpServletRequest request) {
+    public ResponseEntity<List<ArticleTypeDTO>> getByLang(@RequestParam("lang") AppLanguage lang) {
         log.info("get articleType by lang {}", lang);
-        HttpRequestUtil.getProfileId(request);
         return ResponseEntity.ok(articleTypeService.getByLang(lang));
     }
 

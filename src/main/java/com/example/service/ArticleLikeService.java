@@ -1,9 +1,13 @@
 package com.example.service;
 
 import com.example.dto.ArticleLikeDTO;
+import com.example.entity.ArticleEntity;
 import com.example.entity.ArticleLikeEntity;
+import com.example.enums.ArticleStatus;
 import com.example.enums.LikeStatus;
+import com.example.exp.AppBadException;
 import com.example.repository.ArticleLikeRepository;
+import com.example.repository.ArticleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +19,8 @@ public class ArticleLikeService {
 
     @Autowired
     private ArticleLikeRepository articleLikeRepository;
+    @Autowired
+    private ArticleRepository articleRepository;
 
     public ArticleLikeDTO articleClickLike(String articleId, Integer profileId) {
         return getArticleEmotionDTO(articleId, profileId, LikeStatus.LIKE);
@@ -29,6 +35,10 @@ public class ArticleLikeService {
     }
 
     private ArticleLikeDTO getArticleEmotionDTO(String articleId, Integer profileId, LikeStatus emotion) {
+        Optional<ArticleEntity> optionalArticle = articleRepository.findById(articleId);
+        if (optionalArticle.isPresent() && optionalArticle.get().getStatus().equals(ArticleStatus.NOT_PUBLISHER)) {
+            throw new AppBadException("No such article exists");
+        }
         Optional<ArticleLikeEntity> optional = articleLikeRepository.checkClickLike(articleId, profileId);
         ArticleLikeEntity entity = new ArticleLikeEntity();
         if (optional.isPresent()) {

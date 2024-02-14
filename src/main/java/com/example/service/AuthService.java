@@ -44,8 +44,8 @@ public class AuthService {
                 MDUtil.encode(profile.getPassword()));
 
         if (optional.isEmpty()) {
-            log.warn("Email not fount{}", profile.getEmail());
-            throw new AppBadException("Email or Password is wrong");
+            log.warn("profile not fount {}", profile.getEmail());
+            throw new AppBadException("profile not fount");
         }
 
         ProfileEntity entity = optional.get();
@@ -57,7 +57,7 @@ public class AuthService {
         dto.setName(entity.getName());
         dto.setSurname(entity.getSurname());
         dto.setRole(entity.getRole());
-        dto.setJwt(JWTUtil.encode(entity.getId(), entity.getRole()));
+        dto.setJwt(JWTUtil.encode(entity.getEmail(), entity.getRole()));
 
         return dto;
     }
@@ -115,18 +115,19 @@ public class AuthService {
         entity.setPassword(MDUtil.encode(dto.getPassword()));
         entity.setPhone(dto.getPhone());
         entity.setStatus(ProfileStatus.REGISTRATION);
-        entity.setRole(ProfileRole.USER);
+        entity.setRole(ProfileRole.ROLE_USER);
         profileRepository.save(entity);
         /**
          * sms kod yuborish
          */
-        String code = RandomUtil.getRandomSmsCode();
-        smsServerService.send(dto.getPhone(), "kun.uz test verification code: ", code);
+//        String code = RandomUtil.getRandomSmsCode();
+//        smsServerService.send(dto.getPhone(), "kun.uz test verification code: ", code);
+
 //        send verification code (email/sms)
         /*
          * email kod yuborish
          */
-//        sendEmailMessage(dto, entity);     //  ==============> email jonaish uchun
+       sendEmailMessage(dto, entity);     //  ==============> email jonaish uchun
         return true;
     }
 
@@ -159,7 +160,7 @@ public class AuthService {
         Optional<SmsHistoryEntity> checkCode = smsHistoryRepository.getPhoneAndCode(phone, code, from, to);
         if (checkCode.isEmpty()) {
             log.warn("error, please try again!");
-            throw new AppBadException("error, please try again!");
+            throw new AppBadException("SMS timed out!");
         }
         profileRepository.updateStatusActive(phone, ProfileStatus.ACTIVE);
         ProfileEntity profileEntity = byPhone.get();

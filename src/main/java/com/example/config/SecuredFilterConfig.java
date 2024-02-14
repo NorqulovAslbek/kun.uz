@@ -1,5 +1,7 @@
+/*
 package com.example.config;
 
+import com.fasterxml.jackson.core.filter.TokenFilter;
 import jakarta.servlet.Filter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
@@ -58,9 +60,15 @@ public class SecuredFilterConfig {
         bean.addUrlPatterns("/commentLike/dislike/*");
         bean.addUrlPatterns("/commentLike/remove/*");
 
+        bean.addUrlPatterns("/comment/*");
+        bean.addUrlPatterns("/comment/adm/*");
+        bean.addUrlPatterns("/comment/adm/filter/*");
+
+
 
 
         return bean;
     }
 
 }
+*/

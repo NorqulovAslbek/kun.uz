@@ -106,7 +106,7 @@
     7. Get Last 8  Articles witch id not included in given list.
         ([1,2,3,])
         ArticleShortInfo
-    8. Get Article By Id And Lang
+   8. Get Article By Id And Lang
         ArticleFullInfo
     9. Get Last 4 Article By Types and except given article id.
         ArticleShortInfo
