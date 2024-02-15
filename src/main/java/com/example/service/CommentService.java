@@ -12,6 +12,7 @@ import com.example.repository.CommentRepository;
 import com.example.repository.ProfileRepository;
 import com.example.util.SpringSecurityUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
@@ -33,7 +34,7 @@ public class CommentService {
     @Autowired
     private CommentFilterRepository repository;
 
-    public CommentDTO create(CreateCommentDTO dto,Integer id) {
+    public CommentDTO create(CreateCommentDTO dto, Integer id) {
         dto.setProfileId(id);
         CommentEntity entity = toEntity(dto);
         CommentEntity commentEntity = commentRepository.save(entity);
@@ -42,7 +43,7 @@ public class CommentService {
 
     public CommentDTO update(UpdateCommentDTO dto) {
         CommentEntity entity = get(dto.getCommentId());
-        if (!articleRepository.existsById(dto.getArticleId())){
+        if (!articleRepository.existsById(dto.getArticleId())) {
             throw new AppBadException("No such article exists!");
         }
         entity.setArticleId(dto.getArticleId());
@@ -54,7 +55,7 @@ public class CommentService {
 
     public boolean deleteUSER(Integer commentId) {
         CustomUserDetails currentUser = SpringSecurityUtil.getCurrentUser();
-        Integer profileId= currentUser.getId();
+        Integer profileId = currentUser.getId();
         CommentEntity entity = get(commentId);
         if (!entity.getProfileId().equals(profileId)) {
             log.warn("Such a comment is not allowed on this profile{}", profileId);
@@ -138,6 +139,58 @@ public class CommentService {
     }
 
 
+    public PageImpl<CommentDTO> filter(CommentFilterDTO dto, Integer page, Integer size) {
+        PaginationResultDTO<CommentEntity> filter = repository.filter(dto, page, size);
+        List<CommentDTO> list = new LinkedList<>();
+        for (CommentEntity entity : filter.getList()) {
+            list.add(getEntityToDTO(entity));
+        }
+        Pageable pageable = PageRequest.of(page - 1, size);
+        return new PageImpl<>(list, pageable, filter.getTotalSize());
+    }
+
+
+    public List<CommentDTO> getRepliedCommentListByCommentId(Integer commentId) {
+        List<CommentEntity> commentByIdList = commentRepository.getCommentByReplyId(commentId);
+        return getCommentDTOS(commentByIdList);
+    }
+
+
+    private List<CommentDTO> getCommentDTOS(List<CommentEntity> commentByIdList) {
+        List<CommentDTO> list = new LinkedList<>();
+        for (CommentEntity entity : commentByIdList) {
+            CommentDTO dto = new CommentDTO();
+            dto.setId(entity.getId());
+            dto.setCreatedDate(entity.getCreatedDate());
+            dto.setUpdateDate(entity.getUpdatedDate());
+            Optional<ProfileEntity> optional = profileRepository.findById(entity.getProfileId());
+            if (optional.isEmpty()) {
+                throw new AppBadException("not fount profile");
+            }
+            ProfileEntity profileEntity = optional.get();
+            ProfileDTO profileDTO = new ProfileDTO();
+            profileDTO.setId(profileEntity.getId());
+            profileDTO.setName(profileEntity.getName());
+            profileDTO.setSurname(profileEntity.getSurname());
+            dto.setProfile(profileDTO);
+            list.add(dto);
+        }
+        return list;
+    }
+
+    public CommentDTO getEntityToDTO(CommentEntity entity) {
+        CommentDTO dto = new CommentDTO();
+        dto.setId(entity.getId());
+        dto.setCreatedDate(entity.getCreatedDate());
+        dto.setUpdateDate(entity.getUpdatedDate());
+        dto.setProfileId(entity.getProfileId());
+        dto.setContent(entity.getContent());
+        dto.setArticleId(entity.getArticleId());
+        dto.setReplyId(entity.getReplyId());
+        dto.setVisible(entity.getVisible());
+        return dto;
+    }
+
     private CommentEntity toEntity(CreateCommentDTO dto) {
         CommentEntity entity = new CommentEntity();
         entity.setReplyId(dto.getReplyId());
@@ -157,30 +210,6 @@ public class CommentService {
         dto.setContent(entity.getContent());
         dto.setReplyId(entity.getReplyId());
         dto.setUpdateDate(entity.getUpdatedDate());
-        return dto;
-    }
-
-
-    public PageImpl<CommentDTO> filter(CommentFilterDTO dto, Integer page, Integer size) {
-        PaginationResultDTO<CommentEntity> filter = repository.filter(dto, page, size);
-        List<CommentDTO> list = new LinkedList<>();
-        for (CommentEntity entity : filter.getList()) {
-            list.add(getEntityToDTO(entity));
-        }
-        Pageable pageable = PageRequest.of(page - 1, size);
-        return new PageImpl<>(list, pageable, filter.getTotalSize());
-    }
-
-    public CommentDTO getEntityToDTO(CommentEntity entity) {
-        CommentDTO dto = new CommentDTO();
-        dto.setId(entity.getId());
-        dto.setCreatedDate(entity.getCreatedDate());
-        dto.setUpdateDate(entity.getUpdatedDate());
-        dto.setProfileId(entity.getProfileId());
-        dto.setContent(entity.getContent());
-        dto.setArticleId(entity.getArticleId());
-        dto.setReplyId(entity.getReplyId());
-        dto.setVisible(entity.getVisible());
         return dto;
     }
 

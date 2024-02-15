@@ -61,6 +61,7 @@ public class SpringSecurityConfig {
             "/article/IncreaseArticle/*",
             "/article/IncreaseShare/*",
             "/comment/open/*",
+            "/comment/{id}"
 
     };
     @Bean

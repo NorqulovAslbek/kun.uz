@@ -4,8 +4,9 @@ Content-Type: application/json
 Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc5MTIzOTEsImVtYWlsIjoiYXNsYmVrbm9ycXVsb3YyNDZAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTcwNzk5ODc5MSwiaXNzIjoiS3VuVXpUZXN0In0.xgM_7x6IadXaWmC9zmL_7HWQBjKU7n4XWsmSuDHTafWLRY7zYgX1uZG5XkoZKjGbqEH-16b7YMPTXSfGaU_c9Q
 
 {
-  "content": "Salom hammaga",
-  "articleId": "735c35d3-4f3c-4b2b-8817-00b60718a79d"
+  "content": "Nima gap",
+  "articleId": "735c35d3-4f3c-4b2b-8817-00b60718a79d",
+  "replyId": 3
 }
 
 ### update comment
@@ -44,3 +45,6 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc5MTcxMzIsImVtYWlsIjoiY
 {
   "articleId": "735c35d3-4f3c-4b2b-8817-00b60718a79d"
 }
+
+### Get Replied Comment List by Comment Id
+GET localhost:8080/comment/3

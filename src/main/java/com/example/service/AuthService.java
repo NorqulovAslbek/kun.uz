@@ -7,6 +7,7 @@ import com.example.dto.RegistrationDTO;
 import com.example.entity.EmailSendHistoryEntity;
 import com.example.entity.ProfileEntity;
 import com.example.entity.SmsHistoryEntity;
+import com.example.enums.AppLanguage;
 import com.example.enums.ProfileRole;
 import com.example.enums.ProfileStatus;
 import com.example.exp.AppBadException;
@@ -15,13 +16,14 @@ import com.example.repository.ProfileRepository;
 import com.example.repository.SmsHistoryRepository;
 import com.example.util.JWTUtil;
 import com.example.util.MDUtil;
-import com.example.util.RandomUtil;
 import io.jsonwebtoken.JwtException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Locale;
 import java.util.Optional;
 import java.util.regex.Pattern;
 
@@ -38,19 +40,23 @@ public class AuthService {
     private SmsServerService smsServerService;
     @Autowired
     private SmsHistoryRepository smsHistoryRepository;
+    @Autowired
+    private ResourceBundleMessageSource resourceBundleMessageSource;
+    @Autowired
+    private ResourceBundleService resourceBundleService;
 
-    public ProfileDTO auth(AuthDTO profile) { // login
+    public ProfileDTO auth(AuthDTO profile, AppLanguage appLanguage) { // login
         Optional<ProfileEntity> optional = profileRepository.findByEmailAndPassword(profile.getEmail(),
                 MDUtil.encode(profile.getPassword()));
 
         if (optional.isEmpty()) {
             log.warn("profile not fount {}", profile.getEmail());
-            throw new AppBadException("profile not fount");
+            throw new AppBadException(resourceBundleService.getMessage("email.password.wrong",appLanguage));
         }
 
         ProfileEntity entity = optional.get();
         if (!entity.getStatus().equals(ProfileStatus.ACTIVE)) {
-            throw new AppBadException("Profile not active");
+            throw new AppBadException(resourceBundleService.getMessage("email.password.wrong",appLanguage));
         }
 
         ProfileDTO dto = new ProfileDTO();
@@ -127,7 +133,7 @@ public class AuthService {
         /*
          * email kod yuborish
          */
-       sendEmailMessage(dto, entity);     //  ==============> email jonaish uchun
+        sendEmailMessage(dto, entity);     //  ==============> email jonaish uchun
         return true;
     }
 
