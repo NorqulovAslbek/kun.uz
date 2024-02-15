@@ -11,7 +11,7 @@ Content-Disposition: form-data; name="file"; filename="vidio.mp4"
 GET localhost:8080/attach/open/1055746b-e91e-4747-a0a2-297d66279072.jpg
 
 ### Get photo and mp3 and mp4   -- bu faqat projectni attaches  file ni ichidagi malumotni oqiy oladi
-GET localhost:8080/attach/open_general/c82ee70a-c1f6-49ac-9493-491f353d06fa.mp3
+GET http://localhost:8080/attach/open_general/kunuz.jpg
 
 ###  Get by pagination
 GET localhost:8080/attach/open_general/pagination?page=1&size=3

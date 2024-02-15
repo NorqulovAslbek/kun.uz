@@ -42,7 +42,7 @@ public class CategoryService {
             categoryEntity.setNameRu(dto.getName_ru());
         }
         if (dto.getName_en() != null) {
-            categoryEntity.setNameEng(dto.getName_en());
+            categoryEntity.setNameEn(dto.getName_en());
         }
         return toDTO(categoryRepository.save(categoryEntity));
     }
@@ -80,7 +80,7 @@ public class CategoryService {
                 switch (lang) {
                     case UZ -> dto.setName(entity.getNameUz());
                     case RU -> dto.setName(entity.getNameRu());
-                    default -> dto.setName(entity.getNameEng());
+                    default -> dto.setName(entity.getNameEn());
                 }
                 list.add(dto);
             }
@@ -91,7 +91,7 @@ public class CategoryService {
 
     private CategoryEntity toEntity(CreateCategoryDTO dto) {
         CategoryEntity entity = new CategoryEntity();
-        entity.setNameEng(dto.getName_en());
+        entity.setNameEn(dto.getName_en());
         entity.setNameUz(dto.getName_uz());
         entity.setNameRu(dto.getName_ru());
         entity.setOrderNumber(dto.getOrder_number());
@@ -102,7 +102,7 @@ public class CategoryService {
         CategoryDTO dto = new CategoryDTO();
         dto.setName_uz(entity.getNameUz());
         dto.setName_ru(entity.getNameRu());
-        dto.setName_en(entity.getNameEng());
+        dto.setName_en(entity.getNameEn());
         dto.setOrder_number(entity.getOrderNumber());
         return dto;
     }
@@ -112,7 +112,7 @@ public class CategoryService {
         dto.setId(entity.getId());
         dto.setName_uz(entity.getNameUz());
         dto.setName_ru(entity.getNameRu());
-        dto.setName_en(entity.getNameEng());
+        dto.setName_en(entity.getNameEn());
         dto.setOrder_number(entity.getOrderNumber());
         dto.setVisible(entity.getVisible());
         dto.setCreated_date(entity.getCreatedDate());

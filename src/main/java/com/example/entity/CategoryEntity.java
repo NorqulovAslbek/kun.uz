@@ -16,5 +16,5 @@ public class CategoryEntity extends BaseEntity {
     @Column(nullable = false)
     private String nameRu;
     @Column(nullable = false)
-    private String nameEng;
+    private String nameEn;
 }
