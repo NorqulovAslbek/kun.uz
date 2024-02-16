@@ -4,6 +4,9 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class MDUtil {
+    public static void main(String[] args) {
+        System.out.println(encode("@Rajab1202"));
+    }
 
     public static String encode(String password) {
         try {

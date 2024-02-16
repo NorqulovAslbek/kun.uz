@@ -34,6 +34,7 @@ public class SpringSecurityConfig {
             "/swagger-resources/**",
 
             "/auth/*",
+            "/auth/verification/email/*",
             "/init/admin",
             "/init/**",
             "/region/byLang",

@@ -51,12 +51,12 @@ public class AuthService {
 
         if (optional.isEmpty()) {
             log.warn("profile not fount {}", profile.getEmail());
-            throw new AppBadException(resourceBundleService.getMessage("email.password.wrong",appLanguage));
+            throw new AppBadException(resourceBundleService.getMessage("email.password.wrong", appLanguage));
         }
 
         ProfileEntity entity = optional.get();
         if (!entity.getStatus().equals(ProfileStatus.ACTIVE)) {
-            throw new AppBadException(resourceBundleService.getMessage("email.password.wrong",appLanguage));
+            throw new AppBadException(resourceBundleService.getMessage("email.password.wrong", appLanguage));
         }
 
         ProfileDTO dto = new ProfileDTO();
@@ -69,27 +69,27 @@ public class AuthService {
     }
 
 
-    public Boolean registration(RegistrationDTO dto) {
+    public Boolean registration(RegistrationDTO dto, AppLanguage language) {
         Pattern patternGmail = Pattern.compile("^[a-zA-Z0-9._%+-]+@(mail\\.ru|gmail\\.com)$");
         Pattern patternPassword = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,20}$");
 
         if (dto.getEmail() == null || dto.getName() == null
                 || dto.getSurname() == null || dto.getPassword() == null) {
             log.warn("you have not filled all of the spaces provided{}", dto.getEmail());
-            throw new AppBadException("you have not filled all of the spaces provided!");
+            throw new AppBadException(resourceBundleService.getMessage("you.have.not", language));
         }
         if (!patternGmail.matcher(dto.getEmail()).matches()) {
             log.warn("Email was entered incorrectly{}", dto.getEmail());
-            throw new AppBadException("Email was entered incorrectly");
+            throw new AppBadException(resourceBundleService.getMessage("email.was.entered ", language));
         } else if (!patternPassword.matcher(dto.getPassword()).matches()) {
             log.warn("The password was entered incorrectly{}", dto.getEmail());
-            throw new AppBadException("The password was entered incorrectly");
+            throw new AppBadException(resourceBundleService.getMessage("the.password.was", language));
         }
         //================ 1 minutda faqat 1 sms ga ruxsat qilib qo'yildi ================\\
         LocalDateTime from = LocalDateTime.now().minusMinutes(1);
         LocalDateTime to = LocalDateTime.now();
         if (smsHistoryRepository.countSendSms(dto.getPhone(), from, to) >= 1) {
-            throw new AppBadException("To many attempt. Please try after 1 minute.");
+            throw new AppBadException(resourceBundleService.getMessage("to.many.attempt", language));
         }
 
         Optional<ProfileEntity> optional = profileRepository.findByPhone(dto.getPhone());
@@ -98,7 +98,7 @@ public class AuthService {
                 profileRepository.delete(optional.get());
             } else {
                 log.warn("phone exists{}", dto.getPhone());
-                throw new AppBadException("phone exists");
+                throw new AppBadException(resourceBundleService.getMessage("phone.exist", language));
             }
         }
         //========== MAIL YOKI GMAIL GA HABAR JONATISHNI TEKSHIRISH 1 MINDA 3 TA HABAR JONATISH MUMKN ==============\\
@@ -133,12 +133,12 @@ public class AuthService {
         /*
          * email kod yuborish
          */
-        sendEmailMessage(dto, entity);     //  ==============> email jonaish uchun
+        sendEmailMessage(dto, entity,language);     //  ==============> email jonaish uchun
         return true;
     }
 
 
-    private void sendEmailMessage(RegistrationDTO dto, ProfileEntity entity) {
+    private void sendEmailMessage(RegistrationDTO dto, ProfileEntity entity,AppLanguage language) {
         String jwt = JWTUtil.encodeForEmail(entity.getId());
         String text = getButtonLink(entity, jwt);
         EmailSendHistoryEntity emailSendHistoryEntity = new EmailSendHistoryEntity();
@@ -147,26 +147,26 @@ public class AuthService {
         emailSendHistoryEntity.setStatus(ProfileStatus.REGISTRATION);
         emailSendHistoryEntity.setCreatedData(LocalDateTime.now());
         emailSendHistoryRepository.save(emailSendHistoryEntity);
-        mailSender.sendEmail(dto.getEmail(), "Complete registration", text);
+        mailSender.sendEmail(dto.getEmail(), resourceBundleService.getMessage("complete.registration", language), text);
     }
 
 
-    public ProfileDTO smsVerification(String phone, String code) {
+    public ProfileDTO smsVerification(String phone, String code,AppLanguage language) {
         LocalDateTime from = LocalDateTime.now().minusMinutes(1);
         LocalDateTime to = LocalDateTime.now();
         Optional<ProfileEntity> byPhone = profileRepository.findByPhone(phone);
         if (byPhone.isEmpty()) {
             log.warn("phone not fount{}", phone);
-            throw new AppBadException("phone not fount");
+            throw new AppBadException(resourceBundleService.getMessage("phone.not.fount",language));
         }
         if (!byPhone.get().getStatus().equals(ProfileStatus.REGISTRATION)) {
             log.warn("Profile in wrong status");
-            throw new AppBadException("Profile in wrong status");
+            throw new AppBadException(resourceBundleService.getMessage("profile.in.wrong.status",language));
         }
         Optional<SmsHistoryEntity> checkCode = smsHistoryRepository.getPhoneAndCode(phone, code, from, to);
         if (checkCode.isEmpty()) {
             log.warn("error, please try again!");
-            throw new AppBadException("SMS timed out!");
+            throw new AppBadException(resourceBundleService.getMessage("sms.timed.out",language));
         }
         profileRepository.updateStatusActive(phone, ProfileStatus.ACTIVE);
         ProfileEntity profileEntity = byPhone.get();
@@ -179,18 +179,18 @@ public class AuthService {
         return dto;
     }
 
-    public String emailVerification(String jwt) {
+    public String emailVerification(String jwt,AppLanguage language) {
         try {
             JwtDTO jwtDTO = JWTUtil.decode(jwt);
             Optional<ProfileEntity> optional = profileRepository.findById(jwtDTO.getId());
             if (optional.isEmpty()) {
                 log.warn("Profile not found");
-                throw new AppBadException("Profile not found");
+                throw new AppBadException(resourceBundleService.getMessage("phone.not.fount",language));
             }
             ProfileEntity entity = optional.get();
             if (!entity.getStatus().equals(ProfileStatus.REGISTRATION)) {
                 log.warn("Profile in wrong status");
-                throw new AppBadException("Profile in wrong status");
+                throw new AppBadException(resourceBundleService.getMessage("profile.in.wrong.status",language));
             }
             profileRepository.updateStatus(entity.getId(), ProfileStatus.ACTIVE);
             EmailSendHistoryEntity emailSendHistoryEntity = new EmailSendHistoryEntity();
@@ -202,7 +202,7 @@ public class AuthService {
 
         } catch (JwtException e) {
             log.warn("Please tyre again.");
-            throw new AppBadException("Please tyre again.");
+            throw new AppBadException(resourceBundleService.getMessage("please.tyre.again",language));
         }
         return "Success";
     }

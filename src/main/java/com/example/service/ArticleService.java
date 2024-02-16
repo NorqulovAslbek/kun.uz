@@ -10,10 +10,7 @@ import io.jsonwebtoken.Jwts;
 import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -39,6 +36,8 @@ public class ArticleService {
     private CategoryRepository categoryRepository;
     @Autowired
     private RegionRepository regionRepository;
+    @Autowired
+    private ArticleFilterRepository repository;
 
 
     public CreateArticleDTO create(CreateArticleDTO dto, Integer moderatorId) {
@@ -175,6 +174,7 @@ public class ArticleService {
         return dto;
     }
 
+
     public List<ArticleShortInfoDTO> getMostReadArticles() {
         List<ArticleEntity> mostReadArticles = articleRepository.getMostReadArticles();
         List<ArticleShortInfoDTO> list = new LinkedList<>();
@@ -236,6 +236,18 @@ public class ArticleService {
         entity.setSharedCount(shareCount);
         articleRepository.save(entity);
         return shareCount;
+    }
+
+    public PageImpl<ArticleShortInfoDTO> filter(ArticleDTO dto, Integer page, Integer size) {
+        PaginationResultDTO<ArticleEntity> filter = repository.filter(dto, page, size);
+
+        List<ArticleShortInfoDTO> list = new LinkedList<>();
+
+        for (ArticleEntity articleEntity : filter.getList()) {
+            list.add(getShortArticleDTO(articleEntity));
+        }
+        Pageable pageable = PageRequest.of(page - 1, size, Sort.Direction.ASC, "createdDate");
+        return new PageImpl<>(list, pageable, filter.getTotalSize());
     }
 
 

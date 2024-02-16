@@ -11,15 +11,17 @@ Accept-Language: UZ
 ### Login user
 POST localhost:8080/auth/login
 Content-Type: application/json
+Accept-Language: UZ
 
 {
-  "email": "aslbeknorqulov246@gmail.com",
-  "password": "@Aslbek1207"
+  "email": "rajabollanazarov@gmail.com",
+  "password": "@Rajab1202"
 }
 
 ### Registration by sms --> Oddiy user malumotlarini to'ldirib post qilganda uni nomeriga sms yuboriladi ammo u database ga REGISTRATION holatda qoshib qo'yiladi
 POST localhost:8080/auth/registration
 Content-Type: application/json
+Accept-Language: RU
 
 {
   "name": "Aslbek",
@@ -32,6 +34,7 @@ Content-Type: application/json
 ### verification by sms --> user registration holatdan verifikatsiya holatga otish uchun yani kelgan sms ni kiritib statusini aktiv qilib qoyish uchun
 POST localhost:8080/auth/verification/phone
 Content-Type: application/json
+Accept-Language: EN
 
 {
   "code": "33168",
@@ -41,3 +44,4 @@ Content-Type: application/json
 
 ### Verification --> email dan verifikatsya qilish
 GET http://localhost:8080/auth/verification/email/eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDY2MjY3NjcsImlkIjoyLCJleHAiOjE3MDY2MzAzNjcsImlzcyI6Ikt1blV6VGVzdCJ9.oKLfymm7BGpJJNPlPGPNa449g2YB4uRka_G_TDpLHrEWpUj7qZVjcuGShIRLItQ8As8KthMhozHMGbdiqKCFBQ
+Accept-Language: UZ

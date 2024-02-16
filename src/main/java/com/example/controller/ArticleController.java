@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import com.example.dto.ArticleDTO;
 import com.example.dto.ArticleFullInfoDTO;
 import com.example.dto.CreateArticleDTO;
 import com.example.dto.CreateArticleIdListDTO;
@@ -110,6 +111,14 @@ public class ArticleController {
     @PutMapping("/IncreaseShare/{id}") ///17
     public ResponseEntity<?> IncreaseShareViewCount(@PathVariable("id") String id) {
         return ResponseEntity.ok(articleService.IncreaseShareViewCount(id));
+    }
+
+    @PostMapping("/filter")
+    @PreAuthorize("hasRole('PUBLISHER')")
+    public ResponseEntity<?> filter(@RequestBody ArticleDTO dto,
+                                    @RequestParam Integer page,
+                                    @RequestParam Integer size) {
+        return ResponseEntity.ok(articleService.filter(dto, page, size));
     }
 
 

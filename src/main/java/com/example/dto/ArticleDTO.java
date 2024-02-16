@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Getter
@@ -26,4 +27,6 @@ public class ArticleDTO {
     private LocalDateTime publishedDate;
     private Boolean visible;
     private Integer viewCount;
+    private LocalDate fromDate;
+    private LocalDate toDate;
 }

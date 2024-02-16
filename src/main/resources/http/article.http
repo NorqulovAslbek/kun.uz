@@ -85,3 +85,12 @@ PUT localhost:8080/article/IncreaseArticle/735c35d3-4f3c-4b2b-8817-00b60718a79d
 
 ### Increase Share View Count by Article Id  ///17
 PUT localhost:8080/article/IncreaseShare/735c35d3-4f3c-4b2b-8817-00b60718a79d
+
+### Filter Article
+POST localhost:8080/article/filter?page=1&size=3
+Content-Type: application/json
+Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDgwMTUxOTMsImVtYWlsIjoicmFqYWJvbGxhbmF6YXJvdkBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9QVUJMSVNIRVIiLCJleHAiOjE3MDgxMDE1OTMsImlzcyI6Ikt1blV6VGVzdCJ9._ryOBdZi7Cx_Y2w24xgsqFvyx3Xs1txDTKmDFm_zw2qlOQjGWQXQGgCFe4la_RndgUXabYgjbEQZ1jAgYnWbLA
+
+{
+  "status": "PUBLISHER"
+}
