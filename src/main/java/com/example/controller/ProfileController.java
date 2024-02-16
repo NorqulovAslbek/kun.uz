@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import com.example.dto.CreateProfileDTO;
 import com.example.dto.ProfileDTO;
 import com.example.dto.UserDTO;
 import com.example.service.ProfileService;
@@ -23,7 +24,7 @@ public class ProfileController {
     @Operation(summary = "Api for create", description = "this api used for create profile")
     @PostMapping("/adm")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<?> create(@RequestBody ProfileDTO dto) {
+    public ResponseEntity<?> create(@RequestBody CreateProfileDTO dto) {
         log.info("create admin{}", dto.getPhone());
 
         return ResponseEntity.ok(profileService.create(dto));
@@ -33,7 +34,7 @@ public class ProfileController {
     @PutMapping("/adm/update")//admin
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> updateAdmin(@RequestParam Integer id,
-                                         @RequestBody ProfileDTO dto) {
+                                         @RequestBody CreateProfileDTO dto) {
         log.info("update admin{}", dto.getPhone());
         return ResponseEntity.ok(profileService.updateAdmin(id, dto));
     }

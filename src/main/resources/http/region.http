@@ -13,7 +13,7 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc4MjcxODcsImVtYWlsIjoiY
 ### Update region by id --> Admin regionlarni update qilish uchun
 PUT localhost:8080/region/adm/update/1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc4MjcxODcsImVtYWlsIjoiYWRtaW5AbWFpbC5ydSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzA3OTEzNTg3LCJpc3MiOiJLdW5VelRlc3QifQ.4otLLgk3U5mvGiJwSBfjUqiTt4e4BmcYlDytyc6Ku5awRByZSBUehv8SleL0DCOFaJ9febbVn5fAz2uxpmVtlQ
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDgwODk0NzEsImVtYWlsIjoiYWRtaW5AbWFpbC5ydSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzA4MTc1ODcxLCJpc3MiOiJLdW5VelRlc3QifQ.y-TRHngJY8nVQnECZ1O4zZ0Gd_q_c4mB4HbP8tNJ3UNHDNF8h6Y7N7R3cgqc_VmTMFjT9mZXSHyh9u9XTrA3vQ
 
 {
   "name_ru": "Узб",

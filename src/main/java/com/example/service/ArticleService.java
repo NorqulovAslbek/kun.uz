@@ -238,7 +238,7 @@ public class ArticleService {
         return shareCount;
     }
 
-    public PageImpl<ArticleShortInfoDTO> filter(ArticleDTO dto, Integer page, Integer size) {
+    public PageImpl<ArticleShortInfoDTO> filter(ArticleFilterDTO dto, Integer page, Integer size) {
         PaginationResultDTO<ArticleEntity> filter = repository.filter(dto, page, size);
 
         List<ArticleShortInfoDTO> list = new LinkedList<>();

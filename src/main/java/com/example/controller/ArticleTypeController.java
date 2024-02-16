@@ -1,6 +1,7 @@
 package com.example.controller;
 
 import com.example.dto.ArticleTypeDTO;
+import com.example.dto.CreateArticleTypeDTO;
 import com.example.enums.AppLanguage;
 import com.example.enums.ProfileRole;
 import com.example.service.ArticleTypeService;
@@ -28,7 +29,7 @@ public class ArticleTypeController {
     @Operation(summary = "Api for create", description = "this api used for create ArticleType")
     @PostMapping("/adm")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<ArticleTypeDTO> create(@RequestBody ArticleTypeDTO dto) {
+    public ResponseEntity<ArticleTypeDTO> create(@RequestBody CreateArticleTypeDTO dto) {
         log.info("create articleType {}", dto);
         return ResponseEntity.ok(articleTypeService.create(dto));
     }
@@ -37,7 +38,7 @@ public class ArticleTypeController {
     @PutMapping("/adm/update")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> updateById(@RequestParam("id") Integer id,
-                                        @RequestBody ArticleTypeDTO dto) {
+                                        @RequestBody CreateArticleTypeDTO dto) {
         log.info("update articleType by id {}", dto);
         return ResponseEntity.ok(articleTypeService.update(id, dto));
     }

@@ -1,6 +1,7 @@
 package com.example.repository;
 
 import com.example.dto.ArticleDTO;
+import com.example.dto.ArticleFilterDTO;
 import com.example.dto.PaginationResultDTO;
 import com.example.entity.ArticleEntity;
 import jakarta.persistence.EntityManager;
@@ -20,7 +21,7 @@ public class ArticleFilterRepository {
     @Autowired
     private EntityManager entityManager;
 
-    public PaginationResultDTO<ArticleEntity> filter(ArticleDTO filter, Integer page, Integer size) {
+    public PaginationResultDTO<ArticleEntity> filter(ArticleFilterDTO filter, Integer page, Integer size) {
         StringBuilder builder = new StringBuilder();
         Map<String, Object> params = new HashMap<>();
 //      status)

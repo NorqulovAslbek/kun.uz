@@ -1,6 +1,7 @@
 package com.example.service;
 
 import com.example.dto.ArticleTypeDTO;
+import com.example.dto.CreateArticleTypeDTO;
 import com.example.entity.ArticleTypeEntity;
 import com.example.enums.AppLanguage;
 import com.example.exp.AppBadException;
@@ -20,7 +21,7 @@ public class ArticleTypeService {
     @Autowired
     private ArticleTypeRepository articleTypeRepository;
 
-    public ArticleTypeDTO create(ArticleTypeDTO dto) {
+    public ArticleTypeDTO create(CreateArticleTypeDTO dto) {
         if (dto.getOrder_number() == null || dto.getName_uz() == null
                 || dto.getName_ru() == null || dto.getName_en() == null) {
             log.warn("create article type{}",dto);
@@ -32,7 +33,7 @@ public class ArticleTypeService {
         return getDTO(save);
     }
 
-    public boolean update(Integer id, ArticleTypeDTO dto) {
+    public boolean update(Integer id, CreateArticleTypeDTO dto) {
         Optional<ArticleTypeEntity> optional = articleTypeRepository.findById(id);
         if (optional.isEmpty() || !optional.get().getVisible()) {
             log.warn("update article type by id{}",id);
@@ -94,7 +95,7 @@ public class ArticleTypeService {
     }
 
 
-    private ArticleTypeEntity getEntity(ArticleTypeDTO dto) {
+    private ArticleTypeEntity getEntity(CreateArticleTypeDTO dto) {
         ArticleTypeEntity entity = new ArticleTypeEntity();
         entity.setNameUz(dto.getName_uz());
         entity.setNameRu(dto.getName_ru());

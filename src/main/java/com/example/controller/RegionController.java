@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import com.example.dto.CreateRegionDTO;
 import com.example.dto.RegionDTO;
 import com.example.enums.AppLanguage;
 import com.example.service.RegionService;
@@ -24,8 +25,8 @@ public class RegionController {
     @Operation(summary = "Api for create", description = "this api used for create region ")
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/adm")
-    public ResponseEntity<RegionDTO> create(@RequestBody RegionDTO dto) {
-        log.info("create region {}", dto.getName());
+    public ResponseEntity<RegionDTO> create(@RequestBody CreateRegionDTO dto) {
+        log.info("create region {}", dto.getName_uz());
         return ResponseEntity.ok(regionService.create(dto));
 
     }
@@ -33,7 +34,7 @@ public class RegionController {
     @Operation(summary = "Api for update", description = "this api used for update region by id")
     @PutMapping("/adm/update/{id}")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<?> update(@PathVariable("id") Integer id, @RequestBody RegionDTO dto) {
+    public ResponseEntity<?> update(@PathVariable("id") Integer id, @RequestBody CreateRegionDTO dto) {
         log.info("update region by id {}", id);
         return ResponseEntity.ok(regionService.update(id, dto));
     }

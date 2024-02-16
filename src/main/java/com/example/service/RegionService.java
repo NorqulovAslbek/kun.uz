@@ -1,5 +1,6 @@
 package com.example.service;
 
+import com.example.dto.CreateRegionDTO;
 import com.example.dto.RegionDTO;
 import com.example.entity.RegionEntity;
 import com.example.enums.AppLanguage;
@@ -19,7 +20,7 @@ public class RegionService {
     @Autowired
     private RegionRepository regionRepository;
 
-    public RegionDTO create(RegionDTO dto) {
+    public RegionDTO create(CreateRegionDTO dto) {
         if (dto.getOrder_number() == null || dto.getName_uz() == null
                 || dto.getName_ru() == null || dto.getName_en() == null) {
             log.warn("uz,ru,en and one of the fields named orderNumber came out empty!{}",dto);
@@ -29,7 +30,7 @@ public class RegionService {
         return getDTO(save);
     }
 
-    public RegionDTO update(Integer id, RegionDTO dto) {
+    public RegionDTO update(Integer id, CreateRegionDTO dto) {
         Optional<RegionEntity> optional = regionRepository.findById(id);
         if (optional.isEmpty() || optional.get().getVisible().equals(false)) {
             log.warn("region with this id was not found {}",dto);
@@ -87,7 +88,7 @@ public class RegionService {
     }
 
 
-    private RegionEntity getEntity(RegionDTO dto) {
+    private RegionEntity getEntity(CreateRegionDTO dto) {
         RegionEntity entity = new RegionEntity();
         entity.setNameUz(dto.getName_uz());
         entity.setNameRu(dto.getName_ru());

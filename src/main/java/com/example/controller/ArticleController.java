@@ -1,9 +1,6 @@
 package com.example.controller;
 
-import com.example.dto.ArticleDTO;
-import com.example.dto.ArticleFullInfoDTO;
-import com.example.dto.CreateArticleDTO;
-import com.example.dto.CreateArticleIdListDTO;
+import com.example.dto.*;
 import com.example.service.ArticleService;
 import com.example.util.SpringSecurityUtil;
 import io.swagger.v3.oas.annotations.Operation;
@@ -115,7 +112,7 @@ public class ArticleController {
 
     @PostMapping("/filter")
     @PreAuthorize("hasRole('PUBLISHER')")
-    public ResponseEntity<?> filter(@RequestBody ArticleDTO dto,
+    public ResponseEntity<?> filter(@RequestBody ArticleFilterDTO dto,
                                     @RequestParam Integer page,
                                     @RequestParam Integer size) {
         return ResponseEntity.ok(articleService.filter(dto, page, size));

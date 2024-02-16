@@ -20,5 +20,4 @@ public class ArticleFullInfoDTO {
    private LocalDateTime publishedDate;
    private Integer viewCount;
    private Integer likeCount;
-//   private List<> tagList;
 }

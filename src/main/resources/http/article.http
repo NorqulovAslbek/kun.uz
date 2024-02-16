@@ -92,5 +92,5 @@ Content-Type: application/json
 Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDgwMTUxOTMsImVtYWlsIjoicmFqYWJvbGxhbmF6YXJvdkBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9QVUJMSVNIRVIiLCJleHAiOjE3MDgxMDE1OTMsImlzcyI6Ikt1blV6VGVzdCJ9._ryOBdZi7Cx_Y2w24xgsqFvyx3Xs1txDTKmDFm_zw2qlOQjGWQXQGgCFe4la_RndgUXabYgjbEQZ1jAgYnWbLA
 
 {
-  "status": "PUBLISHER"
+  "id": "1"
 }

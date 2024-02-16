@@ -1,5 +1,6 @@
 package com.example.service;
 
+import com.example.dto.CreateProfileDTO;
 import com.example.dto.PaginationResultDTO;
 import com.example.dto.ProfileDTO;
 import com.example.dto.UserDTO;
@@ -18,6 +19,7 @@ import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
+
 @Slf4j
 @Service
 public class ProfileService {
@@ -27,20 +29,19 @@ public class ProfileService {
     private ProfileFilterRepository repository;
 
 
-    public ProfileDTO create(ProfileDTO dto) {
+    public ProfileDTO create(CreateProfileDTO dto) {
         if (profileRepository.findByEmail(dto.getEmail()).isEmpty()) {
             ProfileEntity save = profileRepository.save(toEntity(dto));
-            dto.setJwt(JWTUtil.encode(save.getEmail(), dto.getRole()));
-            return dto;
+            return toDTO(save);
         }
-        log.warn("A user with this email already exists{}",dto);
+        log.warn("A user with this email already exists{}", dto);
         throw new AppBadException("A user with this email already exists!");
     }
 
-    public boolean updateAdmin(Integer id, ProfileDTO dto) {
+    public boolean updateAdmin(Integer id, CreateProfileDTO dto) {
         Optional<ProfileEntity> optional = profileRepository.findById(id);
         if (optional.isEmpty() || !optional.get().getVisible()) {
-            log.warn("profile with such id does not exist{}",dto);
+            log.warn("profile with such id does not exist{}", dto);
             throw new AppBadException("profile with such id does not exist!");
         }
         ProfileEntity entity = optional.get();
@@ -74,7 +75,7 @@ public class ProfileService {
     public boolean updateProfile(Integer id, UserDTO dto) {
         Optional<ProfileEntity> optional = profileRepository.findById(id);
         if (optional.isEmpty() || !optional.get().getVisible()) {
-            log.warn("user with this id does not exist! {}",dto);
+            log.warn("user with this id does not exist! {}", dto);
             throw new AppBadException("user with this id does not exist!");
         }
         ProfileEntity entity = optional.get();
@@ -98,7 +99,7 @@ public class ProfileService {
         return true;
     }
 
-    public PageImpl<ProfileDTO> getAll(Integer page,Integer size){
+    public PageImpl<ProfileDTO> getAll(Integer page, Integer size) {
         Pageable pageable = PageRequest.of(page - 1, size);
         Page<ProfileEntity> all = profileRepository.findAll(pageable);
         List<ProfileEntity> content = all.getContent();
@@ -110,15 +111,15 @@ public class ProfileService {
         return new PageImpl<>(list, pageable, totalElements);
     }
 
-    public boolean delete(Integer id){
+    public boolean delete(Integer id) {
         Optional<ProfileEntity> optional = profileRepository.findById(id);
-        if (optional.isPresent() && optional.get().getVisible()){
+        if (optional.isPresent() && optional.get().getVisible()) {
             optional.get().setVisible(false);
             ProfileEntity entity = optional.get();
             profileRepository.save(entity);
             return true;
         }
-        log.warn("profile with such id does not exist!{}",id);
+        log.warn("profile with such id does not exist!{}", id);
         throw new AppBadException("profile with such id does not exist!");
     }
 
@@ -133,8 +134,7 @@ public class ProfileService {
     }
 
 
-
-    private ProfileEntity toEntity(ProfileDTO dto) {
+    private ProfileEntity toEntity(CreateProfileDTO dto) {
         ProfileEntity entity = new ProfileEntity();
         entity.setName(dto.getName());
         entity.setSurname(dto.getSurname());
@@ -148,6 +148,7 @@ public class ProfileService {
 
     private ProfileDTO toDTO(ProfileEntity entity) {
         ProfileDTO dto = new ProfileDTO();
+        dto.setId(entity.getId());
         dto.setName(entity.getName());
         dto.setSurname(entity.getSurname());
         dto.setEmail(entity.getEmail());
@@ -155,6 +156,7 @@ public class ProfileService {
         dto.setPassword(entity.getPassword());
         dto.setStatus(entity.getStatus());
         dto.setRole(entity.getRole());
+        dto.setJwt(JWTUtil.encode(entity.getEmail(), dto.getRole()));
         return dto;
     }
 
