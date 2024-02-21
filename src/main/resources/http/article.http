@@ -1,7 +1,7 @@
 ### create article(Moderator)
 POST localhost:8080/article
 Content-Type: application/json
-Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc5MDE2MDEsImVtYWlsIjoiYXNsYmVrbm9ycXVsb3YxMkBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9NT0RFUkFUT1IiLCJleHAiOjE3MDc5ODgwMDEsImlzcyI6Ikt1blV6VGVzdCJ9.g-roBZC2Yo0Mldz4uhUjNAaTCdBMUrY2-hwjL3cR08Ialf0XXU7AA6bZMEDMtkU2WPYd6pf4_ptu_1P558nGSw
+Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDgyNzc0NTksImVtYWlsIjoiYXNsYmVrbm9ycXVsb3YxMkBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9NT0RFUkFUT1IiLCJleHAiOjE3MDgzNjM4NTksImlzcyI6Ikt1blV6VGVzdCJ9.VgsutDezk02_0Q9xN5Q8-V2ODqXLZg_Nmrq_N0e_hNSdDBcR0grEOmJwGfXys6fxA3X-iGfRTd12qyH6jbISJA
 
 {
   "title": "Qoraqalpog‘istonda bir oilaning 5 a’zosi is gazidan zaharlanib vafot etdi ",
@@ -9,7 +9,7 @@ Authorization:Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDc5MDE2MDEsImVtYWlsIjoiYX
   "content": "Qoraqalpog‘iston respublikasida bir oilaning besh nafar a’zosi is gazidan vafot etgan. Yana ikki kishi shifoxonaga yotqizilgan",
   "categoryId": 2,
   "imageId": "1055746b-e91e-4747-a0a2-297d66279072",
-  "regionId": 2,
+  "regionId": 19,
   "articleType": [
     1,
     2,

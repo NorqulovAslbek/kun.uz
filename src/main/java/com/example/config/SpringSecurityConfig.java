@@ -13,6 +13,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 @EnableMethodSecurity()
@@ -22,7 +24,7 @@ public class SpringSecurityConfig {
     @Autowired
     private JwtTokenFilter jwtTokenFilter;
 
-    public static final String[] AUTH_WHITELIST={
+    public static final String[] AUTH_WHITELIST = {
             "/v2/api-docs",
             "/configuration/ui",
             "/configuration/security",
@@ -52,7 +54,7 @@ public class SpringSecurityConfig {
             "article/IncreaseArticle/{id}",
             "article/IncreaseShare/{id}",
             "/articleType/lang",
-           " /article/typeId/id",
+            " /article/typeId/id",
             "/article/articles",
             "/article/articleId",
             "/article/mostReadArticles",
@@ -65,6 +67,7 @@ public class SpringSecurityConfig {
             "/comment/{id}"
 
     };
+
     @Bean
     public AuthenticationProvider authenticationProvider() {
         // authentication
@@ -84,7 +87,6 @@ public class SpringSecurityConfig {
     }
 
 
-
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         // authorization
@@ -98,8 +100,8 @@ public class SpringSecurityConfig {
                     .requestMatchers(AUTH_WHITELIST).permitAll()
                     .requestMatchers("/region/adm/**").hasRole("ADMIN")
                     .requestMatchers("/region/adm").hasRole("ADMIN")
-                    .requestMatchers("/profile/adm","/profile/adm/*").hasRole("ADMIN")
-                    .requestMatchers("/comment/adm","/comment/adm/*").hasRole("ADMIN")
+                    .requestMatchers("/profile/adm", "/profile/adm/*").hasRole("ADMIN")
+                    .requestMatchers("/comment/adm", "/comment/adm/*").hasRole("ADMIN")
                     .anyRequest()
                     .authenticated();
         });
@@ -111,6 +113,7 @@ public class SpringSecurityConfig {
 
         return http.build();
     }
+
     public PasswordEncoder passwordEncoder() {
         return new PasswordEncoder() {
             @Override
@@ -125,6 +128,16 @@ public class SpringSecurityConfig {
         };
     }
 
+
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurer() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/**");
+            }
+        };
+    }
 
 
 }

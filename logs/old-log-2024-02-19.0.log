@@ -1,0 +1,404 @@
+19 февр. 2024 - 01:11:14.245 INFO  com.example.KunUz1Application - Starting KunUz1Application using Java 21.0.1 with PID 2468 (E:\ofline kurs projects\Java projectlarim\kun.uz\target\classes started by Aslbek in E:\ofline kurs projects\Java projectlarim\kun.uz)
+19 февр. 2024 - 01:11:14.260 DEBUG com.example.KunUz1Application - Running with Spring Boot v3.2.2, Spring v6.1.3
+19 февр. 2024 - 01:11:14.261 INFO  com.example.KunUz1Application - The following 1 profile is active: "dev"
+19 февр. 2024 - 01:11:14.910 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+19 февр. 2024 - 01:11:14.961 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 45 ms. Found 12 JPA repository interfaces.
+19 февр. 2024 - 01:11:15.385 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+19 февр. 2024 - 01:11:15.394 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+19 февр. 2024 - 01:11:15.394 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+19 февр. 2024 - 01:11:15.442 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+19 февр. 2024 - 01:11:15.442 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1153 ms
+19 февр. 2024 - 01:11:15.488 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+19 февр. 2024 - 01:11:15.729 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@226d5af0
+19 февр. 2024 - 01:11:15.730 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+19 февр. 2024 - 01:11:15.796 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+19 февр. 2024 - 01:11:15.849 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.1.Final
+19 февр. 2024 - 01:11:15.878 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+19 февр. 2024 - 01:11:16.066 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+19 февр. 2024 - 01:11:16.913 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+19 февр. 2024 - 01:11:16.995 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+19 февр. 2024 - 01:11:17.200 INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+19 февр. 2024 - 01:11:17.529 DEBUG com.example.config.JwtTokenFilter - Filter 'jwtTokenFilter' configured for use
+19 февр. 2024 - 01:11:17.922 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+19 февр. 2024 - 01:11:18.182 INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@c35b83c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4299b47d, org.springframework.security.web.context.SecurityContextHolderFilter@26b3eb48, org.springframework.security.web.header.HeaderWriterFilter@493557d7, org.springframework.security.web.authentication.logout.LogoutFilter@70d3e710, com.example.config.JwtTokenFilter@40af3dd8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6c826924, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2809e7ab, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4f72e38c, org.springframework.security.web.access.ExceptionTranslationFilter@52cb399d, org.springframework.security.web.access.intercept.AuthorizationFilter@7a6ef10b]
+19 февр. 2024 - 01:11:18.460 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+19 февр. 2024 - 01:11:18.466 INFO  com.example.KunUz1Application - Started KunUz1Application in 4.537 seconds (process running for 5.127)
+19 февр. 2024 - 01:11:18.513 INFO  o.f.c.i.license.VersionPrinter - Flyway Community Edition 9.22.3 by Redgate
+19 февр. 2024 - 01:11:18.513 INFO  o.f.c.i.license.VersionPrinter - See release notes here: https://rd.gt/416ObMi
+19 февр. 2024 - 01:11:18.513 INFO  o.f.c.i.license.VersionPrinter - 
+19 февр. 2024 - 01:11:18.525 INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:postgresql://localhost:5432/kun_uz (PostgreSQL 14.1)
+19 февр. 2024 - 01:11:18.549 INFO  o.f.core.internal.command.DbValidate - Successfully validated 7 migrations (execution time 00:00.015s)
+19 февр. 2024 - 01:11:18.555 INFO  o.f.core.internal.command.DbMigrate - Current version of schema "public": 4
+19 февр. 2024 - 01:11:18.561 INFO  o.f.core.internal.command.DbMigrate - Migrating schema "public" to version "5 - init trigger function"
+19 февр. 2024 - 01:11:18.576 INFO  o.f.core.internal.command.DbMigrate - Migrating schema "public" to version "6 - init trigger"
+19 февр. 2024 - 01:11:18.581 INFO  o.f.core.internal.command.DbMigrate - Successfully applied 2 migrations to schema "public", now at version v6 (execution time 00:00.012s)
+19 февр. 2024 - 01:11:37.179 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+19 февр. 2024 - 01:11:37.179 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+19 февр. 2024 - 01:11:37.180 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+19 февр. 2024 - 01:11:37.442 INFO  c.e.controller.ArticleController - create articleQoraqalpog‘istonda bir oilaning 5 a’zosi is gazidan zaharlanib vafot etdi 
+19 февр. 2024 - 01:11:37.473 WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 23503
+19 февр. 2024 - 01:11:37.473 ERROR o.h.e.jdbc.spi.SqlExceptionHelper - ОШИБКА: INSERT или UPDATE в таблице "new_article_type" нарушает ограничение внешнего ключа "fk2um6an1l6frm0b3322bnt05yh"
+  Подробности: Ключ (article_type_id)=(1) отсутствует в таблице "article_type".
+19 февр. 2024 - 01:11:37.479 ERROR c.e.c.ExceptionHandlerController - org.springframework.dao.DataIntegrityViolationException: could not execute statement [ОШИБКА: INSERT или UPDATE в таблице "new_article_type" нарушает ограничение внешнего ключа "fk2um6an1l6frm0b3322bnt05yh"
+  Подробности: Ключ (article_type_id)=(1) отсутствует в таблице "article_type".] [insert into new_article_type (article_id,article_type_id,created_date,updated_date,visible) values (?,?,?,?,?)]; SQL [insert into new_article_type (article_id,article_type_id,created_date,updated_date,visible) values (?,?,?,?,?)]; constraint [null]
+19 февр. 2024 - 01:11:44.085 INFO  c.e.controller.ArticleTypeController - create articleType com.example.dto.CreateArticleTypeDTO@1521605a
+19 февр. 2024 - 01:11:45.155 INFO  c.e.controller.ArticleTypeController - create articleType com.example.dto.CreateArticleTypeDTO@73fd35e6
+19 февр. 2024 - 01:11:45.922 INFO  c.e.controller.ArticleTypeController - create articleType com.example.dto.CreateArticleTypeDTO@3d7c10d6
+19 февр. 2024 - 01:11:46.703 INFO  c.e.controller.ArticleTypeController - create articleType com.example.dto.CreateArticleTypeDTO@385f9264
+19 февр. 2024 - 01:11:51.163 INFO  c.e.controller.ArticleController - create articleQoraqalpog‘istonda bir oilaning 5 a’zosi is gazidan zaharlanib vafot etdi 
+19 февр. 2024 - 01:12:00.597 WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 23503
+19 февр. 2024 - 01:12:00.597 ERROR o.h.e.jdbc.spi.SqlExceptionHelper - ОШИБКА: INSERT или UPDATE в таблице "article_like" нарушает ограничение внешнего ключа "fkabthli6g1qjriusniw93pbesw"
+  Подробности: Ключ (article_id)=(91d58a01-3492-4013-b678-82010a837585) отсутствует в таблице "article".
+19 февр. 2024 - 01:12:00.598 ERROR c.e.c.ExceptionHandlerController - org.springframework.dao.DataIntegrityViolationException: could not execute statement [ОШИБКА: INSERT или UPDATE в таблице "article_like" нарушает ограничение внешнего ключа "fkabthli6g1qjriusniw93pbesw"
+  Подробности: Ключ (article_id)=(91d58a01-3492-4013-b678-82010a837585) отсутствует в таблице "article".] [insert into article_like (article_id,created_date,profile_id,status) values (?,?,?,?)]; SQL [insert into article_like (article_id,created_date,profile_id,status) values (?,?,?,?)]; constraint [null]
+19 февр. 2024 - 01:13:13.471 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [article] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:13:13.472 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [profile] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:13:31.276 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [article] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:13:31.276 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [profile] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:13:31.887 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [article] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:13:31.888 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [profile] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:13:32.639 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [article] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:13:32.639 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [profile] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:13:52.327 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [article] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:13:52.327 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [profile] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:14:22.478 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [article] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:14:22.478 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [profile] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:14:30.379 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [article] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:14:30.379 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [profile] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:15:00.722 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [article] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:15:00.722 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [profile] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:15:16.174 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [article] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:15:16.174 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [profile] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:15:55.387 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+19 февр. 2024 - 01:15:55.389 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+19 февр. 2024 - 01:15:55.391 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+19 февр. 2024 - 01:24:11.696 INFO  com.example.KunUz1Application - Starting KunUz1Application using Java 21.0.1 with PID 5872 (E:\ofline kurs projects\Java projectlarim\kun.uz\target\classes started by Aslbek in E:\ofline kurs projects\Java projectlarim\kun.uz)
+19 февр. 2024 - 01:24:11.704 DEBUG com.example.KunUz1Application - Running with Spring Boot v3.2.2, Spring v6.1.3
+19 февр. 2024 - 01:24:11.704 INFO  com.example.KunUz1Application - The following 1 profile is active: "dev"
+19 февр. 2024 - 01:24:12.222 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+19 февр. 2024 - 01:24:12.268 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 41 ms. Found 12 JPA repository interfaces.
+19 февр. 2024 - 01:24:12.638 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+19 февр. 2024 - 01:24:12.646 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+19 февр. 2024 - 01:24:12.646 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+19 февр. 2024 - 01:24:12.681 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+19 февр. 2024 - 01:24:12.681 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 951 ms
+19 февр. 2024 - 01:24:12.727 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+19 февр. 2024 - 01:24:12.841 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@ceb7701
+19 февр. 2024 - 01:24:12.842 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+19 февр. 2024 - 01:24:12.901 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+19 февр. 2024 - 01:24:12.936 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.1.Final
+19 февр. 2024 - 01:24:12.957 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+19 февр. 2024 - 01:24:13.106 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+19 февр. 2024 - 01:24:13.845 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+19 февр. 2024 - 01:24:13.955 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+19 февр. 2024 - 01:24:14.151 INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+19 февр. 2024 - 01:24:14.443 DEBUG com.example.config.JwtTokenFilter - Filter 'jwtTokenFilter' configured for use
+19 февр. 2024 - 01:24:14.813 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+19 февр. 2024 - 01:24:15.050 INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@70903e7b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3e9f3d0f, org.springframework.security.web.context.SecurityContextHolderFilter@4b9be679, org.springframework.security.web.header.HeaderWriterFilter@49e8f283, org.springframework.security.web.authentication.logout.LogoutFilter@510ee215, com.example.config.JwtTokenFilter@298f7b0a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@768dcd21, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1be598c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@41aa99fc, org.springframework.security.web.access.ExceptionTranslationFilter@65daaa95, org.springframework.security.web.access.intercept.AuthorizationFilter@7ec02149]
+19 февр. 2024 - 01:24:15.325 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+19 февр. 2024 - 01:24:15.331 INFO  com.example.KunUz1Application - Started KunUz1Application in 3.9 seconds (process running for 4.292)
+19 февр. 2024 - 01:24:15.369 INFO  o.f.c.i.license.VersionPrinter - Flyway Community Edition 9.22.3 by Redgate
+19 февр. 2024 - 01:24:15.369 INFO  o.f.c.i.license.VersionPrinter - See release notes here: https://rd.gt/416ObMi
+19 февр. 2024 - 01:24:15.369 INFO  o.f.c.i.license.VersionPrinter - 
+19 февр. 2024 - 01:24:15.378 INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:postgresql://localhost:5432/kun_uz (PostgreSQL 14.1)
+19 февр. 2024 - 01:24:15.400 INFO  o.f.core.internal.command.DbValidate - Successfully validated 7 migrations (execution time 00:00.013s)
+19 февр. 2024 - 01:24:15.406 INFO  o.f.core.internal.command.DbMigrate - Current version of schema "public": 6
+19 февр. 2024 - 01:24:15.408 INFO  o.f.core.internal.command.DbMigrate - Schema "public" is up to date. No migration necessary.
+19 февр. 2024 - 01:24:18.162 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+19 февр. 2024 - 01:24:18.162 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+19 февр. 2024 - 01:24:18.163 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+19 февр. 2024 - 01:24:18.405 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [article] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:24:18.405 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [profile] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:24:43.231 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [article] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:24:43.231 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [profile] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:24:56.550 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [article] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:24:56.550 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [profile] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:24:56.557 WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 23514
+19 февр. 2024 - 01:24:56.557 ERROR o.h.e.jdbc.spi.SqlExceptionHelper - ОШИБКА: новая строка в отношении "article_like" нарушает ограничение-проверку "article_like_status_check"
+  Подробности: Ошибочная строка содержит (2, 472e4b35-0815-441f-bf8c-0c07144d8743, 2024-02-19 01:24:56.549622, 1, DELETE).
+19 февр. 2024 - 01:24:56.563 ERROR c.e.c.ExceptionHandlerController - org.springframework.dao.DataIntegrityViolationException: could not execute statement [ОШИБКА: новая строка в отношении "article_like" нарушает ограничение-проверку "article_like_status_check"
+  Подробности: Ошибочная строка содержит (2, 472e4b35-0815-441f-bf8c-0c07144d8743, 2024-02-19 01:24:56.549622, 1, DELETE).] [update article_like set article_id=?,created_date=?,profile_id=?,status=? where id=?]; SQL [update article_like set article_id=?,created_date=?,profile_id=?,status=? where id=?]; constraint [null]
+19 февр. 2024 - 01:26:42.400 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [article] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:26:42.400 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [profile] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:26:42.401 WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 23514
+19 февр. 2024 - 01:26:42.401 ERROR o.h.e.jdbc.spi.SqlExceptionHelper - ОШИБКА: новая строка в отношении "article_like" нарушает ограничение-проверку "article_like_status_check"
+  Подробности: Ошибочная строка содержит (2, 472e4b35-0815-441f-bf8c-0c07144d8743, 2024-02-19 01:26:42.399591, 1, DELETE).
+19 февр. 2024 - 01:26:42.402 ERROR c.e.c.ExceptionHandlerController - org.springframework.dao.DataIntegrityViolationException: could not execute statement [ОШИБКА: новая строка в отношении "article_like" нарушает ограничение-проверку "article_like_status_check"
+  Подробности: Ошибочная строка содержит (2, 472e4b35-0815-441f-bf8c-0c07144d8743, 2024-02-19 01:26:42.399591, 1, DELETE).] [update article_like set article_id=?,created_date=?,profile_id=?,status=? where id=?]; SQL [update article_like set article_id=?,created_date=?,profile_id=?,status=? where id=?]; constraint [null]
+19 февр. 2024 - 01:28:24.244 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+19 февр. 2024 - 01:28:24.245 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+19 февр. 2024 - 01:28:24.248 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+19 февр. 2024 - 01:28:26.928 INFO  com.example.KunUz1Application - Starting KunUz1Application using Java 21.0.1 with PID 10640 (E:\ofline kurs projects\Java projectlarim\kun.uz\target\classes started by Aslbek in E:\ofline kurs projects\Java projectlarim\kun.uz)
+19 февр. 2024 - 01:28:26.937 DEBUG com.example.KunUz1Application - Running with Spring Boot v3.2.2, Spring v6.1.3
+19 февр. 2024 - 01:28:26.937 INFO  com.example.KunUz1Application - The following 1 profile is active: "dev"
+19 февр. 2024 - 01:28:27.460 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+19 февр. 2024 - 01:28:27.508 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 43 ms. Found 12 JPA repository interfaces.
+19 февр. 2024 - 01:28:27.877 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+19 февр. 2024 - 01:28:27.885 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+19 февр. 2024 - 01:28:27.885 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+19 февр. 2024 - 01:28:27.919 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+19 февр. 2024 - 01:28:27.920 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 956 ms
+19 февр. 2024 - 01:28:27.959 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+19 февр. 2024 - 01:28:28.079 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@ceb7701
+19 февр. 2024 - 01:28:28.081 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+19 февр. 2024 - 01:28:28.142 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+19 февр. 2024 - 01:28:28.177 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.1.Final
+19 февр. 2024 - 01:28:28.199 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+19 февр. 2024 - 01:28:28.348 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+19 февр. 2024 - 01:28:29.068 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+19 февр. 2024 - 01:28:29.188 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+19 февр. 2024 - 01:28:29.361 INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+19 февр. 2024 - 01:28:29.647 DEBUG com.example.config.JwtTokenFilter - Filter 'jwtTokenFilter' configured for use
+19 февр. 2024 - 01:28:30.021 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+19 февр. 2024 - 01:28:30.265 INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@23216e17, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@679864e0, org.springframework.security.web.context.SecurityContextHolderFilter@4f34f451, org.springframework.security.web.header.HeaderWriterFilter@3b0305dd, org.springframework.security.web.authentication.logout.LogoutFilter@7fd4682, com.example.config.JwtTokenFilter@2ea8f277, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@8611b3f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@f0a6b04, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@629e9957, org.springframework.security.web.access.ExceptionTranslationFilter@76b93bb9, org.springframework.security.web.access.intercept.AuthorizationFilter@3396d2a6]
+19 февр. 2024 - 01:28:30.531 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+19 февр. 2024 - 01:28:30.537 INFO  com.example.KunUz1Application - Started KunUz1Application in 3.874 seconds (process running for 4.28)
+19 февр. 2024 - 01:28:30.575 INFO  o.f.c.i.license.VersionPrinter - Flyway Community Edition 9.22.3 by Redgate
+19 февр. 2024 - 01:28:30.576 INFO  o.f.c.i.license.VersionPrinter - See release notes here: https://rd.gt/416ObMi
+19 февр. 2024 - 01:28:30.576 INFO  o.f.c.i.license.VersionPrinter - 
+19 февр. 2024 - 01:28:30.585 INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:postgresql://localhost:5432/kun_uz (PostgreSQL 14.1)
+19 февр. 2024 - 01:28:30.606 INFO  o.f.core.internal.command.DbValidate - Successfully validated 7 migrations (execution time 00:00.014s)
+19 февр. 2024 - 01:28:30.612 INFO  o.f.core.internal.command.DbMigrate - Current version of schema "public": 6
+19 февр. 2024 - 01:28:30.614 INFO  o.f.core.internal.command.DbMigrate - Schema "public" is up to date. No migration necessary.
+19 февр. 2024 - 01:28:34.193 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+19 февр. 2024 - 01:28:34.193 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+19 февр. 2024 - 01:28:34.194 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+19 февр. 2024 - 01:28:34.421 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [article] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:28:34.421 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [profile] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:28:46.903 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [article] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:28:46.903 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [profile] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:28:55.395 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [article] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:28:55.395 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [profile] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:36:04.550 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+19 февр. 2024 - 01:36:04.551 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+19 февр. 2024 - 01:36:04.553 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+19 февр. 2024 - 01:36:07.045 INFO  com.example.KunUz1Application - Starting KunUz1Application using Java 21.0.1 with PID 2868 (E:\ofline kurs projects\Java projectlarim\kun.uz\target\classes started by Aslbek in E:\ofline kurs projects\Java projectlarim\kun.uz)
+19 февр. 2024 - 01:36:07.053 DEBUG com.example.KunUz1Application - Running with Spring Boot v3.2.2, Spring v6.1.3
+19 февр. 2024 - 01:36:07.054 INFO  com.example.KunUz1Application - The following 1 profile is active: "dev"
+19 февр. 2024 - 01:36:07.566 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+19 февр. 2024 - 01:36:07.619 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 43 ms. Found 12 JPA repository interfaces.
+19 февр. 2024 - 01:36:07.992 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+19 февр. 2024 - 01:36:08.000 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+19 февр. 2024 - 01:36:08.000 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+19 февр. 2024 - 01:36:08.037 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+19 февр. 2024 - 01:36:08.037 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 958 ms
+19 февр. 2024 - 01:36:08.087 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+19 февр. 2024 - 01:36:08.190 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@20256a0b
+19 февр. 2024 - 01:36:08.191 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+19 февр. 2024 - 01:36:08.251 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+19 февр. 2024 - 01:36:08.286 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.1.Final
+19 февр. 2024 - 01:36:08.309 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+19 февр. 2024 - 01:36:08.456 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+19 февр. 2024 - 01:36:09.202 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+19 февр. 2024 - 01:36:09.312 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+19 февр. 2024 - 01:36:09.491 INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+19 февр. 2024 - 01:36:09.779 DEBUG com.example.config.JwtTokenFilter - Filter 'jwtTokenFilter' configured for use
+19 февр. 2024 - 01:36:10.158 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+19 февр. 2024 - 01:36:10.395 INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@45bf1ee3, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@57e273e0, org.springframework.security.web.context.SecurityContextHolderFilter@398f6f04, org.springframework.security.web.header.HeaderWriterFilter@1752ab9b, org.springframework.security.web.authentication.logout.LogoutFilter@5cb9ef8a, com.example.config.JwtTokenFilter@745c25ed, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@32daccab, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@d015dba, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3396d2a6, org.springframework.security.web.access.ExceptionTranslationFilter@4ca62855, org.springframework.security.web.access.intercept.AuthorizationFilter@25082311]
+19 февр. 2024 - 01:36:10.653 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+19 февр. 2024 - 01:36:10.659 INFO  com.example.KunUz1Application - Started KunUz1Application in 3.883 seconds (process running for 4.268)
+19 февр. 2024 - 01:36:10.697 INFO  o.f.c.i.license.VersionPrinter - Flyway Community Edition 9.22.3 by Redgate
+19 февр. 2024 - 01:36:10.697 INFO  o.f.c.i.license.VersionPrinter - See release notes here: https://rd.gt/416ObMi
+19 февр. 2024 - 01:36:10.697 INFO  o.f.c.i.license.VersionPrinter - 
+19 февр. 2024 - 01:36:10.706 INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:postgresql://localhost:5432/kun_uz (PostgreSQL 14.1)
+19 февр. 2024 - 01:36:10.727 INFO  o.f.core.internal.command.DbValidate - Successfully validated 7 migrations (execution time 00:00.013s)
+19 февр. 2024 - 01:36:10.733 INFO  o.f.core.internal.command.DbMigrate - Current version of schema "public": 6
+19 февр. 2024 - 01:36:10.735 INFO  o.f.core.internal.command.DbMigrate - Schema "public" is up to date. No migration necessary.
+19 февр. 2024 - 01:36:16.476 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+19 февр. 2024 - 01:36:16.476 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+19 февр. 2024 - 01:36:16.477 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+19 февр. 2024 - 01:36:16.708 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [article] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:36:16.709 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [profile] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:36:26.900 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [article] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:36:26.900 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [profile] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:36:40.855 WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 23514
+19 февр. 2024 - 01:36:40.855 ERROR o.h.e.jdbc.spi.SqlExceptionHelper - ОШИБКА: новая строка в отношении "article_like" нарушает ограничение-проверку "article_like_status_check"
+  Подробности: Ошибочная строка содержит (3, 472e4b35-0815-441f-bf8c-0c07144d8743, 2024-02-19 01:36:40.848319, 1, REMOVE).
+19 февр. 2024 - 01:36:40.861 ERROR c.e.c.ExceptionHandlerController - org.springframework.dao.DataIntegrityViolationException: could not execute statement [ОШИБКА: новая строка в отношении "article_like" нарушает ограничение-проверку "article_like_status_check"
+  Подробности: Ошибочная строка содержит (3, 472e4b35-0815-441f-bf8c-0c07144d8743, 2024-02-19 01:36:40.848319, 1, REMOVE).] [insert into article_like (article_id,created_date,profile_id,status) values (?,?,?,?)]; SQL [insert into article_like (article_id,created_date,profile_id,status) values (?,?,?,?)]; constraint [null]
+19 февр. 2024 - 01:36:42.442 WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 23514
+19 февр. 2024 - 01:36:42.442 ERROR o.h.e.jdbc.spi.SqlExceptionHelper - ОШИБКА: новая строка в отношении "article_like" нарушает ограничение-проверку "article_like_status_check"
+  Подробности: Ошибочная строка содержит (4, 472e4b35-0815-441f-bf8c-0c07144d8743, 2024-02-19 01:36:42.44168, 1, REMOVE).
+19 февр. 2024 - 01:36:42.442 ERROR c.e.c.ExceptionHandlerController - org.springframework.dao.DataIntegrityViolationException: could not execute statement [ОШИБКА: новая строка в отношении "article_like" нарушает ограничение-проверку "article_like_status_check"
+  Подробности: Ошибочная строка содержит (4, 472e4b35-0815-441f-bf8c-0c07144d8743, 2024-02-19 01:36:42.44168, 1, REMOVE).] [insert into article_like (article_id,created_date,profile_id,status) values (?,?,?,?)]; SQL [insert into article_like (article_id,created_date,profile_id,status) values (?,?,?,?)]; constraint [null]
+19 февр. 2024 - 01:36:43.700 WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 23514
+19 февр. 2024 - 01:36:43.701 ERROR o.h.e.jdbc.spi.SqlExceptionHelper - ОШИБКА: новая строка в отношении "article_like" нарушает ограничение-проверку "article_like_status_check"
+  Подробности: Ошибочная строка содержит (5, 472e4b35-0815-441f-bf8c-0c07144d8743, 2024-02-19 01:36:43.700181, 1, REMOVE).
+19 февр. 2024 - 01:36:43.701 ERROR c.e.c.ExceptionHandlerController - org.springframework.dao.DataIntegrityViolationException: could not execute statement [ОШИБКА: новая строка в отношении "article_like" нарушает ограничение-проверку "article_like_status_check"
+  Подробности: Ошибочная строка содержит (5, 472e4b35-0815-441f-bf8c-0c07144d8743, 2024-02-19 01:36:43.700181, 1, REMOVE).] [insert into article_like (article_id,created_date,profile_id,status) values (?,?,?,?)]; SQL [insert into article_like (article_id,created_date,profile_id,status) values (?,?,?,?)]; constraint [null]
+19 февр. 2024 - 01:36:45.586 WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 23514
+19 февр. 2024 - 01:36:45.586 ERROR o.h.e.jdbc.spi.SqlExceptionHelper - ОШИБКА: новая строка в отношении "article_like" нарушает ограничение-проверку "article_like_status_check"
+  Подробности: Ошибочная строка содержит (6, 472e4b35-0815-441f-bf8c-0c07144d8743, 2024-02-19 01:36:45.585091, 1, REMOVE).
+19 февр. 2024 - 01:36:45.587 ERROR c.e.c.ExceptionHandlerController - org.springframework.dao.DataIntegrityViolationException: could not execute statement [ОШИБКА: новая строка в отношении "article_like" нарушает ограничение-проверку "article_like_status_check"
+  Подробности: Ошибочная строка содержит (6, 472e4b35-0815-441f-bf8c-0c07144d8743, 2024-02-19 01:36:45.585091, 1, REMOVE).] [insert into article_like (article_id,created_date,profile_id,status) values (?,?,?,?)]; SQL [insert into article_like (article_id,created_date,profile_id,status) values (?,?,?,?)]; constraint [null]
+19 февр. 2024 - 01:37:00.004 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [article] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:37:00.005 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [profile] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:37:21.428 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+19 февр. 2024 - 01:37:21.429 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+19 февр. 2024 - 01:37:21.431 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+19 февр. 2024 - 01:37:23.967 INFO  com.example.KunUz1Application - Starting KunUz1Application using Java 21.0.1 with PID 5616 (E:\ofline kurs projects\Java projectlarim\kun.uz\target\classes started by Aslbek in E:\ofline kurs projects\Java projectlarim\kun.uz)
+19 февр. 2024 - 01:37:23.976 DEBUG com.example.KunUz1Application - Running with Spring Boot v3.2.2, Spring v6.1.3
+19 февр. 2024 - 01:37:23.977 INFO  com.example.KunUz1Application - The following 1 profile is active: "dev"
+19 февр. 2024 - 01:37:24.492 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+19 февр. 2024 - 01:37:24.537 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 41 ms. Found 12 JPA repository interfaces.
+19 февр. 2024 - 01:37:24.906 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+19 февр. 2024 - 01:37:24.914 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+19 февр. 2024 - 01:37:24.914 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+19 февр. 2024 - 01:37:24.949 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+19 февр. 2024 - 01:37:24.950 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 948 ms
+19 февр. 2024 - 01:37:24.999 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+19 февр. 2024 - 01:37:25.101 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@624b3544
+19 февр. 2024 - 01:37:25.102 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+19 февр. 2024 - 01:37:25.161 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+19 февр. 2024 - 01:37:25.196 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.1.Final
+19 февр. 2024 - 01:37:25.219 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+19 февр. 2024 - 01:37:25.368 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+19 февр. 2024 - 01:37:26.109 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+19 февр. 2024 - 01:37:26.220 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+19 февр. 2024 - 01:37:26.401 INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+19 февр. 2024 - 01:37:26.689 DEBUG com.example.config.JwtTokenFilter - Filter 'jwtTokenFilter' configured for use
+19 февр. 2024 - 01:37:27.061 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+19 февр. 2024 - 01:37:27.298 INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3396d2a6, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1ed43328, org.springframework.security.web.context.SecurityContextHolderFilter@32daccab, org.springframework.security.web.header.HeaderWriterFilter@76b93bb9, org.springframework.security.web.authentication.logout.LogoutFilter@bba6542, com.example.config.JwtTokenFilter@4fb1bffd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4f34f451, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6c3a3d87, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@23216e17, org.springframework.security.web.access.ExceptionTranslationFilter@1752ab9b, org.springframework.security.web.access.intercept.AuthorizationFilter@45bf1ee3]
+19 февр. 2024 - 01:37:27.555 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+19 февр. 2024 - 01:37:27.561 INFO  com.example.KunUz1Application - Started KunUz1Application in 3.863 seconds (process running for 4.264)
+19 февр. 2024 - 01:37:27.598 INFO  o.f.c.i.license.VersionPrinter - Flyway Community Edition 9.22.3 by Redgate
+19 февр. 2024 - 01:37:27.598 INFO  o.f.c.i.license.VersionPrinter - See release notes here: https://rd.gt/416ObMi
+19 февр. 2024 - 01:37:27.598 INFO  o.f.c.i.license.VersionPrinter - 
+19 февр. 2024 - 01:37:27.607 INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:postgresql://localhost:5432/kun_uz (PostgreSQL 14.1)
+19 февр. 2024 - 01:37:27.628 INFO  o.f.core.internal.command.DbValidate - Successfully validated 7 migrations (execution time 00:00.013s)
+19 февр. 2024 - 01:37:27.634 INFO  o.f.core.internal.command.DbMigrate - Current version of schema "public": 6
+19 февр. 2024 - 01:37:27.636 INFO  o.f.core.internal.command.DbMigrate - Schema "public" is up to date. No migration necessary.
+19 февр. 2024 - 01:37:37.786 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+19 февр. 2024 - 01:37:37.786 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+19 февр. 2024 - 01:37:37.787 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+19 февр. 2024 - 01:37:38.017 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [article] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:37:38.017 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [profile] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:37:44.836 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [article] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:37:44.836 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [profile] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:37:52.549 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+19 февр. 2024 - 01:37:52.550 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+19 февр. 2024 - 01:37:52.552 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+19 февр. 2024 - 01:38:08.115 INFO  com.example.KunUz1Application - Starting KunUz1Application using Java 21.0.1 with PID 11472 (E:\ofline kurs projects\Java projectlarim\kun.uz\target\classes started by Aslbek in E:\ofline kurs projects\Java projectlarim\kun.uz)
+19 февр. 2024 - 01:38:08.124 DEBUG com.example.KunUz1Application - Running with Spring Boot v3.2.2, Spring v6.1.3
+19 февр. 2024 - 01:38:08.124 INFO  com.example.KunUz1Application - The following 1 profile is active: "dev"
+19 февр. 2024 - 01:38:08.635 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+19 февр. 2024 - 01:38:08.686 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 46 ms. Found 12 JPA repository interfaces.
+19 февр. 2024 - 01:38:09.060 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+19 февр. 2024 - 01:38:09.068 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+19 февр. 2024 - 01:38:09.068 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+19 февр. 2024 - 01:38:09.105 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+19 февр. 2024 - 01:38:09.105 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 955 ms
+19 февр. 2024 - 01:38:09.151 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+19 февр. 2024 - 01:38:09.255 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@76a362a4
+19 февр. 2024 - 01:38:09.256 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+19 февр. 2024 - 01:38:09.316 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+19 февр. 2024 - 01:38:09.352 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.1.Final
+19 февр. 2024 - 01:38:09.373 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+19 февр. 2024 - 01:38:09.521 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+19 февр. 2024 - 01:38:10.269 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+19 февр. 2024 - 01:38:10.379 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+19 февр. 2024 - 01:38:10.557 INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+19 февр. 2024 - 01:38:10.838 DEBUG com.example.config.JwtTokenFilter - Filter 'jwtTokenFilter' configured for use
+19 февр. 2024 - 01:38:11.219 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+19 февр. 2024 - 01:38:11.452 INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@58a2c6a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@260f8704, org.springframework.security.web.context.SecurityContextHolderFilter@65daaa95, org.springframework.security.web.header.HeaderWriterFilter@5a271f3b, org.springframework.security.web.authentication.logout.LogoutFilter@23216e17, com.example.config.JwtTokenFilter@298f7b0a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@49e8f283, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@490f4b14, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4ea01c2a, org.springframework.security.web.access.ExceptionTranslationFilter@677480c8, org.springframework.security.web.access.intercept.AuthorizationFilter@7fc2e0b7]
+19 февр. 2024 - 01:38:11.709 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+19 февр. 2024 - 01:38:11.715 INFO  com.example.KunUz1Application - Started KunUz1Application in 3.869 seconds (process running for 4.274)
+19 февр. 2024 - 01:38:11.752 INFO  o.f.c.i.license.VersionPrinter - Flyway Community Edition 9.22.3 by Redgate
+19 февр. 2024 - 01:38:11.752 INFO  o.f.c.i.license.VersionPrinter - See release notes here: https://rd.gt/416ObMi
+19 февр. 2024 - 01:38:11.752 INFO  o.f.c.i.license.VersionPrinter - 
+19 февр. 2024 - 01:38:11.761 INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:postgresql://localhost:5432/kun_uz (PostgreSQL 14.1)
+19 февр. 2024 - 01:38:11.782 INFO  o.f.core.internal.command.DbValidate - Successfully validated 7 migrations (execution time 00:00.013s)
+19 февр. 2024 - 01:38:11.788 INFO  o.f.core.internal.command.DbMigrate - Current version of schema "public": 6
+19 февр. 2024 - 01:38:11.790 INFO  o.f.core.internal.command.DbMigrate - Schema "public" is up to date. No migration necessary.
+19 февр. 2024 - 01:38:16.166 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+19 февр. 2024 - 01:38:16.166 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+19 февр. 2024 - 01:38:16.167 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+19 февр. 2024 - 01:38:16.397 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [article] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:38:16.397 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [profile] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:39:14.411 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+19 февр. 2024 - 01:39:14.413 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+19 февр. 2024 - 01:39:14.415 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+19 февр. 2024 - 01:39:16.943 INFO  com.example.KunUz1Application - Starting KunUz1Application using Java 21.0.1 with PID 2348 (E:\ofline kurs projects\Java projectlarim\kun.uz\target\classes started by Aslbek in E:\ofline kurs projects\Java projectlarim\kun.uz)
+19 февр. 2024 - 01:39:16.951 DEBUG com.example.KunUz1Application - Running with Spring Boot v3.2.2, Spring v6.1.3
+19 февр. 2024 - 01:39:16.952 INFO  com.example.KunUz1Application - The following 1 profile is active: "dev"
+19 февр. 2024 - 01:39:17.472 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+19 февр. 2024 - 01:39:17.518 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 42 ms. Found 12 JPA repository interfaces.
+19 февр. 2024 - 01:39:17.892 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+19 февр. 2024 - 01:39:17.900 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+19 февр. 2024 - 01:39:17.900 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+19 февр. 2024 - 01:39:17.938 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+19 февр. 2024 - 01:39:17.938 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 960 ms
+19 февр. 2024 - 01:39:17.977 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+19 февр. 2024 - 01:39:18.210 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@624b3544
+19 февр. 2024 - 01:39:18.211 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+19 февр. 2024 - 01:39:18.268 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+19 февр. 2024 - 01:39:18.302 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.1.Final
+19 февр. 2024 - 01:39:18.324 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+19 февр. 2024 - 01:39:18.479 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+19 февр. 2024 - 01:39:19.226 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+19 февр. 2024 - 01:39:19.347 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+19 февр. 2024 - 01:39:19.528 INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+19 февр. 2024 - 01:39:19.807 DEBUG com.example.config.JwtTokenFilter - Filter 'jwtTokenFilter' configured for use
+19 февр. 2024 - 01:39:20.182 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+19 февр. 2024 - 01:39:20.417 INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3057a923, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@681f5a1e, org.springframework.security.web.context.SecurityContextHolderFilter@70a7ebc9, org.springframework.security.web.header.HeaderWriterFilter@77f21c0a, org.springframework.security.web.authentication.logout.LogoutFilter@c35b83c, com.example.config.JwtTokenFilter@40af3dd8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@b205e08, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@76b93bb9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@25082311, org.springframework.security.web.access.ExceptionTranslationFilter@1159a049, org.springframework.security.web.access.intercept.AuthorizationFilter@14ab3e22]
+19 февр. 2024 - 01:39:20.672 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+19 февр. 2024 - 01:39:20.679 INFO  com.example.KunUz1Application - Started KunUz1Application in 4.005 seconds (process running for 4.397)
+19 февр. 2024 - 01:39:20.717 INFO  o.f.c.i.license.VersionPrinter - Flyway Community Edition 9.22.3 by Redgate
+19 февр. 2024 - 01:39:20.717 INFO  o.f.c.i.license.VersionPrinter - See release notes here: https://rd.gt/416ObMi
+19 февр. 2024 - 01:39:20.717 INFO  o.f.c.i.license.VersionPrinter - 
+19 февр. 2024 - 01:39:20.726 INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:postgresql://localhost:5432/kun_uz (PostgreSQL 14.1)
+19 февр. 2024 - 01:39:20.747 INFO  o.f.core.internal.command.DbValidate - Successfully validated 7 migrations (execution time 00:00.013s)
+19 февр. 2024 - 01:39:20.754 INFO  o.f.core.internal.command.DbMigrate - Current version of schema "public": 6
+19 февр. 2024 - 01:39:20.755 INFO  o.f.core.internal.command.DbMigrate - Schema "public" is up to date. No migration necessary.
+19 февр. 2024 - 01:39:24.266 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+19 февр. 2024 - 01:39:24.267 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+19 февр. 2024 - 01:39:24.268 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+19 февр. 2024 - 01:39:24.486 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [article] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:39:24.486 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [profile] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:39:32.139 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [article] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:39:32.139 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [profile] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:44:29.481 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+19 февр. 2024 - 01:44:29.483 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+19 февр. 2024 - 01:44:29.492 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+19 февр. 2024 - 01:44:32.560 INFO  com.example.KunUz1Application - Starting KunUz1Application using Java 21.0.1 with PID 8904 (E:\ofline kurs projects\Java projectlarim\kun.uz\target\classes started by Aslbek in E:\ofline kurs projects\Java projectlarim\kun.uz)
+19 февр. 2024 - 01:44:32.570 DEBUG com.example.KunUz1Application - Running with Spring Boot v3.2.2, Spring v6.1.3
+19 февр. 2024 - 01:44:32.570 INFO  com.example.KunUz1Application - The following 1 profile is active: "dev"
+19 февр. 2024 - 01:44:33.087 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+19 февр. 2024 - 01:44:33.132 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 40 ms. Found 12 JPA repository interfaces.
+19 февр. 2024 - 01:44:33.499 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+19 февр. 2024 - 01:44:33.507 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+19 февр. 2024 - 01:44:33.507 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+19 февр. 2024 - 01:44:33.557 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+19 февр. 2024 - 01:44:33.558 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 963 ms
+19 февр. 2024 - 01:44:33.604 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+19 февр. 2024 - 01:44:33.813 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@624b3544
+19 февр. 2024 - 01:44:33.814 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+19 февр. 2024 - 01:44:33.871 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+19 февр. 2024 - 01:44:33.904 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.1.Final
+19 февр. 2024 - 01:44:33.926 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+19 февр. 2024 - 01:44:34.074 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+19 февр. 2024 - 01:44:34.825 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+19 февр. 2024 - 01:44:34.937 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+19 февр. 2024 - 01:44:35.116 INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+19 февр. 2024 - 01:44:35.403 DEBUG com.example.config.JwtTokenFilter - Filter 'jwtTokenFilter' configured for use
+19 февр. 2024 - 01:44:35.771 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+19 февр. 2024 - 01:44:36.003 INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@57e273e0, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3396d2a6, org.springframework.security.web.context.SecurityContextHolderFilter@3b0305dd, org.springframework.security.web.header.HeaderWriterFilter@b205e08, org.springframework.security.web.authentication.logout.LogoutFilter@538c823c, com.example.config.JwtTokenFilter@4fb1bffd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@d015dba, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4f34f451, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1ed43328, org.springframework.security.web.access.ExceptionTranslationFilter@70a7ebc9, org.springframework.security.web.access.intercept.AuthorizationFilter@48acb864]
+19 февр. 2024 - 01:44:36.259 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+19 февр. 2024 - 01:44:36.265 INFO  com.example.KunUz1Application - Started KunUz1Application in 3.967 seconds (process running for 4.436)
+19 февр. 2024 - 01:44:36.302 INFO  o.f.c.i.license.VersionPrinter - Flyway Community Edition 9.22.3 by Redgate
+19 февр. 2024 - 01:44:36.302 INFO  o.f.c.i.license.VersionPrinter - See release notes here: https://rd.gt/416ObMi
+19 февр. 2024 - 01:44:36.302 INFO  o.f.c.i.license.VersionPrinter - 
+19 февр. 2024 - 01:44:36.310 INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:postgresql://localhost:5432/kun_uz (PostgreSQL 14.1)
+19 февр. 2024 - 01:44:36.332 INFO  o.f.core.internal.command.DbValidate - Successfully validated 7 migrations (execution time 00:00.013s)
+19 февр. 2024 - 01:44:36.339 INFO  o.f.core.internal.command.DbMigrate - Current version of schema "public": 6
+19 февр. 2024 - 01:44:36.341 INFO  o.f.core.internal.command.DbMigrate - Schema "public" is up to date. No migration necessary.
+19 февр. 2024 - 01:44:38.894 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+19 февр. 2024 - 01:44:38.895 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+19 февр. 2024 - 01:44:38.896 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+19 февр. 2024 - 01:44:39.125 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [article] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:44:39.125 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [profile] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:44:45.345 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [article] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:44:45.346 WARN  o.h.p.entity.AbstractEntityPersister - HHH000502: The [profile] property of the [com.example.entity.ArticleLikeEntity] entity was modified, but it won't be updated because the property is immutable.
+19 февр. 2024 - 01:45:04.647 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+19 февр. 2024 - 01:45:04.648 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+19 февр. 2024 - 01:45:04.650 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

@@ -14,8 +14,8 @@ Content-Type: application/json
 Accept-Language: UZ
 
 {
-  "email": "rajabollanazarov@gmail.com",
-  "password": "@Rajab1202"
+  "email": "aslbeknorqulov12@gmail.com",
+  "password": "@Aslbek1202"
 }
 
 ### Registration by sms --> Oddiy user malumotlarini to'ldirib post qilganda uni nomeriga sms yuboriladi ammo u database ga REGISTRATION holatda qoshib qo'yiladi

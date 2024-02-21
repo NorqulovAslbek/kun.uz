@@ -85,35 +85,35 @@ public class AuthService {
             log.warn("The password was entered incorrectly{}", dto.getEmail());
             throw new AppBadException(resourceBundleService.getMessage("the.password.was", language));
         }
-        //================ 1 minutda faqat 1 sms ga ruxsat qilib qo'yildi ================\\
+//        //================ 1 minutda faqat 1 sms ga ruxsat qilib qo'yildi ================\\
         LocalDateTime from = LocalDateTime.now().minusMinutes(1);
         LocalDateTime to = LocalDateTime.now();
-        if (smsHistoryRepository.countSendSms(dto.getPhone(), from, to) >= 1) {
-            throw new AppBadException(resourceBundleService.getMessage("to.many.attempt", language));
-        }
-
-        Optional<ProfileEntity> optional = profileRepository.findByPhone(dto.getPhone());
-        if (optional.isPresent()) {
-            if (optional.get().getStatus().equals(ProfileStatus.REGISTRATION)) {
-                profileRepository.delete(optional.get());
-            } else {
-                log.warn("phone exists{}", dto.getPhone());
-                throw new AppBadException(resourceBundleService.getMessage("phone.exist", language));
-            }
-        }
-        //========== MAIL YOKI GMAIL GA HABAR JONATISHNI TEKSHIRISH 1 MINDA 3 TA HABAR JONATISH MUMKN ==============\\
-
-//        if (emailSendHistoryRepository.countSendEmail(dto.getEmail(), from, to) >= 3) {
-//            throw new AppBadException("To many attempt. Please try after 1 minute.");
+//        if (smsHistoryRepository.countSendSms(dto.getPhone(), from, to) >= 1) {
+//            throw new AppBadException(resourceBundleService.getMessage("to.many.attempt", language));
 //        }
-//        Optional<ProfileEntity> optional = profileRepository.findByEmail(dto.getEmail());
+//
+//        Optional<ProfileEntity> optional = profileRepository.findByPhone(dto.getPhone());
 //        if (optional.isPresent()) {
 //            if (optional.get().getStatus().equals(ProfileStatus.REGISTRATION)) {
 //                profileRepository.delete(optional.get());
 //            } else {
-//                throw new AppBadException("Email exists");
+//                log.warn("phone exists{}", dto.getPhone());
+//                throw new AppBadException(resourceBundleService.getMessage("phone.exist", language));
 //            }
 //        }
+       // ========== MAIL YOKI GMAIL GA HABAR JONATISHNI TEKSHIRISH 1 MINDA 3 TA HABAR JONATISH MUMKN ==============\\
+
+        if (emailSendHistoryRepository.countSendEmail(dto.getEmail(), from, to) >= 3) {
+            throw new AppBadException("To many attempt. Please try after 1 minute.");
+        }
+        Optional<ProfileEntity> optional = profileRepository.findByEmail(dto.getEmail());
+        if (optional.isPresent()) {
+            if (optional.get().getStatus().equals(ProfileStatus.REGISTRATION)) {
+                profileRepository.delete(optional.get());
+            } else {
+                throw new AppBadException("Email exists");
+            }
+        }
         ProfileEntity entity = new ProfileEntity();
         entity.setName(dto.getName());
         entity.setSurname(dto.getSurname());

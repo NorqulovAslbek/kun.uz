@@ -26,9 +26,10 @@ public interface ArticleRepository extends CrudRepository<ArticleEntity, String>
 
     @Query("FROM ArticleEntity AS a WHERE a.regionId = :id AND a.status='PUBLISHER'")
     Page<ArticleEntity> getArticleListByRegionId(Pageable pageable, Integer id);
+
     @Query("FROM ArticleEntity AS a WHERE a.categoryId = :id AND a.status='PUBLISHER'")
     List<ArticleEntity> getLast5ArticleCategoryId(Integer id);
-    @Query("FROM ArticleEntity AS a WHERE a.categoryId = :id AND a.status='PUBLISHER'")
-    Page<ArticleEntity> getArticlesByCategoryKey(Pageable pageable,Integer id);
 
+    @Query("FROM ArticleEntity AS a WHERE a.categoryId = :id AND a.status='PUBLISHER'")
+    Page<ArticleEntity> getArticlesByCategoryKey(Pageable pageable, Integer id);
 }
