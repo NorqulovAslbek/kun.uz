@@ -1,5 +1,5 @@
 package com.example.enums;
 
 public enum LikeStatus {
-    LIKE,DISLIKE
+    LIKE,DISLIKE,REMOVE
 }

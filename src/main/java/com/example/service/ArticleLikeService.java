@@ -30,8 +30,16 @@ public class ArticleLikeService {
         return getArticleEmotionDTO(articleId, profileId, LikeStatus.DISLIKE);
     }
 
-    public ArticleLikeDTO articleLikeOrDislikeRemove(String articleId, Integer profileId) {
-        return getArticleEmotionDTO(articleId, profileId, null);
+    public boolean articleLikeOrDislikeRemove(String articleId, Integer profileId) {
+        Optional<ArticleEntity> optionalArticle = articleRepository.findById(articleId);
+        if (optionalArticle.isPresent() && optionalArticle.get().getStatus().equals(ArticleStatus.NOT_PUBLISHER)) {
+            throw new AppBadException("No such article exists");
+        }
+        ArticleEntity articleEntity = optionalArticle.get();
+        articleEntity.setDislikeCount(0);
+        articleEntity.setLikeCount(0);
+        articleRepository.save(articleEntity);
+        return true;
     }
 
     private ArticleLikeDTO getArticleEmotionDTO(String articleId, Integer profileId, LikeStatus emotion) {

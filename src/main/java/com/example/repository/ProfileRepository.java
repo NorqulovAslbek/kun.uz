@@ -15,10 +15,10 @@ public interface ProfileRepository extends CrudRepository<ProfileEntity, Integer
     @Query("FROM ProfileEntity WHERE email=?1 AND password=?2 AND visible=true")
     Optional<ProfileEntity> findByEmailAndPassword(String email, String password);
     Optional<ProfileEntity> findByPhone(String phone);
-    @Transactional
-    @Modifying
-    @Query("Update ProfileEntity  set status =?2 where id = ?1")
-    void updateStatus(Integer id, ProfileStatus active);
+        @Transactional
+        @Modifying
+        @Query("Update ProfileEntity  set status =?2 where id = ?1")
+        void updateStatus(Integer id, ProfileStatus active);
 
 
     @Transactional

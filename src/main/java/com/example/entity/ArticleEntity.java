@@ -21,6 +21,8 @@ public class ArticleEntity {
     private String description;
     private String content;
     private Integer sharedCount=0;
+    private Integer likeCount=0;
+    private Integer dislikeCount=0;
 
     @Column(name = "image_id")
     private String imageId;
