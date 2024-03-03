@@ -25,6 +25,7 @@ public class ArticleDTO {
     private ArticleStatus status;
     private LocalDateTime createdDate;
     private LocalDateTime publishedDate;
+    private AttachDTO image;
     private Boolean visible;
     private Integer viewCount;
 }

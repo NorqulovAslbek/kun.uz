@@ -209,4 +209,12 @@ public class AttachService {
 //        dto.setCreatedData(entity.getCreatedData());
         return dto;
     }
+
+
+    public AttachDTO getURL(String id) {
+        AttachDTO dto = new AttachDTO();
+        AttachEntity entity = get(id);
+        dto.setUrl(serverUrl + "/attach/any/" + entity.getId() + "." + entity.getExtension());
+        return dto;
+    }
 }

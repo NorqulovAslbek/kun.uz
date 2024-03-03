@@ -11,15 +11,21 @@ import org.springframework.web.bind.annotation.*;
 public class SavedArticleController {
     @Autowired
     private SavedArticleService savedArticleService;
+
     @PostMapping("/{articleId}")
     public ResponseEntity<?> create(@PathVariable("articleId") String id) {
         return ResponseEntity.ok(savedArticleService.create(id));
     }
+
     @DeleteMapping("/{articleId}")
-    public ResponseEntity<?> delete(@PathVariable("articleId") String id){
+    public ResponseEntity<?> delete(@PathVariable("articleId") String id) {
         return ResponseEntity.ok(savedArticleService.delete(id));
     }
 
+    @GetMapping("/list")
+    private ResponseEntity<?> getProfileSavedArticleList() {
+        return ResponseEntity.ok(savedArticleService.getProfileSavedArticleList());
+    }
 
 
 }
