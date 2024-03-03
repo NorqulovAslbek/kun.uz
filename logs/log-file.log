@@ -640,3 +640,44 @@ Identify and stop the process that's listening on port 8080 or configure this ap
 03 мар. 2024 - 21:02:27.338 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 03 мар. 2024 - 21:02:27.340 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 03 мар. 2024 - 21:02:27.342 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+03 мар. 2024 - 21:02:29.958 INFO  com.example.KunUz1Application - Starting KunUz1Application using Java 21.0.1 with PID 11192 (E:\ofline kurs projects\Java projectlarim\kun.uz\target\classes started by Aslbek in E:\ofline kurs projects\Java projectlarim\kun.uz)
+03 мар. 2024 - 21:02:29.967 DEBUG com.example.KunUz1Application - Running with Spring Boot v3.2.2, Spring v6.1.3
+03 мар. 2024 - 21:02:29.968 INFO  com.example.KunUz1Application - The following 1 profile is active: "dev"
+03 мар. 2024 - 21:02:30.521 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+03 мар. 2024 - 21:02:30.569 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 43 ms. Found 13 JPA repository interfaces.
+03 мар. 2024 - 21:02:30.954 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+03 мар. 2024 - 21:02:30.962 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+03 мар. 2024 - 21:02:30.963 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+03 мар. 2024 - 21:02:31.002 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+03 мар. 2024 - 21:02:31.002 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1006 ms
+03 мар. 2024 - 21:02:31.055 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+03 мар. 2024 - 21:02:31.163 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@79ca7bea
+03 мар. 2024 - 21:02:31.165 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+03 мар. 2024 - 21:02:31.228 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+03 мар. 2024 - 21:02:31.265 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.1.Final
+03 мар. 2024 - 21:02:31.288 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+03 мар. 2024 - 21:02:31.449 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+03 мар. 2024 - 21:02:32.239 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+03 мар. 2024 - 21:02:32.363 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+03 мар. 2024 - 21:02:32.549 INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+03 мар. 2024 - 21:02:32.850 DEBUG com.example.config.JwtTokenFilter - Filter 'jwtTokenFilter' configured for use
+03 мар. 2024 - 21:02:33.248 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+03 мар. 2024 - 21:02:33.496 INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1155ab2c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6f78eb17, org.springframework.security.web.context.SecurityContextHolderFilter@2db618e3, org.springframework.security.web.header.HeaderWriterFilter@5989f463, org.springframework.security.web.authentication.logout.LogoutFilter@53ed864c, com.example.config.JwtTokenFilter@132f1d85, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7820a19d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3a2173cd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7d49ebf2, org.springframework.security.web.access.ExceptionTranslationFilter@4ab4b4cd, org.springframework.security.web.access.intercept.AuthorizationFilter@26d68ea4]
+03 мар. 2024 - 21:02:33.774 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+03 мар. 2024 - 21:02:33.780 INFO  com.example.KunUz1Application - Started KunUz1Application in 4.104 seconds (process running for 4.521)
+03 мар. 2024 - 21:02:33.820 INFO  o.f.c.i.license.VersionPrinter - Flyway Community Edition 9.22.3 by Redgate
+03 мар. 2024 - 21:02:33.820 INFO  o.f.c.i.license.VersionPrinter - See release notes here: https://rd.gt/416ObMi
+03 мар. 2024 - 21:02:33.821 INFO  o.f.c.i.license.VersionPrinter - 
+03 мар. 2024 - 21:02:33.830 INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:postgresql://localhost:5432/kun_uz (PostgreSQL 14.1)
+03 мар. 2024 - 21:02:33.855 INFO  o.f.core.internal.command.DbValidate - Successfully validated 7 migrations (execution time 00:00.015s)
+03 мар. 2024 - 21:02:33.861 INFO  o.f.core.internal.command.DbMigrate - Current version of schema "public": 6
+03 мар. 2024 - 21:02:33.863 INFO  o.f.core.internal.command.DbMigrate - Schema "public" is up to date. No migration necessary.
+03 мар. 2024 - 21:02:36.069 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+03 мар. 2024 - 21:02:36.070 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+03 мар. 2024 - 21:02:36.071 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+03 мар. 2024 - 21:02:36.284 ERROR c.e.c.ExceptionHandlerController - com.example.exp.AppBadException: article not found
+03 мар. 2024 - 21:02:37.522 ERROR c.e.c.ExceptionHandlerController - com.example.exp.AppBadException: article not found
+03 мар. 2024 - 21:02:39.018 ERROR c.e.c.ExceptionHandlerController - com.example.exp.AppBadException: article not found
+03 мар. 2024 - 21:02:55.659 ERROR c.e.c.ExceptionHandlerController - com.example.exp.AppBadException: article is available
+03 мар. 2024 - 21:02:58.474 ERROR c.e.c.ExceptionHandlerController - com.example.exp.AppBadException: article not found
+03 мар. 2024 - 21:03:00.230 ERROR c.e.c.ExceptionHandlerController - com.example.exp.AppBadException: article not found
